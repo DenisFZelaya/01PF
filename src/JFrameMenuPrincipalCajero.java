@@ -8,12 +8,12 @@
  *
  * @author Laptop
  */
-public class MenuPrincipalCajeroJFRAME extends javax.swing.JFrame {
+public class JFrameMenuPrincipalCajero extends javax.swing.JFrame {
 
     /**
-     * Creates new form MenuPrincipalCajeroJFRAME
+     * Creates new form JFrameMenuPrincipalCajero
      */
-    public MenuPrincipalCajeroJFRAME() {
+    public JFrameMenuPrincipalCajero() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -31,26 +31,26 @@ public class MenuPrincipalCajeroJFRAME extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
-        setMaximumSize(new java.awt.Dimension(1920, 1080));
-        setMinimumSize(new java.awt.Dimension(720, 0));
         setState(6);
 
         javax.swing.GroupLayout menuPrincipalCajero1Layout = new javax.swing.GroupLayout(menuPrincipalCajero1);
         menuPrincipalCajero1.setLayout(menuPrincipalCajero1Layout);
         menuPrincipalCajero1Layout.setHorizontalGroup(
             menuPrincipalCajero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 984, Short.MAX_VALUE)
+            .addGap(0, 1017, Short.MAX_VALUE)
         );
         menuPrincipalCajero1Layout.setVerticalGroup(
             menuPrincipalCajero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 548, Short.MAX_VALUE)
+            .addGap(0, 562, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menuPrincipalCajero1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(menuPrincipalCajero1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,20 +77,20 @@ public class MenuPrincipalCajeroJFRAME extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalCajeroJFRAME.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameMenuPrincipalCajero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalCajeroJFRAME.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameMenuPrincipalCajero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalCajeroJFRAME.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameMenuPrincipalCajero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalCajeroJFRAME.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrameMenuPrincipalCajero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipalCajeroJFRAME().setVisible(true);
+                new JFrameMenuPrincipalCajero().setVisible(true);
             }
         });
     }
