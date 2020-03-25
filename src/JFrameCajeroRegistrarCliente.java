@@ -28,32 +28,32 @@ public class JFrameCajeroRegistrarCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelCajeroRegistrarCliente2 = new JPanelCajeroRegistrarCliente();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
         setState(6);
 
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\src\\IMG\\iconcerrarsesionSMALL.png")); // NOI18N
+        jButton2.setText("Cerrar Sesión");
+        jButton2.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\src\\IMG\\exit.png")); // NOI18N
+
         javax.swing.GroupLayout jPanelCajeroRegistrarCliente2Layout = new javax.swing.GroupLayout(jPanelCajeroRegistrarCliente2);
         jPanelCajeroRegistrarCliente2.setLayout(jPanelCajeroRegistrarCliente2Layout);
         jPanelCajeroRegistrarCliente2Layout.setHorizontalGroup(
             jPanelCajeroRegistrarCliente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 906, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCajeroRegistrarCliente2Layout.createSequentialGroup()
+                .addGap(0, 768, Short.MAX_VALUE)
+                .addComponent(jButton2))
         );
         jPanelCajeroRegistrarCliente2Layout.setVerticalGroup(
             jPanelCajeroRegistrarCliente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 601, Short.MAX_VALUE)
+            .addGroup(jPanelCajeroRegistrarCliente2Layout.createSequentialGroup()
+                .addComponent(jButton2)
+                .addGap(0, 560, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelCajeroRegistrarCliente2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelCajeroRegistrarCliente2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanelCajeroRegistrarCliente2, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -94,6 +94,7 @@ public class JFrameCajeroRegistrarCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
     private JPanelCajeroRegistrarCliente jPanelCajeroRegistrarCliente2;
     // End of variables declaration//GEN-END:variables
 }
