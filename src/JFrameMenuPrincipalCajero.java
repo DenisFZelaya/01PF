@@ -83,9 +83,15 @@ public class JFrameMenuPrincipalCajero extends javax.swing.JFrame {
 
         btnClientes.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         btnClientes.setText("CLIENTES");
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
 
         btnNuevaVenta.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         btnNuevaVenta.setText("NUEVA VENTA");
+        btnNuevaVenta.setBorder(null);
         btnNuevaVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevaVentaActionPerformed(evt);
@@ -102,7 +108,7 @@ public class JFrameMenuPrincipalCajero extends javax.swing.JFrame {
             .addGroup(menuPrincipalCajero1Layout.createSequentialGroup()
                 .addGap(1057, 1057, 1057)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPrincipalCajero1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(menuPrincipalCajero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,10 +148,7 @@ public class JFrameMenuPrincipalCajero extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(menuPrincipalCajero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(320, Short.MAX_VALUE))
+            .addComponent(menuPrincipalCajero1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,6 +173,13 @@ public class JFrameMenuPrincipalCajero extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_btnNuevaVentaActionPerformed
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        // TODO add your handling code here:
+        JFrameCajeroMostrar MC = JFrameCajeroMostrar();
+        MC.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,4 +226,8 @@ public class JFrameMenuPrincipalCajero extends javax.swing.JFrame {
     private javax.swing.JLabel lblMenuNuevafact;
     private MenuPrincipalCajero menuPrincipalCajero1;
     // End of variables declaration//GEN-END:variables
+
+    private JFrameCajeroMostrar JFrameCajeroMostrar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
