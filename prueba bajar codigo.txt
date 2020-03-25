@@ -3,3 +3,5 @@ Prueba de un archivo creado en el navegador
 Probar descargarlo y añadirlo a mi proyecto local
 
 prueba edicion desde bloc de notas de mi pc
+
+hoy deberiamos empezar a codificar el proyect
