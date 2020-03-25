@@ -1,4 +1,7 @@
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /*
@@ -20,6 +23,23 @@ public class JFrameMenuPrincipalCajero extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
+        //Crear icono autoajustable para Nueva venta
+        ImageIcon imagen = new ImageIcon( "src\\IMG\\IconCarritoMenuCajero.png");
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(lblMenuNuevafact.getWidth(),lblMenuNuevafact.getHeight(),Image.SCALE_DEFAULT));
+        lblMenuNuevafact.setIcon(icono);
+        this.repaint();
+        
+        //Crear icono autoajustable para Cliente
+        ImageIcon imagen2 = new ImageIcon( "src\\IMG\\IconClientesMenuCajero.png");
+        Icon icono2 = new ImageIcon(imagen2.getImage().getScaledInstance(lblMenuCajeroClientes.getWidth(),lblMenuCajeroClientes.getHeight(),Image.SCALE_DEFAULT));
+        lblMenuCajeroClientes.setIcon(icono2);
+        this.repaint();
+        
+         //Crear icono autoajustable para Cliente
+        ImageIcon imagen3 = new ImageIcon( "src\\IMG\\IconFacturasMenuCajero.png");
+        Icon icono3 = new ImageIcon(imagen3.getImage().getScaledInstance(lblMenuCajeroFacturas.getWidth(),lblMenuCajeroFacturas.getHeight(),Image.SCALE_DEFAULT));
+        lblMenuCajeroFacturas.setIcon(icono3);
+        this.repaint();
 
     }
 
@@ -34,9 +54,17 @@ public class JFrameMenuPrincipalCajero extends javax.swing.JFrame {
 
         menuPrincipalCajero1 = new MenuPrincipalCajero();
         jButton1 = new javax.swing.JButton();
+        lblMenuNuevafact = new javax.swing.JLabel();
+        lblMenuCajeroFacturas = new javax.swing.JLabel();
+        lblMenuCajeroClientes = new javax.swing.JLabel();
+        btnClientes = new javax.swing.JButton();
+        btnNuevaVenta = new javax.swing.JButton();
+        btnFacturas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
+        setMaximumSize(new java.awt.Dimension(1920, 1080));
+        setResizable(false);
         setState(6);
 
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\src\\IMG\\iconcerrarsesionSMALL.png")); // NOI18N
@@ -47,19 +75,65 @@ public class JFrameMenuPrincipalCajero extends javax.swing.JFrame {
             }
         });
 
+        lblMenuNuevafact.setText("jLabel1");
+
+        lblMenuCajeroFacturas.setText("jLabel2");
+
+        lblMenuCajeroClientes.setText("jLabel3");
+
+        btnClientes.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        btnClientes.setText("CLIENTES");
+
+        btnNuevaVenta.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        btnNuevaVenta.setText("NUEVA VENTA");
+        btnNuevaVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevaVentaActionPerformed(evt);
+            }
+        });
+
+        btnFacturas.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        btnFacturas.setText("FACTURAS");
+
         javax.swing.GroupLayout menuPrincipalCajero1Layout = new javax.swing.GroupLayout(menuPrincipalCajero1);
         menuPrincipalCajero1.setLayout(menuPrincipalCajero1Layout);
         menuPrincipalCajero1Layout.setHorizontalGroup(
             menuPrincipalCajero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPrincipalCajero1Layout.createSequentialGroup()
-                .addContainerGap(873, Short.MAX_VALUE)
+            .addGroup(menuPrincipalCajero1Layout.createSequentialGroup()
+                .addGap(1057, 1057, 1057)
                 .addComponent(jButton1)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPrincipalCajero1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(menuPrincipalCajero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(menuPrincipalCajero1Layout.createSequentialGroup()
+                        .addComponent(btnNuevaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(btnFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(menuPrincipalCajero1Layout.createSequentialGroup()
+                        .addComponent(lblMenuNuevafact, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(lblMenuCajeroClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(lblMenuCajeroFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(103, 103, 103))
         );
         menuPrincipalCajero1Layout.setVerticalGroup(
             menuPrincipalCajero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPrincipalCajero1Layout.createSequentialGroup()
-                .addContainerGap(515, Short.MAX_VALUE)
+                .addContainerGap(120, Short.MAX_VALUE)
+                .addGroup(menuPrincipalCajero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMenuCajeroClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMenuCajeroFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMenuNuevafact, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(menuPrincipalCajero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNuevaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(106, 106, 106)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -70,7 +144,8 @@ public class JFrameMenuPrincipalCajero extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(menuPrincipalCajero1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(menuPrincipalCajero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(320, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,6 +162,14 @@ public class JFrameMenuPrincipalCajero extends javax.swing.JFrame {
         LOGIN.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnNuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaVentaActionPerformed
+        // TODO add your handling code here:
+        JFRAMECajeroVenta VENTA = new JFRAMECajeroVenta();
+        VENTA.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btnNuevaVentaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,7 +207,13 @@ public class JFrameMenuPrincipalCajero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnFacturas;
+    private javax.swing.JButton btnNuevaVenta;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel lblMenuCajeroClientes;
+    private javax.swing.JLabel lblMenuCajeroFacturas;
+    private javax.swing.JLabel lblMenuNuevafact;
     private MenuPrincipalCajero menuPrincipalCajero1;
     // End of variables declaration//GEN-END:variables
 }
