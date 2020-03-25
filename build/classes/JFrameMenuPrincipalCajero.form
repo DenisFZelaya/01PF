@@ -152,6 +152,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="FACTURAS"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFacturasActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

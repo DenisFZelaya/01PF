@@ -100,6 +100,11 @@ public class JFrameMenuPrincipalCajero extends javax.swing.JFrame {
 
         btnFacturas.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         btnFacturas.setText("FACTURAS");
+        btnFacturas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFacturasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout menuPrincipalCajero1Layout = new javax.swing.GroupLayout(menuPrincipalCajero1);
         menuPrincipalCajero1.setLayout(menuPrincipalCajero1Layout);
@@ -176,10 +181,17 @@ public class JFrameMenuPrincipalCajero extends javax.swing.JFrame {
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
         // TODO add your handling code here:
-        JFrameCajeroMostrar MC = JFrameCajeroMostrar();
+        JFrameCajeroMostrar MC = new JFrameCajeroMostrar();
         MC.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnClientesActionPerformed
+
+    private void btnFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturasActionPerformed
+        // TODO add your handling code here:
+       JFrameCajeroFacturas CF = new JFrameCajeroFacturas();
+        CF.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnFacturasActionPerformed
 
     /**
      * @param args the command line arguments
