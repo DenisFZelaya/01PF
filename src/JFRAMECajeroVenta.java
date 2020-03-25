@@ -48,9 +48,7 @@ public class JFRAMECajeroVenta extends javax.swing.JFrame {
         jPanelCajeroVenta1.setAlignmentY(0.0F);
         jPanelCajeroVenta1.setAutoscrolls(true);
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\src\\IMG\\iconcerrarsesionSMALL.png")); // NOI18N
         jButton2.setText("Cerrar Sesión");
-        jButton2.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\src\\IMG\\exit.png")); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -62,18 +60,18 @@ public class JFRAMECajeroVenta extends javax.swing.JFrame {
         jPanelCajeroVenta1Layout.setHorizontalGroup(
             jPanelCajeroVenta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCajeroVenta1Layout.createSequentialGroup()
-                .addContainerGap(873, Short.MAX_VALUE)
+                .addContainerGap(838, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addContainerGap())
+                .addGap(47, 47, 47))
         );
         jPanelCajeroVenta1Layout.setVerticalGroup(
             jPanelCajeroVenta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCajeroVenta1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jButton2)
-                .addGap(0, 521, Short.MAX_VALUE))
+                .addContainerGap(508, Short.MAX_VALUE))
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\src\\IMG\\iconcerrarsesionSMALL.png")); // NOI18N
         jButton1.setText("Cerrar Sesión");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
