@@ -228,6 +228,9 @@ public class JFrameCajeroBuscar extends javax.swing.JFrame {
 
     private void btnRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar1ActionPerformed
         // TODO add your handling code here:
+        JFrameMenuPrincipalCajero JFMPC = new  JFrameMenuPrincipalCajero();
+        JFMPC.setVisible(true);
+        this.dispose();
         
         
         
