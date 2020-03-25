@@ -32,48 +32,45 @@ public class CajeroNVenta extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
-        setMaximumSize(new java.awt.Dimension(1920, 2080));
         setMinimumSize(new java.awt.Dimension(720, 480));
         setState(6);
-
-        lblNuevaVenta.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblNuevaVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carritoicon.png"))); // NOI18N
-        lblNuevaVenta.setText("Nueva Venta");
-
-        jDesktopPane1.setLayer(lblNuevaVenta, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblNuevaVenta)
-                .addContainerGap())
+            .addGap(0, 221, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblNuevaVenta)
-                .addContainerGap())
+            .addGap(0, 76, Short.MAX_VALUE)
         );
+
+        lblNuevaVenta.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblNuevaVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carritoicon.png"))); // NOI18N
+        lblNuevaVenta.setText("Nueva Venta");
 
         javax.swing.GroupLayout panelIMGCajero1Layout = new javax.swing.GroupLayout(panelIMGCajero1);
         panelIMGCajero1.setLayout(panelIMGCajero1Layout);
         panelIMGCajero1Layout.setHorizontalGroup(
             panelIMGCajero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIMGCajero1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelIMGCajero1Layout.createSequentialGroup()
+                .addContainerGap(238, Short.MAX_VALUE)
+                .addComponent(lblNuevaVenta)
+                .addGap(146, 146, 146))
+            .addGroup(panelIMGCajero1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(338, 338, 338))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelIMGCajero1Layout.setVerticalGroup(
             panelIMGCajero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIMGCajero1Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(22, 22, 22)
+                .addComponent(lblNuevaVenta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(383, Short.MAX_VALUE))
+                .addGap(41, 41, 41))
         );
 
         getContentPane().add(panelIMGCajero1, java.awt.BorderLayout.CENTER);

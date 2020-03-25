@@ -44,7 +44,6 @@ public class Login01 extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\build\\classes\\IMG\\exit.png")); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,7 +52,6 @@ public class Login01 extends javax.swing.JFrame {
         });
         getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 100, 40));
 
-        btnIngresar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\build\\classes\\IMG\\Ingresar.png")); // NOI18N
         btnIngresar.setText("Ingresar");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,12 +61,10 @@ public class Login01 extends javax.swing.JFrame {
         getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, 110, 40));
 
         lblUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lblUsuario.setText("Usuario:");
         getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 70, -1));
 
         lblContraseña.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblContraseña.setForeground(new java.awt.Color(0, 0, 0));
         lblContraseña.setText("Contraseña:");
         getContentPane().add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, -1, -1));
 
