@@ -41,10 +41,26 @@ public class JFrameCajeroBuscar extends javax.swing.JFrame {
 
         jPanelCajeroBuscar1 = new JPanelCajeroBuscar();
         lblcerrar = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JButton();
+        lbltipocajero = new javax.swing.JLabel();
+        lblCajero1 = new javax.swing.JLabel();
+        btnRegresar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
         setState(6);
+
+        btnRegresar.setText("Regresar");
+
+        lbltipocajero.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
+        lbltipocajero.setForeground(new java.awt.Color(0, 0, 0));
+        lbltipocajero.setText("DENIS ZELAYA");
+
+        lblCajero1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblCajero1.setForeground(new java.awt.Color(0, 0, 0));
+        lblCajero1.setText("DENIS ZELAYA");
+
+        btnRegresar1.setText("Regresar");
 
         javax.swing.GroupLayout jPanelCajeroBuscar1Layout = new javax.swing.GroupLayout(jPanelCajeroBuscar1);
         jPanelCajeroBuscar1.setLayout(jPanelCajeroBuscar1Layout);
@@ -53,12 +69,45 @@ public class JFrameCajeroBuscar extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCajeroBuscar1Layout.createSequentialGroup()
                 .addGap(0, 833, Short.MAX_VALUE)
                 .addComponent(lblcerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanelCajeroBuscar1Layout.createSequentialGroup()
+                .addGroup(jPanelCajeroBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCajeroBuscar1Layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(lbltipocajero))
+                    .addGroup(jPanelCajeroBuscar1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelCajeroBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelCajeroBuscar1Layout.createSequentialGroup()
+                    .addGap(35, 35, 35)
+                    .addComponent(lblCajero1)
+                    .addContainerGap(707, Short.MAX_VALUE)))
+            .addGroup(jPanelCajeroBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelCajeroBuscar1Layout.createSequentialGroup()
+                    .addGap(35, 35, 35)
+                    .addComponent(btnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(718, Short.MAX_VALUE)))
         );
         jPanelCajeroBuscar1Layout.setVerticalGroup(
             jPanelCajeroBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCajeroBuscar1Layout.createSequentialGroup()
                 .addComponent(lblcerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 502, Short.MAX_VALUE))
+                .addGap(154, 154, 154)
+                .addComponent(lbltipocajero, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnRegresar)
+                .addContainerGap(286, Short.MAX_VALUE))
+            .addGroup(jPanelCajeroBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelCajeroBuscar1Layout.createSequentialGroup()
+                    .addGap(194, 194, 194)
+                    .addComponent(lblCajero1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(350, Short.MAX_VALUE)))
+            .addGroup(jPanelCajeroBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCajeroBuscar1Layout.createSequentialGroup()
+                    .addContainerGap(504, Short.MAX_VALUE)
+                    .addComponent(btnRegresar1)
+                    .addGap(32, 32, 32)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -112,7 +161,11 @@ public class JFrameCajeroBuscar extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRegresar;
+    private javax.swing.JButton btnRegresar1;
     private JPanelCajeroBuscar jPanelCajeroBuscar1;
+    private javax.swing.JLabel lblCajero1;
     private javax.swing.JLabel lblcerrar;
+    private javax.swing.JLabel lbltipocajero;
     // End of variables declaration//GEN-END:variables
 }

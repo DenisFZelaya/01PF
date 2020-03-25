@@ -28,32 +28,33 @@ public class JFrameCajeroFacturas extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelCajeroFacturas1 = new JPanelCajeroFacturas();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
         setState(6);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\src\\IMG\\iconcerrarsesionSMALL.png")); // NOI18N
+        jButton2.setText("Cerrar Sesión");
+        jButton2.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\src\\IMG\\exit.png")); // NOI18N
 
         javax.swing.GroupLayout jPanelCajeroFacturas1Layout = new javax.swing.GroupLayout(jPanelCajeroFacturas1);
         jPanelCajeroFacturas1.setLayout(jPanelCajeroFacturas1Layout);
         jPanelCajeroFacturas1Layout.setHorizontalGroup(
             jPanelCajeroFacturas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 905, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCajeroFacturas1Layout.createSequentialGroup()
+                .addGap(0, 767, Short.MAX_VALUE)
+                .addComponent(jButton2))
         );
         jPanelCajeroFacturas1Layout.setVerticalGroup(
             jPanelCajeroFacturas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGroup(jPanelCajeroFacturas1Layout.createSequentialGroup()
+                .addComponent(jButton2)
+                .addGap(0, 538, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelCajeroFacturas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelCajeroFacturas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanelCajeroFacturas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -94,6 +95,7 @@ public class JFrameCajeroFacturas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
     private JPanelCajeroFacturas jPanelCajeroFacturas1;
     // End of variables declaration//GEN-END:variables
 }

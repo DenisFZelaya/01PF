@@ -28,32 +28,32 @@ public class JFrameCajeroMostrar extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelCajeroMostrar1 = new JPanelCajeroMostrar();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
         setState(6);
 
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\src\\IMG\\iconcerrarsesionSMALL.png")); // NOI18N
+        jButton2.setText("Cerrar Sesión");
+        jButton2.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\src\\IMG\\exit.png")); // NOI18N
+
         javax.swing.GroupLayout jPanelCajeroMostrar1Layout = new javax.swing.GroupLayout(jPanelCajeroMostrar1);
         jPanelCajeroMostrar1.setLayout(jPanelCajeroMostrar1Layout);
         jPanelCajeroMostrar1Layout.setHorizontalGroup(
             jPanelCajeroMostrar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 992, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCajeroMostrar1Layout.createSequentialGroup()
+                .addGap(0, 854, Short.MAX_VALUE)
+                .addComponent(jButton2))
         );
         jPanelCajeroMostrar1Layout.setVerticalGroup(
             jPanelCajeroMostrar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 561, Short.MAX_VALUE)
+            .addGroup(jPanelCajeroMostrar1Layout.createSequentialGroup()
+                .addComponent(jButton2)
+                .addGap(0, 520, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelCajeroMostrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelCajeroMostrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanelCajeroMostrar1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -94,6 +94,7 @@ public class JFrameCajeroMostrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
     private JPanelCajeroMostrar jPanelCajeroMostrar1;
     // End of variables declaration//GEN-END:variables
 }
