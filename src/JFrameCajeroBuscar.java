@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -28,20 +31,34 @@ public class JFrameCajeroBuscar extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelCajeroBuscar1 = new JPanelCajeroBuscar();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
         setState(6);
 
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\src\\IMG\\iconcerrarsesionSMALL.png")); // NOI18N
+        jButton2.setText("Cerrar Sesión");
+        jButton2.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\src\\IMG\\exit.png")); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelCajeroBuscar1Layout = new javax.swing.GroupLayout(jPanelCajeroBuscar1);
         jPanelCajeroBuscar1.setLayout(jPanelCajeroBuscar1Layout);
         jPanelCajeroBuscar1Layout.setHorizontalGroup(
             jPanelCajeroBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 916, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCajeroBuscar1Layout.createSequentialGroup()
+                .addGap(0, 778, Short.MAX_VALUE)
+                .addComponent(jButton2))
         );
         jPanelCajeroBuscar1Layout.setVerticalGroup(
             jPanelCajeroBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 568, Short.MAX_VALUE)
+            .addGroup(jPanelCajeroBuscar1Layout.createSequentialGroup()
+                .addComponent(jButton2)
+                .addGap(0, 527, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -57,6 +74,14 @@ public class JFrameCajeroBuscar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this,"Sera redirigido al inicio de sesion.");
+        Login01 LOGIN = new Login01();
+        LOGIN.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -94,6 +119,7 @@ public class JFrameCajeroBuscar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
     private JPanelCajeroBuscar jPanelCajeroBuscar1;
     // End of variables declaration//GEN-END:variables
 }

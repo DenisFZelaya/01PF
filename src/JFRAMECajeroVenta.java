@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -28,35 +31,89 @@ public class JFRAMECajeroVenta extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelCajeroVenta1 = new JPanelCajeroVenta();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
         setState(6);
 
+        jPanelCajeroVenta1.setAlignmentX(0.0F);
+        jPanelCajeroVenta1.setAlignmentY(0.0F);
+        jPanelCajeroVenta1.setAutoscrolls(true);
+
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\src\\IMG\\iconcerrarsesionSMALL.png")); // NOI18N
+        jButton2.setText("Cerrar Sesión");
+        jButton2.setPressedIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\src\\IMG\\exit.png")); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelCajeroVenta1Layout = new javax.swing.GroupLayout(jPanelCajeroVenta1);
         jPanelCajeroVenta1.setLayout(jPanelCajeroVenta1Layout);
         jPanelCajeroVenta1Layout.setHorizontalGroup(
             jPanelCajeroVenta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 919, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCajeroVenta1Layout.createSequentialGroup()
+                .addContainerGap(873, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
         jPanelCajeroVenta1Layout.setVerticalGroup(
             jPanelCajeroVenta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 527, Short.MAX_VALUE)
+            .addGroup(jPanelCajeroVenta1Layout.createSequentialGroup()
+                .addComponent(jButton2)
+                .addGap(0, 521, Short.MAX_VALUE))
         );
+
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\src\\IMG\\iconcerrarsesionSMALL.png")); // NOI18N
+        jButton1.setText("Cerrar Sesión");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelCajeroVenta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(390, 390, 390)
+                    .addComponent(jButton1)
+                    .addContainerGap(489, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelCajeroVenta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(243, 243, 243)
+                    .addComponent(jButton1)
+                    .addContainerGap(278, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this,"Sera redirigido al inicio de sesion.");
+        Login01 LOGIN = new Login01();
+        LOGIN.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this,"Sera redirigido al inicio de sesion.");
+        Login01 LOGIN = new Login01();
+        LOGIN.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -94,6 +151,8 @@ public class JFRAMECajeroVenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private JPanelCajeroVenta jPanelCajeroVenta1;
     // End of variables declaration//GEN-END:variables
 }
