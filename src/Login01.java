@@ -35,11 +35,11 @@ public class Login01 extends javax.swing.JFrame {
         lblContraseña = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        lblfondo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(720, 405));
         setMinimumSize(new java.awt.Dimension(720, 405));
         setUndecorated(true);
         setResizable(false);
@@ -52,7 +52,7 @@ public class Login01 extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, 100, 40));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 100, 40));
 
         btnIngresar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\build\\classes\\IMG\\Ingresar.png")); // NOI18N
         btnIngresar.setText("Ingresar");
@@ -66,66 +66,23 @@ public class Login01 extends javax.swing.JFrame {
         lblUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lblUsuario.setText("Usuario:");
-        getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 70, -1));
+        getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 70, -1));
 
         lblContraseña.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblContraseña.setForeground(new java.awt.Color(0, 0, 0));
         lblContraseña.setText("Contraseña:");
-        getContentPane().add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, -1, -1));
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
+        getContentPane().add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, -1, -1));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, 130, -1));
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, 130, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Nombre Producto", "Descripcion", "Cantidad", "Precio"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, 350));
+        lblfondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Prototipos PFPOO.jpg"))); // NOI18N
+        lblfondo1.setLabelFor(lblfondo1);
+        lblfondo1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblfondo1.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lblfondo1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblfondo1.setIconTextGap(6);
+        lblfondo1.setRequestFocusEnabled(false);
+        getContentPane().add(lblfondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 405));
 
         pack();
         setLocationRelativeTo(null);
@@ -140,10 +97,6 @@ public class Login01 extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Campos Invalidos");
     }//GEN-LAST:event_btnIngresarActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,10 +137,9 @@ public class Login01 extends javax.swing.JFrame {
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JLabel lblfondo1;
     // End of variables declaration//GEN-END:variables
 }
