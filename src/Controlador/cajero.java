@@ -1,4 +1,4 @@
-
+package Controlador;
 //class Triangulo extends DosDimensiones
 class cajero extends usuario {
     private int idCajero=0;

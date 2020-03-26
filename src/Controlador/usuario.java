@@ -1,3 +1,4 @@
+package Controlador;
 
 public class usuario {
     private String nombre="",usuario="",contraseña="", identidad= "";

@@ -1,3 +1,5 @@
+package Controlador;
+
 
 public class contabilidad {
     private int inversion = 0, ingreso = 0, ganancia = 0;
