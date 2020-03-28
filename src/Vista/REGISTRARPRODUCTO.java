@@ -29,6 +29,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
         fONDOADMIN1 = new Modelo.FONDOADMIN();
         ContenedorMenu = new javax.swing.JLayeredPane();
+        btnRegresar = new javax.swing.JButton();
         ContenedorBarraSuperior = new javax.swing.JLayeredPane();
         lblHora = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
@@ -39,7 +40,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         tbRegistrarProductos = new javax.swing.JTable();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         lblNombreProducto = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtDescripcion = new javax.swing.JTextField();
         lblDescripcion = new javax.swing.JLabel();
         txtNombreProducto = new javax.swing.JTextField();
         lblCategoria = new javax.swing.JLabel();
@@ -60,15 +61,26 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
         ContenedorMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        btnRegresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        btnRegresar.setText("Regresar");
+
+        ContenedorMenu.setLayer(btnRegresar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout ContenedorMenuLayout = new javax.swing.GroupLayout(ContenedorMenu);
         ContenedorMenu.setLayout(ContenedorMenuLayout);
         ContenedorMenuLayout.setHorizontalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 256, Short.MAX_VALUE)
+            .addGroup(ContenedorMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                .addContainerGap())
         );
         ContenedorMenuLayout.setVerticalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 698, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
+                .addContainerGap(594, Short.MAX_VALUE)
+                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
         );
 
         fONDOADMIN1.add(ContenedorMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 700));
@@ -103,9 +115,9 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                 .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64)
                 .addComponent(lblHora2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
                 .addComponent(lblHora, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(23, 23, 23))
         );
         ContenedorBarraSuperiorLayout.setVerticalGroup(
             ContenedorBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,7 +130,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
-        fONDOADMIN1.add(ContenedorBarraSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 0, 775, 50));
+        fONDOADMIN1.add(ContenedorBarraSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 0, 760, 50));
 
         ContenedorMesadeTrabajo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -138,19 +150,18 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         tbRegistrarProductos.setSelectionBackground(new java.awt.Color(102, 255, 153));
         jScrollPane1.setViewportView(tbRegistrarProductos);
 
-        lblNombreProducto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblNombreProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblNombreProducto.setText("Nombre del Producto:");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextField1.setText("txtDescripcion");
+        txtDescripcion.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
 
-        lblDescripcion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblDescripcion.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblDescripcion.setText("Descripción:");
 
-        txtNombreProducto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtNombreProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         txtNombreProducto.setSelectionColor(new java.awt.Color(102, 255, 102));
 
-        lblCategoria.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblCategoria.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblCategoria.setText("Categoria:");
 
         cbCategoria.setBackground(new java.awt.Color(153, 255, 153));
@@ -158,20 +169,21 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Refrescos", "Lacteos", "Embutidos", "Consome", "Crema de cacahuate", "Alimento para bebe", "Cereales", "Especias", "Harinas", "Salsas", "Sazonadores", "Pastas", "Enlatadas", "Confiteria", "Frutas y verduras", "Bebidas", "Carnes", "Medicamentos", "Higuiene" }));
         cbCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         btnRegistrar.setText("Registrar");
 
-        lblCantidad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblCantidad.setText("Cantidad:");
 
-        txtCantidad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
 
-        txtPrecios.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtPrecios.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
 
-        lblPrecios.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblPrecios.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblPrecios.setText("Precios:");
 
         jLayeredPane1.setLayer(lblNombreProducto, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(txtDescripcion, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblDescripcion, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(txtNombreProducto, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblCategoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -205,7 +217,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1))
+                        .addComponent(txtDescripcion))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -219,13 +231,13 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreProducto)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDescripcion)
                     .addComponent(txtNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,7 +299,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                 .addComponent(lblRegistrarProducto)
                 .addGap(18, 18, 18)
                 .addComponent(ContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         fONDOADMIN1.add(ContenedorMesadeTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 52, -1, 580));
@@ -310,7 +322,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         ContenedorBarraSuperior1Layout.setHorizontalGroup(
             ContenedorBarraSuperior1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorBarraSuperior1Layout.createSequentialGroup()
-                .addContainerGap(552, Short.MAX_VALUE)
+                .addContainerGap(527, Short.MAX_VALUE)
                 .addComponent(lblFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addComponent(lblHora1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -325,7 +337,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
-        fONDOADMIN1.add(ContenedorBarraSuperior1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 660, 775, 30));
+        fONDOADMIN1.add(ContenedorBarraSuperior1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 660, 750, 30));
 
         getContentPane().add(fONDOADMIN1, java.awt.BorderLayout.PAGE_START);
 
@@ -374,11 +386,11 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     private javax.swing.JLayeredPane ContenedorMesadeTrabajo;
     private javax.swing.JPanel ContenedorTabla;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> cbCategoria;
     private Modelo.FONDOADMIN fONDOADMIN1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblCategoria;
     private javax.swing.JLabel lblDescripcion;
@@ -392,6 +404,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     private javax.swing.JLabel lblRegistrarProducto;
     private javax.swing.JTable tbRegistrarProductos;
     private javax.swing.JTextField txtCantidad;
+    private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtNombreProducto;
     private javax.swing.JTextField txtPrecios;
     // End of variables declaration//GEN-END:variables

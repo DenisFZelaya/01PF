@@ -18,7 +18,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-68,0,0,4,41"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-68,0,0,4,29"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -51,15 +51,33 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="256" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnRegresar" pref="236" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="698" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="594" max="32767" attributes="0"/>
+                      <Component id="btnRegresar" min="-2" pref="39" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JButton" name="btnRegresar">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tw Cen MT Condensed" size="24" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Regresar"/>
+              </Properties>
+            </Component>
+          </SubComponents>
         </Container>
         <Container class="javax.swing.JLayeredPane" name="ContenedorBarraSuperior">
           <Properties>
@@ -71,7 +89,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="286" y="0" width="775" height="50"/>
+              <AbsoluteConstraints x="286" y="0" width="760" height="50"/>
             </Constraint>
           </Constraints>
 
@@ -83,9 +101,9 @@
                       <Component id="lblFecha" min="-2" pref="72" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                       <Component id="lblHora2" min="-2" pref="72" max="-2" attributes="0"/>
-                      <EmptySpace pref="181" max="32767" attributes="0"/>
+                      <EmptySpace pref="153" max="32767" attributes="0"/>
                       <Component id="lblHora" min="-2" pref="137" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -181,7 +199,7 @@
                       <Component id="lblRegistrarProducto" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="ContenedorTabla" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="16" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -307,7 +325,7 @@
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Component id="lblDescripcion" min="-2" pref="86" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jTextField1" max="32767" attributes="0"/>
+                                      <Component id="txtDescripcion" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="txtCantidad" min="-2" pref="108" max="-2" attributes="0"/>
@@ -326,14 +344,14 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblNombreProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtNombreProducto" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="cbCategoria" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
@@ -354,23 +372,22 @@
                     <Component class="javax.swing.JLabel" name="lblNombreProducto">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="14" style="1"/>
+                          <Font name="Tw Cen MT Condensed" size="18" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Nombre del Producto:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField1">
+                    <Component class="javax.swing.JTextField" name="txtDescripcion">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="14" style="1"/>
+                          <Font name="Tw Cen MT Condensed" size="18" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="txtDescripcion"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDescripcion">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="14" style="1"/>
+                          <Font name="Tw Cen MT Condensed" size="18" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Descripci&#xf3;n:"/>
                       </Properties>
@@ -378,7 +395,7 @@
                     <Component class="javax.swing.JTextField" name="txtNombreProducto">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="14" style="1"/>
+                          <Font name="Tw Cen MT Condensed" size="18" style="1"/>
                         </Property>
                         <Property name="selectionColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="66" green="ff" red="66" type="rgb"/>
@@ -388,7 +405,7 @@
                     <Component class="javax.swing.JLabel" name="lblCategoria">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="14" style="1"/>
+                          <Font name="Tw Cen MT Condensed" size="18" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Categoria:"/>
                       </Properties>
@@ -434,13 +451,16 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btnRegistrar">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tw Cen MT Condensed" size="18" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Registrar"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblCantidad">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="14" style="1"/>
+                          <Font name="Tw Cen MT Condensed" size="18" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Cantidad:"/>
                       </Properties>
@@ -448,21 +468,21 @@
                     <Component class="javax.swing.JTextField" name="txtCantidad">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="14" style="1"/>
+                          <Font name="Tw Cen MT Condensed" size="18" style="1"/>
                         </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPrecios">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="14" style="1"/>
+                          <Font name="Tw Cen MT Condensed" size="18" style="1"/>
                         </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPrecios">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="14" style="1"/>
+                          <Font name="Tw Cen MT Condensed" size="18" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Precios:"/>
                       </Properties>
@@ -495,7 +515,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="290" y="660" width="775" height="30"/>
+              <AbsoluteConstraints x="290" y="660" width="750" height="30"/>
             </Constraint>
           </Constraints>
 
@@ -503,7 +523,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="552" max="32767" attributes="0"/>
+                      <EmptySpace pref="527" max="32767" attributes="0"/>
                       <Component id="lblFecha1" min="-2" pref="72" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="lblHora1" min="-2" pref="72" max="-2" attributes="0"/>
