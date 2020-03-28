@@ -37,7 +37,6 @@ public class Login01 extends javax.swing.JFrame {
         lblContraseña = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
-        lblfondo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -65,25 +64,14 @@ public class Login01 extends javax.swing.JFrame {
         getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, 110, 40));
 
         lblUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lblUsuario.setText("Usuario:");
         getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 70, -1));
 
         lblContraseña.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblContraseña.setForeground(new java.awt.Color(0, 0, 0));
         lblContraseña.setText("Contraseña:");
         getContentPane().add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, -1, -1));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, 130, -1));
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, 130, -1));
-
-        lblfondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/IMGLogin.jpg"))); // NOI18N
-        lblfondo1.setLabelFor(lblfondo1);
-        lblfondo1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblfondo1.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
-        lblfondo1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblfondo1.setIconTextGap(6);
-        lblfondo1.setRequestFocusEnabled(false);
-        getContentPane().add(lblfondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 405));
 
         pack();
         setLocationRelativeTo(null);
@@ -141,6 +129,5 @@ public class Login01 extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JLabel lblfondo1;
     // End of variables declaration//GEN-END:variables
 }
