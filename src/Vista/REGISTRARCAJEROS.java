@@ -37,19 +37,23 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         ContenedorMesadeTrabajo = new javax.swing.JLayeredPane();
         ContenedorTabla = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbRegistrarProductos = new javax.swing.JTable();
+        tbRegistrarCajeros = new javax.swing.JTable();
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        lblNombreProducto = new javax.swing.JLabel();
-        txtDescripcion = new javax.swing.JTextField();
-        lblDescripcion = new javax.swing.JLabel();
-        txtNombreProducto = new javax.swing.JTextField();
-        lblCategoria = new javax.swing.JLabel();
-        cbCategoria = new javax.swing.JComboBox<>();
+        lblNombre = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        lblUsuario = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JButton();
-        lblCantidad = new javax.swing.JLabel();
-        txtCantidad = new javax.swing.JTextField();
-        txtPrecios = new javax.swing.JTextField();
-        lblPrecios = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        lblContraseña = new javax.swing.JLabel();
+        txtContraseña = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
+        lblCedula = new javax.swing.JLabel();
+        lblTurno = new javax.swing.JLabel();
+        txtIdCajero = new javax.swing.JTextField();
+        lblSalario = new javax.swing.JLabel();
+        txtSalario = new javax.swing.JTextField();
+        lblIdCajero = new javax.swing.JLabel();
+        cbTurno = new javax.swing.JComboBox<>();
         lblRegistrarProducto = new javax.swing.JLabel();
         ContenedorBarraSuperior1 = new javax.swing.JLayeredPane();
         lblHora1 = new javax.swing.JLabel();
@@ -137,62 +141,80 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         ContenedorTabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ContenedorTabla.setOpaque(false);
 
-        tbRegistrarProductos.setBackground(new java.awt.Color(153, 255, 153));
-        tbRegistrarProductos.setModel(new javax.swing.table.DefaultTableModel(
+        tbRegistrarCajeros.setBackground(new java.awt.Color(153, 255, 153));
+        tbRegistrarCajeros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "No.", "Nombre del Producto", "Descripción", "Categoria", "Cantidad", "Precio"
+                "Id Cajero.", "Nombre Cajero", "Cedula", "Usuario", "Contraseña", "Salario", "Turno"
             }
         ));
-        tbRegistrarProductos.setRowHeight(25);
-        tbRegistrarProductos.setSelectionBackground(new java.awt.Color(102, 255, 153));
-        jScrollPane1.setViewportView(tbRegistrarProductos);
+        tbRegistrarCajeros.setRowHeight(25);
+        tbRegistrarCajeros.setSelectionBackground(new java.awt.Color(102, 255, 153));
+        jScrollPane1.setViewportView(tbRegistrarCajeros);
 
-        lblNombreProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        lblNombreProducto.setText("Nombre del Producto:");
+        jLayeredPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        txtDescripcion.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblNombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblNombre.setText("Nombre:");
 
-        lblDescripcion.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        lblDescripcion.setText("Descripción:");
+        txtNombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtNombre.setSelectionColor(new java.awt.Color(102, 255, 102));
 
-        txtNombreProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        txtNombreProducto.setSelectionColor(new java.awt.Color(102, 255, 102));
-
-        lblCategoria.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        lblCategoria.setText("Categoria:");
-
-        cbCategoria.setBackground(new java.awt.Color(153, 255, 153));
-        cbCategoria.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Refrescos", "Lacteos", "Embutidos", "Consome", "Crema de cacahuate", "Alimento para bebe", "Cereales", "Especias", "Harinas", "Salsas", "Sazonadores", "Pastas", "Enlatadas", "Confiteria", "Frutas y verduras", "Bebidas", "Carnes", "Medicamentos", "Higuiene" }));
-        cbCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblUsuario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblUsuario.setText("Usuario: ");
 
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         btnRegistrar.setText("Registrar");
 
-        lblCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        lblCantidad.setText("Cantidad:");
+        txtUsuario.setPreferredSize(new java.awt.Dimension(6, 30));
 
-        txtCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblContraseña.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblContraseña.setText("Contraseña:");
 
-        txtPrecios.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtContraseña.setPreferredSize(new java.awt.Dimension(6, 30));
 
-        lblPrecios.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        lblPrecios.setText("Precios:");
+        txtCedula.setPreferredSize(new java.awt.Dimension(6, 30));
 
-        jLayeredPane1.setLayer(lblNombreProducto, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(txtDescripcion, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(lblDescripcion, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(txtNombreProducto, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(lblCategoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(cbCategoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lblCedula.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblCedula.setText("Identificacion: ");
+
+        lblTurno.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblTurno.setText("Turno:");
+
+        txtIdCajero.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtIdCajero.setSelectionColor(new java.awt.Color(102, 255, 102));
+
+        lblSalario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblSalario.setText("Salario: ");
+
+        txtSalario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtSalario.setSelectionColor(new java.awt.Color(102, 255, 102));
+
+        lblIdCajero.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblIdCajero.setText("Id Cajero:");
+
+        cbTurno.setBackground(new java.awt.Color(153, 255, 153));
+        cbTurno.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cbTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mañana", "Tarde", "Noche" }));
+        cbTurno.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jLayeredPane1.setLayer(lblNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(txtNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lblUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(btnRegistrar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(lblCantidad, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(txtCantidad, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(txtPrecios, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(lblPrecios, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(txtUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lblContraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(txtContraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(txtCedula, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lblCedula, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lblTurno, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(txtIdCajero, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lblSalario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(txtSalario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lblIdCajero, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(cbTurno, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -200,53 +222,67 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(lblNombreProducto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(lblCategoria)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblCantidad)))
-                .addGap(6, 6, 6)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNombre)
+                    .addComponent(lblUsuario)
+                    .addComponent(lblContraseña)
+                    .addComponent(lblCedula))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDescripcion))
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(lblSalario)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(lblIdCajero)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtIdCajero, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(lblTurno)
+                                .addGap(32, 32, 32)
+                                .addComponent(cbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblPrecios)
+                        .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombreProducto)
-                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDescripcion)
-                    .addComponent(txtNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(lblNombre)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSalario)
+                    .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCedula)
+                    .addComponent(txtIdCajero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIdCajero))
+                .addGap(18, 18, 18)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblCategoria)
-                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblCantidad)
-                        .addComponent(lblPrecios))
-                    .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTurno)
+                            .addComponent(cbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblUsuario))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblContraseña, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -257,7 +293,7 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
             .addGroup(ContenedorTablaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ContenedorTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
                     .addComponent(jLayeredPane1))
                 .addContainerGap())
         );
@@ -266,9 +302,9 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorTablaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLayeredPane1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
 
         lblRegistrarProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
@@ -388,25 +424,29 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
     private javax.swing.JPanel ContenedorTabla;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JComboBox<String> cbCategoria;
+    private javax.swing.JComboBox<String> cbTurno;
     private Modelo.FONDOADMIN fONDOADMIN1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCantidad;
-    private javax.swing.JLabel lblCategoria;
-    private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblCedula;
+    private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblFecha1;
     private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblHora1;
     private javax.swing.JLabel lblHora2;
-    private javax.swing.JLabel lblNombreProducto;
-    private javax.swing.JLabel lblPrecios;
+    private javax.swing.JLabel lblIdCajero;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblRegistrarProducto;
-    private javax.swing.JTable tbRegistrarProductos;
-    private javax.swing.JTextField txtCantidad;
-    private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtNombreProducto;
-    private javax.swing.JTextField txtPrecios;
+    private javax.swing.JLabel lblSalario;
+    private javax.swing.JLabel lblTurno;
+    private javax.swing.JLabel lblUsuario;
+    private javax.swing.JTable tbRegistrarCajeros;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JTextField txtIdCajero;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtSalario;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
