@@ -401,7 +401,13 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     String matris[][] = new String[lista.size()][6];
     
     for (int i = 0 ; i < lista.size(); i++){
-    
+     matris[i][0] = lista.get(i).getSidproducto();
+     matris[i][1] = lista.get(i).getSstock();
+     matris[i][1] = lista.get(i).getdescripcion();
+     matris[i][2] = lista.get(i).getnombreproducto();
+     matris[i][3] = lista.get(i).getcategoria();
+     matris[i][4] = lista.get(i).getprecio()
+
     }
     
     

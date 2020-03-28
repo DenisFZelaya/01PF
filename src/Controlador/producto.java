@@ -56,6 +56,21 @@ public class producto {
       return this.idproducto;  
     }
     
+    //Conversion de Entero a String
+    public String getSidproducto()
+    {
+        String StringProducto;
+         StringProducto = String.valueOf(this.idproducto);
+        return StringProducto;
+    }
+    
+        public String getSstock()
+    {
+        String Sstock;
+         Sstock = String.valueOf(this.stock);
+        return Sstock;
+    }
+    
     public void setstock(int pstock)
     {
     this.stock=pstock;
