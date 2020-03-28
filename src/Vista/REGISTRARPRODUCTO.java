@@ -14,14 +14,14 @@ import javax.swing.JOptionPane;
  * @author Laptop
  */
 public class REGISTRARPRODUCTO extends javax.swing.JFrame {
-
-    ArrayList<producto> lista = new ArrayList<producto>();
-
+/*
+     ArrayList<producto> lista = new ArrayList<producto>();
+     
         int p1 = 0, p2 = 0;
         String p3, p4, p5;
         double p6;
         String cate;
-        
+     */   
     public REGISTRARPRODUCTO() {
         initComponents();
         setLocationRelativeTo(null);
@@ -374,6 +374,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
 
+        /*
         this.cate = "Prueba";    
         p1++;
         p2 = Integer.parseInt(txtCantidad.getText());
@@ -386,11 +387,11 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         lista.add(producto);
 
         mostrar();
-        
+        */
     }//GEN-LAST:event_btnRegistrarActionPerformed
-    
+    /*
     public void mostrar(){
-    
+    /*
     String matris[][] = new String[lista.size()][6];
     
      for (int i=0; i < lista.size(); i++){
@@ -400,9 +401,9 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
      matris[i][3] = lista.get(i).getnombreproducto();
      matris[i][4] = lista.get(i).getcategoria();
      matris[i][5] = lista.get(i).getSprecio();
-
-    }
-    
+        */
+    //}/*
+    /*
     tbRegistrarProductos.setModel(new javax.swing.table.DefaultTableModel(
     matris,
     new String [] {
@@ -410,7 +411,9 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     }
     ));
     
+    
     }
+    */
     /**
      * @param args the command line arguments
      */
