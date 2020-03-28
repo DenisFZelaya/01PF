@@ -52,28 +52,8 @@ public class producto {
       return this.idproducto;  
     }
     
-    //Conversion de Entero a String
-    public String getSidproducto()
-    {
-        String StringProducto;
-         StringProducto = String.valueOf(this.idproducto);
-        return StringProducto;
-    }
-    
-        public String getSstock()
-    {
-        String Sstock;
-         Sstock = String.valueOf(this.stock);
-        return Sstock;
-    }
-        
-            public String getSprecio()
-    {
-        String Sprecio;
-         Sprecio = String.valueOf(this.precio);
-        return Sprecio;
-    }
-    
+
+     
     public void setstock(int pstock)
     {
     this.stock=pstock;
@@ -101,7 +81,7 @@ public class producto {
     
     public String getdescripcion()
     {
-      return this.descripcion;  
+      return descripcion;  
     }
     
     public void setcategoria(String pcategoria)
@@ -123,5 +103,43 @@ public class producto {
     {
       return this.precio;  
     }
+    
+        //Conversion de Entero a String
+    public String getSidproducto()
+    {
+        String StringProducto;
+         StringProducto = String.valueOf(this.idproducto);
+        return StringProducto;
+    }
+    
+        public String getSstock()
+    {
+        String Sstock;
+         Sstock = String.valueOf(this.stock);
+        return Sstock;
+    }
+        
+            public String getSprecio()
+    {
+        String Sprecio;
+         Sprecio = String.valueOf(this.precio);
+        return Sprecio;
+    }
+            
+     public String getSnombreProd()
+    {
+        String getSnombreProd;
+         getSnombreProd = this.nombreProducto;
+        return getSnombreProd;
+    }     
+    
+     
+         public String getSdescripProd()
+    {
+        String descripProd;
+         descripProd = this.descripcion;
+        return descripProd;
+    }     
+     
     
 }

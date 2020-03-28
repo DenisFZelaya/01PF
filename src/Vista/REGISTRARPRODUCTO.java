@@ -15,7 +15,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
      ArrayList<producto> lista = new ArrayList<producto>();
      
         int p1 = 0, p2 = 0;
-        String p2, p3, p4, p5;
+        String p3, p4, p5;
         double p6;
         String cate;
        
@@ -45,7 +45,6 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         lblNombreProducto = new javax.swing.JLabel();
         txtDescripcion = new javax.swing.JTextField();
         lblDescripcion = new javax.swing.JLabel();
-        txtNombreProducto = new javax.swing.JTextField();
         lblCategoria = new javax.swing.JLabel();
         cbCategoria = new javax.swing.JComboBox<>();
         btnRegistrar = new javax.swing.JButton();
@@ -53,6 +52,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         txtCantidad = new javax.swing.JTextField();
         txtPrecios = new javax.swing.JTextField();
         lblPrecios = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
         lblRegistrarProducto = new javax.swing.JLabel();
         ContenedorBarraSuperior1 = new javax.swing.JLayeredPane();
         lblHora1 = new javax.swing.JLabel();
@@ -146,7 +146,6 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         ContenedorTabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ContenedorTabla.setOpaque(false);
 
-        tbRegistrarProductos.setBackground(new java.awt.Color(153, 255, 153));
         tbRegistrarProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -163,6 +162,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tbRegistrarProductos.setGridColor(new java.awt.Color(255, 255, 255));
         tbRegistrarProductos.setRowHeight(25);
         tbRegistrarProductos.setSelectionBackground(new java.awt.Color(102, 255, 153));
         jScrollPane1.setViewportView(tbRegistrarProductos);
@@ -174,9 +174,6 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
         lblDescripcion.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblDescripcion.setText("Descripción:");
-
-        txtNombreProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        txtNombreProducto.setSelectionColor(new java.awt.Color(102, 255, 102));
 
         lblCategoria.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblCategoria.setText("Categoria:");
@@ -204,10 +201,11 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         lblPrecios.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblPrecios.setText("Precios:");
 
+        txtNombre.setText("jTextField1");
+
         jLayeredPane1.setLayer(lblNombreProducto, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(txtDescripcion, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblDescripcion, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(txtNombreProducto, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblCategoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(cbCategoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(btnRegistrar, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -215,6 +213,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         jLayeredPane1.setLayer(txtCantidad, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(txtPrecios, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblPrecios, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(txtNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -222,16 +221,16 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(lblNombreProducto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(lblCategoria)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblCantidad)))
                 .addGap(6, 6, 6)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,7 +257,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                     .addComponent(lblNombreProducto)
                     .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDescripcion)
-                    .addComponent(txtNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -375,11 +374,13 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         
         this.cate = "Prueba";    
         p1++;
-        p2 = Integer.parseInt(txtCantidad.getText());
+        p2 = Integer.valueOf(txtCantidad.getText());
+        p3 = txtNombre.getText();
+        //p2 = Integer.parseInt(txtCantidad.getText());
         //p3 = txtNombreProducto.getText();
-        //p4 = txtDescripcion.getText();
+        p4 = txtDescripcion.getText();
         //p5 = cate;
-        //p6 = Double.parseDouble(txtPrecios.getText());
+        p6 = Double.parseDouble(txtPrecios.getText());
         
         producto producto = new producto(p1,p2,p3,p4,p5,p6);
         lista.add(producto);
@@ -395,8 +396,8 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
      for (int i=0; i < lista.size(); i++){
      matris[i][0] = lista.get(i).getSidproducto();
      matris[i][1] = lista.get(i).getSstock();
-     matris[i][2] = lista.get(i).getnombreproducto();
-     matris[i][4] = lista.get(i).getdescripcion();
+     matris[i][2] = lista.get(i).getSnombreProd();
+     matris[i][4] = lista.get(i).getSdescripProd();
      matris[i][4] = lista.get(i).getcategoria();
      matris[i][5] = lista.get(i).getSprecio();
        
@@ -473,7 +474,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     private javax.swing.JTable tbRegistrarProductos;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtNombreProducto;
+    private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecios;
     // End of variables declaration//GEN-END:variables
 }
