@@ -6,14 +6,20 @@
 package Vista;
 
 import Controlador.producto;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 
 public class REGISTRARPRODUCTO extends javax.swing.JFrame {
-
+    // Creacion de ArrayList
      ArrayList<producto> lista = new ArrayList<producto>();
-     
+        
+     //Variables para los parametros
         int p1 = 0, p2 = 0;
         String p3, p4, p5;
         double p6;
@@ -23,6 +29,15 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         
+        Fecha();
+        
+
+    }
+    
+    public void Fecha(){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();        
+        lblFecha.setText(String.valueOf(date));
     }
 
 
@@ -36,7 +51,6 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         ContenedorBarraSuperior = new javax.swing.JLayeredPane();
         lblCerrarSesion = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
-        lblHora2 = new javax.swing.JLabel();
         ContenedorMesadeTrabajo = new javax.swing.JLayeredPane();
         ContenedorTabla = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -65,6 +79,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         ContenedorMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnRegresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(0, 51, 102));
         btnRegresar.setText("Regresar");
 
         ContenedorMenu.setLayer(btnRegresar, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -107,13 +122,8 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
         lblFecha.setText("Fecha:");
 
-        lblHora2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblHora2.setForeground(new java.awt.Color(255, 255, 255));
-        lblHora2.setText("Hora:");
-
         ContenedorBarraSuperior.setLayer(lblCerrarSesion, javax.swing.JLayeredPane.DEFAULT_LAYER);
         ContenedorBarraSuperior.setLayer(lblFecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        ContenedorBarraSuperior.setLayer(lblHora2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout ContenedorBarraSuperiorLayout = new javax.swing.GroupLayout(ContenedorBarraSuperior);
         ContenedorBarraSuperior.setLayout(ContenedorBarraSuperiorLayout);
@@ -121,10 +131,8 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
             ContenedorBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorBarraSuperiorLayout.createSequentialGroup()
                 .addGap(237, 237, 237)
-                .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
-                .addComponent(lblHora2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -134,8 +142,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(ContenedorBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCerrarSesion)
-                    .addComponent(lblFecha)
-                    .addComponent(lblHora2))
+                    .addComponent(lblFecha))
                 .addGap(19, 19, 19))
         );
 
@@ -146,6 +153,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         ContenedorTabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ContenedorTabla.setOpaque(false);
 
+        tbRegistrarProductos.setForeground(new java.awt.Color(0, 51, 102));
         tbRegistrarProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -164,22 +172,27 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         });
         tbRegistrarProductos.setGridColor(new java.awt.Color(255, 255, 255));
         tbRegistrarProductos.setRowHeight(25);
-        tbRegistrarProductos.setSelectionBackground(new java.awt.Color(102, 255, 153));
+        tbRegistrarProductos.setSelectionBackground(new java.awt.Color(0, 51, 102));
         jScrollPane1.setViewportView(tbRegistrarProductos);
 
         lblNombreProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblNombreProducto.setForeground(new java.awt.Color(0, 51, 102));
         lblNombreProducto.setText("Nombre del Producto:");
 
         lblDescripcion.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblDescripcion.setForeground(new java.awt.Color(0, 51, 102));
         lblDescripcion.setText("Descripción:");
 
         lblCategoria.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblCategoria.setForeground(new java.awt.Color(0, 51, 102));
         lblCategoria.setText("Categoria:");
 
         cbCategoria.setBackground(new java.awt.Color(153, 255, 153));
         cbCategoria.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cbCategoria.setForeground(new java.awt.Color(0, 51, 102));
         cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Refrescos", "Lacteos", "Embutidos", "Consome", "Crema de cacahuate", "Alimento para bebe", "Cereales", "Especias", "Harinas", "Salsas", "Sazonadores", "Pastas", "Enlatadas", "Confiteria", "Frutas y verduras", "Bebidas", "Carnes", "Medicamentos", "Higuiene" }));
         cbCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cbCategoria.setFocusCycleRoot(true);
         cbCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbCategoriaActionPerformed(evt);
@@ -187,6 +200,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         });
 
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        btnRegistrar.setForeground(new java.awt.Color(0, 51, 102));
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,14 +209,22 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         });
 
         lblCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblCantidad.setForeground(new java.awt.Color(0, 51, 102));
         lblCantidad.setText("Cantidad:");
 
         txtCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtCantidad.setForeground(new java.awt.Color(0, 51, 102));
 
         txtPrecios.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtPrecios.setForeground(new java.awt.Color(0, 51, 102));
 
         lblPrecios.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        lblPrecios.setText("Precios:");
+        lblPrecios.setForeground(new java.awt.Color(0, 51, 102));
+        lblPrecios.setText("Precio:");
+
+        txtDesc.setForeground(new java.awt.Color(0, 51, 102));
+
+        txtNombre.setForeground(new java.awt.Color(0, 51, 102));
 
         jLayeredPane1.setLayer(lblNombreProducto, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblDescripcion, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -294,7 +316,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         );
 
         lblRegistrarProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
-        lblRegistrarProducto.setForeground(new java.awt.Color(102, 102, 102));
+        lblRegistrarProducto.setForeground(new java.awt.Color(0, 51, 102));
         lblRegistrarProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRegistrarProducto.setText("REGISTRAR PRODUCTOS");
 
@@ -317,11 +339,11 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         ContenedorMesadeTrabajoLayout.setVerticalGroup(
             ContenedorMesadeTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContenedorMesadeTrabajoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblRegistrarProducto)
                 .addGap(18, 18, 18)
+                .addComponent(lblRegistrarProducto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         fONDOADMIN1.add(ContenedorMesadeTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 52, -1, 580));
@@ -372,8 +394,12 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     }//GEN-LAST:event_lblCerrarSesionMouseClicked
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        //Llamar a Categoria
+        Fecha();
         
         Categoria(); 
+        
+        //Igualar variables a los componentes necesarios de la ventana
         p1++;
         p2 = Integer.valueOf(txtCantidad.getText());
         p3 = txtDesc.getText();
@@ -385,6 +411,12 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         lista.add(producto);
 
         mostrar();
+        
+        txtCantidad.setText("");
+        txtDesc.setText("");
+        txtNombre.setText("");
+        txtPrecios.setText("");
+        
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
@@ -481,10 +513,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     }
     
 
-    
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -536,7 +565,6 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblFecha1;
     private javax.swing.JLabel lblHora1;
-    private javax.swing.JLabel lblHora2;
     private javax.swing.JLabel lblNombreProducto;
     private javax.swing.JLabel lblPrecios;
     private javax.swing.JLabel lblRegistrarProducto;
@@ -546,4 +574,8 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecios;
     // End of variables declaration//GEN-END:variables
+
+    private String toString(int HoraActual) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
