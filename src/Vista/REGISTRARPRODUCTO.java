@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import Controlador.producto;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,6 +15,8 @@ import javax.swing.JOptionPane;
  */
 public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
+    ArrayList<producto> lista = new ArrayList<producto>();
+    int idproductoP, pstockP;
     /**
      * Creates new form REGISTRARPRODUCTO
      */
@@ -181,6 +185,11 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         lblCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblCantidad.setText("Cantidad:");
@@ -360,6 +369,43 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
        JOptionPane.showConfirmDialog(null,"Desea regresar al inicio de sesion?", "Registrar un producto", JOptionPane.YES_NO_OPTION);
     }//GEN-LAST:event_lblCerrarSesionMouseClicked
 
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+        int p1 = 0, p2 = 0;
+        String p3, p4, p5;
+        double p6;
+        String cate = "";
+                
+        p1++;
+        p2 = Integer.parseInt(txtCantidad.getText());
+        p3 = txtNombreProducto.getText();
+        p4 = txtDescripcion.getText();
+        p5 = cate;
+        p6 = Double.parseDouble(cate);
+        
+        
+        
+        
+        produto prod = new producto(p1,p2,p3,p4,p5,p6);
+        lista.add(producto);
+        
+        
+        
+        
+        mostrar();
+        
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+    
+    public void mostrar(){
+    
+    String matris[][] = new String[lista.size()][6];
+    
+    for (int i = 0 ; i < lista.size(); i++){
+    
+    }
+    
+    
+    }
     /**
      * @param args the command line arguments
      */
