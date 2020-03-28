@@ -15,10 +15,6 @@ public class producto {
     private String nombreProducto, descripcion, categoria;
     private double precio;
     
-    public producto()
-    {
-        
-    }
     
     public producto(int pidproducto, int pstock, String pnombreProducto,
             String pdescripcion, String pcategoria, double pprecio)
@@ -74,7 +70,7 @@ public class producto {
             public String getSprecio()
     {
         String Sprecio;
-         Sprecio = String.valueOf(this.stock);
+         Sprecio = String.valueOf(this.precio);
         return Sprecio;
     }
     
