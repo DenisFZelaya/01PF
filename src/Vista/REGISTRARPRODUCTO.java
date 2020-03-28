@@ -16,10 +16,12 @@ import javax.swing.JOptionPane;
 public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
     ArrayList<producto> lista = new ArrayList<producto>();
-    int idproductoP, pstockP;
-    /**
-     * Creates new form REGISTRARPRODUCTO
-     */
+
+        int p1 = 0, p2 = 0;
+        String p3, p4, p5;
+        double p6;
+        String cate;
+        
     public REGISTRARPRODUCTO() {
         initComponents();
         setLocationRelativeTo(null);
@@ -157,7 +159,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
             },
             new String [] {
-                "No.", "Nombre del Producto", "Descripción", "Categoria", "Cantidad", "Precio"
+                "Id", "Nombre del Producto", "Descripción", "Categoria", "Cantidad", "Precio"
             }
         ));
         tbRegistrarProductos.setRowHeight(25);
@@ -371,27 +373,18 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-        int p1 = 0, p2 = 0;
-        String p3, p4, p5;
-        double p6;
-        String cate = "";
-                
+
+        this.cate = "Prueba";    
         p1++;
         p2 = Integer.parseInt(txtCantidad.getText());
         p3 = txtNombreProducto.getText();
         p4 = txtDescripcion.getText();
         p5 = cate;
-        p6 = Double.parseDouble(cate);
+        p6 = Double.parseDouble(txtPrecios.getText());
         
-        
-        
-        
-        produto prod = new producto(p1,p2,p3,p4,p5,p6);
+        producto producto = new producto(p1,p2,p3,p4,p5,p6);
         lista.add(producto);
-        
-        
-        
-        
+
         mostrar();
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -400,16 +393,22 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     
     String matris[][] = new String[lista.size()][6];
     
-    for (int i = 0 ; i < lista.size(); i++){
+     for (int i=0; i < lista.size(); i++){
      matris[i][0] = lista.get(i).getSidproducto();
      matris[i][1] = lista.get(i).getSstock();
-     matris[i][1] = lista.get(i).getdescripcion();
-     matris[i][2] = lista.get(i).getnombreproducto();
-     matris[i][3] = lista.get(i).getcategoria();
-     matris[i][4] = lista.get(i).getprecio()
+     matris[i][2] = lista.get(i).getdescripcion();
+     matris[i][3] = lista.get(i).getnombreproducto();
+     matris[i][4] = lista.get(i).getcategoria();
+     matris[i][5] = lista.get(i).getSprecio();
 
     }
     
+    tbRegistrarProductos.setModel(new javax.swing.table.DefaultTableModel(
+    matris,
+    new String [] {
+    "Id", "Nombre del Producto", "Descripción", "Categoria", "Cantidad", "Precio"
+    }
+    ));
     
     }
     /**

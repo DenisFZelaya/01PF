@@ -70,6 +70,13 @@ public class producto {
          Sstock = String.valueOf(this.stock);
         return Sstock;
     }
+        
+            public String getSprecio()
+    {
+        String Sprecio;
+         Sprecio = String.valueOf(this.stock);
+        return Sprecio;
+    }
     
     public void setstock(int pstock)
     {
