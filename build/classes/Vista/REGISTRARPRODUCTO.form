@@ -334,14 +334,16 @@
                                   <Component id="txtNombreProducto" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="cbCategoria" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Component id="lblCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnRegistrar" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPrecios" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblPrecios" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="cbCategoria" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Component id="lblCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtPrecios" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblPrecios" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="btnRegistrar" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
