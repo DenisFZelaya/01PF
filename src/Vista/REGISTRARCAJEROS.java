@@ -4,19 +4,46 @@
  * and open the template in the editor.
  */
 package Vista;
+import Controlador.producto;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Laptop
  */
 public class REGISTRARCAJEROS extends javax.swing.JFrame {
+ // Creacion de ArrayList
+     ArrayList<producto> lista = new ArrayList<producto>();
+        
+     //Variables para los parametros
+        int p1 = 0;
+        String p2, p3, p4, p5,p7;
+        double p6;
+        String turno;
+       
 
     /**
      * Creates new form REGISTRARPRODUCTO
      */
     public REGISTRARCAJEROS() {
-        initComponents();
+           initComponents();
         setLocationRelativeTo(null);
+        
+        Fecha();
+        
+
+    }
+    
+    public void Fecha(){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();        
+        lblFecha.setText(String.valueOf(date));
         
     }
 
@@ -99,6 +126,11 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         lblHora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
         lblHora.setText("Cerrar Sesión");
         lblHora.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        lblHora.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblHoraMouseClicked(evt);
+            }
+        });
 
         lblFecha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,6 +204,11 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
 
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         txtUsuario.setPreferredSize(new java.awt.Dimension(6, 30));
 
@@ -210,6 +247,11 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         cbTurno.setForeground(new java.awt.Color(0, 51, 102));
         cbTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mañana", "Tarde", "Noche" }));
         cbTurno.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cbTurno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTurnoActionPerformed(evt);
+            }
+        });
 
         jLayeredPane1.setLayer(lblNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(txtNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -395,6 +437,78 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void lblHoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHoraMouseClicked
+     JOptionPane.showConfirmDialog(null,"Desea regresar al inicio de sesion?", "Registrar un producto", JOptionPane.YES_NO_OPTION);   // TODO add your handling code here:
+    }//GEN-LAST:event_lblHoraMouseClicked
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+      //Llamar a Categoria
+        Fecha();
+        
+        Categoria(); 
+        
+        //Igualar variables a los componentes necesarios de la ventana
+        p1 = Integer.valueOf(txtIdCajero.getText());
+        p2 = txtNombre.getText();
+        p3 = txtCedula.getText();
+        p4 = txtUsuario.getText();
+        p5 = txtContraseña.getText();
+        p6 = Double.parseDouble(txtSalario.getText());
+        p7 = turno;
+ 
+        // **********hacer la instancia
+        cajero cajero = new cajero(p1,p2,p3,p4,p5,p6);
+        lista.add(cajero);
+
+        mostrar();
+        //todos los string
+        txtNombre.setText("");
+        txtCedula.setText("");
+        txtUsuario.setText("");
+        txtContraseña.setText("");
+        
+           // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void cbTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTurnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbTurnoActionPerformed
+    public void Turno(){
+                switch (cbTurno.getSelectedIndex()){
+            case 0:
+                this.turno = "Mañana";
+                break;
+            case 1:
+                this.turno = "Tarde";
+                break; 
+            case 2:
+                this.turno = "Noche";
+                break;
+           }
+    }
+    public void mostrar(){
+    
+    String matris[][] = new String[lista.size()][7];
+    
+     for (int i=0; i < lista.size(); i++){
+     matris[i][0] = lista.get(i).getSidproducto();
+     matris[i][1] = lista.get(i).getSstock();
+     matris[i][2] = lista.get(i).getSnombreProd();
+     matris[i][3] = lista.get(i).getSdescripProd();
+     matris[i][4] = lista.get(i).getSCategoria();
+     matris[i][5] = lista.get(i).getSprecio();
+       
+    }
+              
+    tbRegistrarProductos.setModel(new javax.swing.table.DefaultTableModel(
+    matris,
+    new String [] {
+    "Id", "Cantidad", "Nombre del Producto", "Descripcion", "Categoria", "Precio"
+    }
+    ));
+    
+    
+    }
     /**
      * @param args the command line arguments
      */
