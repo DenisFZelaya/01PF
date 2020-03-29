@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.Fecha;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,7 +27,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         
         
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,7 +41,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         ContenedorMenu = new javax.swing.JLayeredPane();
         btnRegresar = new javax.swing.JButton();
         ContenedorBarraSuperior = new javax.swing.JLayeredPane();
-        lblHora = new javax.swing.JLabel();
+        lblCerrarSesion = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
         ContenedorMesadeTrabajo = new javax.swing.JLayeredPane();
         ContenedorTabla = new javax.swing.JPanel();
@@ -103,19 +104,26 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
 
         ContenedorBarraSuperior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lblHora.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblHora.setForeground(new java.awt.Color(255, 255, 255));
-        lblHora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblHora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
-        lblHora.setText("Cerrar Sesión");
-        lblHora.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        lblCerrarSesion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        lblCerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
+        lblCerrarSesion.setText("Cerrar Sesión");
+        lblCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCerrarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        lblCerrarSesion.setRequestFocusEnabled(false);
+        lblCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCerrarSesionMouseClicked(evt);
+            }
+        });
 
         lblFecha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
         lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFecha.setText("Fecha:");
 
-        ContenedorBarraSuperior.setLayer(lblHora, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        ContenedorBarraSuperior.setLayer(lblCerrarSesion, javax.swing.JLayeredPane.DEFAULT_LAYER);
         ContenedorBarraSuperior.setLayer(lblFecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout ContenedorBarraSuperiorLayout = new javax.swing.GroupLayout(ContenedorBarraSuperior);
@@ -126,7 +134,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(lblHora, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
         ContenedorBarraSuperiorLayout.setVerticalGroup(
@@ -134,7 +142,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorBarraSuperiorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(ContenedorBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblHora)
+                    .addComponent(lblCerrarSesion)
                     .addComponent(lblFecha))
                 .addGap(19, 19, 19))
         );
@@ -437,6 +445,11 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void lblCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarSesionMouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showConfirmDialog(null,"Desea regresar al inicio de sesion?", "Registrar un producto", JOptionPane.YES_NO_OPTION);
+    }//GEN-LAST:event_lblCerrarSesionMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -491,11 +504,11 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCedula;
+    private javax.swing.JLabel lblCerrarSesion;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblFecha1;
-    private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblHora1;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblRegistrarProducto;
