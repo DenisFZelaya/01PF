@@ -30,8 +30,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         
         Fecha();
-        
-
+       
     }
     
     public void Fecha(){
@@ -153,6 +152,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         ContenedorTabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ContenedorTabla.setOpaque(false);
 
+        tbRegistrarProductos.setBackground(new java.awt.Color(255, 255, 255));
         tbRegistrarProductos.setForeground(new java.awt.Color(0, 51, 102));
         tbRegistrarProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -173,6 +173,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         tbRegistrarProductos.setGridColor(new java.awt.Color(255, 255, 255));
         tbRegistrarProductos.setRowHeight(25);
         tbRegistrarProductos.setSelectionBackground(new java.awt.Color(0, 51, 102));
+        tbRegistrarProductos.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tbRegistrarProductos);
 
         lblNombreProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
