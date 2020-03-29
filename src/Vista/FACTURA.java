@@ -5,17 +5,37 @@
  */
 package Vista;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author admin
  */
 public class FACTURA extends javax.swing.JFrame {
-
+    DefaultTableModel modelo;
+    ImagenFondo ejemplo =  new ImagenFondo();
     /**
      * Creates new form FACTURA
      */
     public FACTURA() {
+        this.setContentPane(ejemplo);
         initComponents();
+        setLocationRelativeTo(null);
+        
+        modelo=new DefaultTableModel();
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Descripción");
+        modelo.addColumn("Categoría");
+        modelo.addColumn("Precio");
+        this.factura.setModel(modelo);
+        this.factura.setBackground(Color.white);
+
     }
 
     /**
@@ -27,40 +47,161 @@ public class FACTURA extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtidprod = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtnombrecliente = new javax.swing.JTextField();
+        txttelcliente = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        txtidcliente = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        factura = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
+        txtsubtotal = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtisv = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txttotal = new javax.swing.JTextField();
+        btnagregar1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        txtcerrar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(960, 594));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1091, 692));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 676, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 474, Short.MAX_VALUE)
-        );
+        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(251, 215, 48));
+        jLabel2.setText("FACTURA");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(168, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel1.setText("ID Producto");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
+
+        txtidprod.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        getContentPane().add(txtidprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 71, 25));
+
+        jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel3.setText("Nombre del cliente");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 190, -1));
+
+        txtnombrecliente.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        getContentPane().add(txtnombrecliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 180, 25));
+
+        txttelcliente.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        txttelcliente.setForeground(new java.awt.Color(0, 51, 102));
+        txttelcliente.setText("Teléfono");
+        getContentPane().add(txttelcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 60, 170, -1));
+
+        jTextField3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 60, 120, 25));
+
+        txtidcliente.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        getContentPane().add(txtidcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 40, 25));
+
+        jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel5.setText("ID Cliente");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 170, -1));
+
+        factura.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 16)); // NOI18N
+        factura.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(factura);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 630, 310));
+
+        jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel6.setText("Subtotal");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 460, -1, -1));
+
+        txtsubtotal.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        getContentPane().add(txtsubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 460, 71, 25));
+
+        jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel7.setText("ISV");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, -1, -1));
+
+        txtisv.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        getContentPane().add(txtisv, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 460, 71, 25));
+
+        jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel8.setText("TOTAL");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 460, -1, -1));
+
+        txttotal.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        getContentPane().add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 460, 71, 25));
+
+        btnagregar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        btnagregar1.setForeground(new java.awt.Color(0, 51, 102));
+        btnagregar1.setText("AGREGAR");
+        btnagregar1.setPreferredSize(new java.awt.Dimension(99, 33));
+        btnagregar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagregar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnagregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, -1, 27));
+
+        jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 51, 102));
+        jButton2.setText("Regresar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, 30));
+
+        txtcerrar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtcerrar1.setForeground(new java.awt.Color(0, 51, 102));
+        txtcerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
+        txtcerrar1.setLabel("Cerrar Sesión");
+        txtcerrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcerrar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 150, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnagregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnagregar1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        MENUCAJERO frm = new MENUCAJERO();
+        frm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtcerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcerrar1ActionPerformed
+        Login01 frm = new Login01();
+        frm.setVisible(true);
+        this.setVisible(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcerrar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,6 +239,37 @@ public class FACTURA extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton btnagregar1;
+    private javax.swing.JTable factura;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton txtcerrar1;
+    private javax.swing.JTextField txtidcliente;
+    private javax.swing.JTextField txtidprod;
+    private javax.swing.JTextField txtisv;
+    private javax.swing.JTextField txtnombrecliente;
+    private javax.swing.JTextField txtsubtotal;
+    private javax.swing.JLabel txttelcliente;
+    private javax.swing.JTextField txttotal;
     // End of variables declaration//GEN-END:variables
+}
+
+class ImagenFondo extends JPanel
+{
+    private Image imagen;
+    public void paint (Graphics g)
+    {
+        imagen = new ImageIcon(getClass().getResource("/IMG/CAJERO.jpeg")).getImage();
+        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+        setOpaque(false);
+        super.paint(g);
+    }
 }
