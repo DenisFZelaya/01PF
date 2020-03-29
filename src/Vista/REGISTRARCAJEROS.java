@@ -16,6 +16,8 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
      */
     public REGISTRARCAJEROS() {
         initComponents();
+        setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -155,14 +157,17 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbRegistrarCajeros);
 
         jLayeredPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jLayeredPane1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         lblNombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(0, 51, 102));
         lblNombre.setText("Nombre:");
 
         txtNombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         txtNombre.setSelectionColor(new java.awt.Color(102, 255, 102));
 
         lblUsuario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(0, 51, 102));
         lblUsuario.setText("Usuario: ");
 
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
@@ -171,6 +176,7 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         txtUsuario.setPreferredSize(new java.awt.Dimension(6, 30));
 
         lblContraseña.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblContraseña.setForeground(new java.awt.Color(0, 51, 102));
         lblContraseña.setText("Contraseña:");
 
         txtContraseña.setPreferredSize(new java.awt.Dimension(6, 30));
@@ -178,25 +184,30 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         txtCedula.setPreferredSize(new java.awt.Dimension(6, 30));
 
         lblCedula.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblCedula.setForeground(new java.awt.Color(0, 51, 102));
         lblCedula.setText("Identificacion: ");
 
         lblTurno.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblTurno.setForeground(new java.awt.Color(0, 51, 102));
         lblTurno.setText("Turno:");
 
         txtIdCajero.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         txtIdCajero.setSelectionColor(new java.awt.Color(102, 255, 102));
 
         lblSalario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblSalario.setForeground(new java.awt.Color(0, 51, 102));
         lblSalario.setText("Salario: ");
 
         txtSalario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         txtSalario.setSelectionColor(new java.awt.Color(102, 255, 102));
 
         lblIdCajero.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblIdCajero.setForeground(new java.awt.Color(0, 51, 102));
         lblIdCajero.setText("Id Cajero:");
 
         cbTurno.setBackground(new java.awt.Color(153, 255, 153));
         cbTurno.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cbTurno.setForeground(new java.awt.Color(0, 51, 102));
         cbTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mañana", "Tarde", "Noche" }));
         cbTurno.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -293,9 +304,13 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
             .addGroup(ContenedorTablaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ContenedorTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLayeredPane1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(ContenedorTablaLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(ContenedorTablaLayout.createSequentialGroup()
+                        .addComponent(jLayeredPane1)
+                        .addContainerGap())))
         );
         ContenedorTablaLayout.setVerticalGroup(
             ContenedorTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,12 +318,12 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLayeredPane1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
         );
 
-        lblRegistrarProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
-        lblRegistrarProducto.setForeground(new java.awt.Color(102, 102, 102));
+        lblRegistrarProducto.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lblRegistrarProducto.setForeground(new java.awt.Color(251, 215, 48));
         lblRegistrarProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRegistrarProducto.setText("REGISTRAR CAJEROS");
 
@@ -373,7 +388,7 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
-        fONDOADMIN1.add(ContenedorBarraSuperior1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 660, 750, 30));
+        fONDOADMIN1.add(ContenedorBarraSuperior1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 660, 750, 30));
 
         getContentPane().add(fONDOADMIN1, java.awt.BorderLayout.PAGE_START);
 
