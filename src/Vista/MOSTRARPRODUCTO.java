@@ -11,29 +11,24 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-public class REGISTRARPRODUCTO extends javax.swing.JFrame {
-    
-     private DefaultTableModel modelo;
-    int contador = 0;
+public class MOSTRARPRODUCTO extends javax.swing.JFrame {
     // Creacion de ArrayList
-    public static LinkedList contenedor = new LinkedList();
-     //ArrayList<producto> lista = new ArrayList<producto>();
-        
-     //Variables para los parametros
-        int p1 = 0, p2 = 0;
-        String p3, p4, p5;
-        double p6;
-        String cate;
-       
-    public REGISTRARPRODUCTO() {
+
+    private DefaultTableModel modelo;
+    int contador = 0;
+    
+//    REGISTRARPRODUCTO PROD = new REGISTRARPRODUCTO();   
+    
+    public MOSTRARPRODUCTO() {
         initComponents();
         setLocationRelativeTo(null);
 
+        CargaInterfaz();
+        CargarDatos();  
         
         //Para obtener la hora actual
         Fechas hora = new Fechas();
@@ -56,7 +51,6 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         fONDOADMIN1 = new Modelo.FONDOADMIN();
         ContenedorMenu = new javax.swing.JLayeredPane();
         btnRegresar = new javax.swing.JButton();
-        btnRegresar1 = new javax.swing.JButton();
         ContenedorBarraSuperior = new javax.swing.JLayeredPane();
         lblCerrarSesion = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
@@ -67,13 +61,6 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         jLayeredPane1 = new javax.swing.JLayeredPane();
         lblNombreProducto = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
-        lblCategoria = new javax.swing.JLabel();
-        cbCategoria = new javax.swing.JComboBox<>();
-        btnRegistrar = new javax.swing.JButton();
-        lblCantidad = new javax.swing.JLabel();
-        txtCantidad = new javax.swing.JTextField();
-        txtPrecios = new javax.swing.JTextField();
-        lblPrecios = new javax.swing.JLabel();
         txtDesc = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         lblRegistrarProducto = new javax.swing.JLabel();
@@ -89,42 +76,30 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
         btnRegresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(0, 51, 102));
-        btnRegresar.setText("MOSTRAR PRODUCTO");
+        btnRegresar.setText("Actualizar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
             }
         });
 
-        btnRegresar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        btnRegresar1.setForeground(new java.awt.Color(0, 51, 102));
-        btnRegresar1.setText("Regresar");
-
         ContenedorMenu.setLayer(btnRegresar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        ContenedorMenu.setLayer(btnRegresar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout ContenedorMenuLayout = new javax.swing.GroupLayout(ContenedorMenu);
         ContenedorMenu.setLayout(ContenedorMenuLayout);
         ContenedorMenuLayout.setHorizontalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-            .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ContenedorMenuLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(btnRegresar1, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(ContenedorMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                .addContainerGap())
         );
         ContenedorMenuLayout.setVerticalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                .addContainerGap(517, Short.MAX_VALUE)
+                .addContainerGap(594, Short.MAX_VALUE)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(142, 142, 142))
-            .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                    .addContainerGap(604, Short.MAX_VALUE)
-                    .addComponent(btnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(55, 55, 55)))
+                .addGap(65, 65, 65))
         );
 
         fONDOADMIN1.add(ContenedorMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 700));
@@ -211,58 +186,12 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         lblDescripcion.setForeground(new java.awt.Color(0, 51, 102));
         lblDescripcion.setText("Descripción:");
 
-        lblCategoria.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        lblCategoria.setForeground(new java.awt.Color(0, 51, 102));
-        lblCategoria.setText("Categoria:");
-
-        cbCategoria.setBackground(new java.awt.Color(153, 255, 153));
-        cbCategoria.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cbCategoria.setForeground(new java.awt.Color(0, 51, 102));
-        cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Refrescos", "Lacteos", "Embutidos", "Consome", "Crema de cacahuate", "Alimento para bebe", "Cereales", "Especias", "Harinas", "Salsas", "Sazonadores", "Pastas", "Enlatadas", "Confiteria", "Frutas y verduras", "Bebidas", "Carnes", "Medicamentos", "Higuiene" }));
-        cbCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        cbCategoria.setFocusCycleRoot(true);
-        cbCategoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbCategoriaActionPerformed(evt);
-            }
-        });
-
-        btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        btnRegistrar.setForeground(new java.awt.Color(0, 51, 102));
-        btnRegistrar.setText("Registrar");
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
-            }
-        });
-
-        lblCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        lblCantidad.setForeground(new java.awt.Color(0, 51, 102));
-        lblCantidad.setText("Cantidad:");
-
-        txtCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        txtCantidad.setForeground(new java.awt.Color(0, 51, 102));
-
-        txtPrecios.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        txtPrecios.setForeground(new java.awt.Color(0, 51, 102));
-
-        lblPrecios.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        lblPrecios.setForeground(new java.awt.Color(0, 51, 102));
-        lblPrecios.setText("Precio:");
-
         txtDesc.setForeground(new java.awt.Color(0, 51, 102));
 
         txtNombre.setForeground(new java.awt.Color(0, 51, 102));
 
         jLayeredPane1.setLayer(lblNombreProducto, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblDescripcion, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(lblCategoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(cbCategoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(btnRegistrar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(lblCantidad, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(txtCantidad, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(txtPrecios, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(lblPrecios, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(txtDesc, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(txtNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -272,29 +201,13 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(lblCategoria)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblCantidad)
-                        .addGap(6, 6, 6)
-                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblPrecios)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(lblNombreProducto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDesc)))
+                .addComponent(lblNombreProducto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDesc, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jLayeredPane1Layout.setVerticalGroup(
@@ -309,17 +222,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                         .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblDescripcion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblCategoria)
-                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblCantidad)
-                        .addComponent(lblPrecios))
-                    .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout ContenedorTablaLayout = new javax.swing.GroupLayout(ContenedorTabla);
@@ -338,15 +241,15 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorTablaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLayeredPane1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         lblRegistrarProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
         lblRegistrarProducto.setForeground(new java.awt.Color(0, 51, 102));
         lblRegistrarProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRegistrarProducto.setText("REGISTRAR PRODUCTOS");
+        lblRegistrarProducto.setText("MOSTRAR PRODUCTOS");
 
         ContenedorMesadeTrabajo.setLayer(ContenedorTabla, javax.swing.JLayeredPane.DEFAULT_LAYER);
         ContenedorMesadeTrabajo.setLayer(lblRegistrarProducto, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -371,7 +274,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                 .addComponent(lblRegistrarProducto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         fONDOADMIN1.add(ContenedorMesadeTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 52, -1, 580));
@@ -421,113 +324,13 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
        JOptionPane.showConfirmDialog(null,"Desea regresar al inicio de sesion?", "Registrar un producto", JOptionPane.YES_NO_OPTION);
     }//GEN-LAST:event_lblCerrarSesionMouseClicked
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        //Llamar a Categoria
-        Fecha();
-        
-        Categoria(); 
-        
-        //Igualar variables a los componentes necesarios de la ventana
-        p1++;
-        p2 = Integer.valueOf(txtCantidad.getText());
-        p3 = txtDesc.getText();
-        p4 = txtNombre.getText();
-        p5 = cate;
-        p6 = Double.parseDouble(txtPrecios.getText());
-        
-        producto producto = new producto(p1,p2,p3,p4,p5,p6);
-        contenedor.add(producto);
-
-        //mostrar();
-        CargaInterfaz();
-        CargarDatos();  
-        
-        txtCantidad.setText("");
-        txtDesc.setText("");
-        txtNombre.setText("");
-        txtPrecios.setText("");
-        
-        
-    }//GEN-LAST:event_btnRegistrarActionPerformed
-
-    private void cbCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCategoriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbCategoriaActionPerformed
-
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
-        MOSTRARPRODUCTO MP = new MOSTRARPRODUCTO();
-        MP.setVisible(true);
-        
+                CargaInterfaz();
+        CargarDatos();  
     }//GEN-LAST:event_btnRegresarActionPerformed
     
-    
-    public void Categoria(){
-                switch (cbCategoria.getSelectedIndex()){
-            case 0:
-                this.cate = "Refrescos";
-                break;
-            case 1:
-                this.cate = "Lacteos";
-                break; 
-            case 2:
-                this.cate = "Embutidos";
-                break;
-            case 3:
-                this.cate = "Consome";
-                break; 
-             case 4:
-                this.cate = "Crema de cacahuate";
-                break;
-            case 5:
-                this.cate = "Alimento para bebe";
-                break; 
-            case 6:
-                this.cate = "Cereales";
-                break;
-            case 7:
-                this.cate = "Especias";
-                break;                
-             case 8:
-                this.cate = "Harinas";
-                break;
-            case 9:
-                this.cate = "Salsas";
-                break; 
-            case 10:
-                this.cate = "Sazonadores";
-                break;
-            case 11:
-                this.cate = "Pastas";
-                break;            
-             case 12:
-                this.cate = "Enlatadas";
-                break;
-            case 13:
-                this.cate = "Confiteria";
-                break; 
-            case 14:
-                this.cate = "Frutas y verduras";
-                break;
-            case 15:
-                this.cate = "Bebidas";
-                break;                
-             case 16:
-                this.cate = "Carnes";
-                break;
-            case 17:
-                this.cate = "Medicamentos";
-                break; 
-            case 18:
-                this.cate = "Higuiene";
-                break;
-           }
-    
-                
-    } 
-    
-    
-    	public void CargaInterfaz()
+      	public void CargaInterfaz()
 	{
             String datos[][] = {};
             String columna [] = {"ID","CANTIDAD","NOMBRE","CATEGORIA","DESCRIPCION", "PRECIO"}; 
@@ -551,31 +354,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         }
     
     }
-    /*
-    public void mostrar(){
-    
-    String matris[][] = new String[lista.size()][6];
-    
-     for (int i=0; i < lista.size(); i++){
-     matris[i][0] = lista.get(i).getSidproducto();
-     matris[i][1] = lista.get(i).getSstock();
-     matris[i][2] = lista.get(i).getSnombreProd();
-     matris[i][3] = lista.get(i).getSdescripProd();
-     matris[i][4] = lista.get(i).getSCategoria();
-     matris[i][5] = lista.get(i).getSprecio();
-       
-    }
-              
-    tbRegistrarProductos.setModel(new javax.swing.table.DefaultTableModel(
-    matris,
-    new String [] {
-    "Id", "Cantidad", "Nombre del Producto", "Descripcion", "Categoria", "Precio"
-    }
-    ));
-    
-    
-    }
-*/
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -590,20 +369,21 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(REGISTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MOSTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(REGISTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MOSTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(REGISTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MOSTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(REGISTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MOSTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new REGISTRARPRODUCTO().setVisible(true);
+                new MOSTRARPRODUCTO().setVisible(true);
             }
         });
     }
@@ -614,28 +394,20 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     private javax.swing.JLayeredPane ContenedorMenu;
     private javax.swing.JLayeredPane ContenedorMesadeTrabajo;
     private javax.swing.JPanel ContenedorTabla;
-    private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JButton btnRegresar1;
-    private javax.swing.JComboBox<String> cbCategoria;
     private Modelo.FONDOADMIN fONDOADMIN1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCantidad;
-    private javax.swing.JLabel lblCategoria;
     private javax.swing.JLabel lblCerrarSesion;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblFecha1;
     private javax.swing.JLabel lblHora1;
     private javax.swing.JLabel lblNombreProducto;
-    private javax.swing.JLabel lblPrecios;
     private javax.swing.JLabel lblRegistrarProducto;
     private javax.swing.JTable tbRegistrarProductos;
-    private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtDesc;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPrecios;
     // End of variables declaration//GEN-END:variables
 
     private String toString(int HoraActual) {

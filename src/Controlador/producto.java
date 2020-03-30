@@ -5,6 +5,8 @@
  */
 package Controlador;
 
+import java.util.ArrayList;
+
 
 /**
  *
@@ -118,5 +120,6 @@ public class producto {
             public void setPrecio(double precio) {
                 this.precio = precio;
             }
-
+            
+        
 }
