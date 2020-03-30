@@ -12,17 +12,23 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 public class MOSTRARPRODUCTO extends javax.swing.JFrame {
     // Creacion de ArrayList
 
-    REGISTRARPRODUCTO PROD = new REGISTRARPRODUCTO();   
+    private DefaultTableModel modelo;
+    int contador = 0;
+    
+//    REGISTRARPRODUCTO PROD = new REGISTRARPRODUCTO();   
     
     public MOSTRARPRODUCTO() {
         initComponents();
         setLocationRelativeTo(null);
 
+        CargaInterfaz();
+        CargarDatos();  
         
         //Para obtener la hora actual
         Fechas hora = new Fechas();
@@ -395,7 +401,7 @@ public class MOSTRARPRODUCTO extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         //Llamar a Categoria
 
-        PROD.mostrar();
+        
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
@@ -403,6 +409,30 @@ public class MOSTRARPRODUCTO extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbCategoriaActionPerformed
     
+      	public void CargaInterfaz()
+	{
+            String datos[][] = {};
+            String columna [] = {"ID","CANTIDAD","NOMBRE","CATEGORIA","DESCRIPCION", "PRECIO"}; 
+            modelo = new DefaultTableModel(datos,columna);
+            tbRegistrarProductos.setModel(modelo);   
+   	} 
+    
+            	public void CargarDatos()
+	{
+       		producto p; // INSTANCIA DE LA CLASE QUE CREAMOS
+        
+       		for (int i = 0; i < REGISTRARPRODUCTO.contenedor.size(); i++){
+            	p = (producto)REGISTRARPRODUCTO.contenedor.get(i);
+            	modelo.insertRow(contador, new Object []{});
+           	modelo.setValueAt(p.getSidproducto(), contador, 0); 
+            	modelo.setValueAt(p.getSstock() , contador, 1);
+            	modelo.setValueAt(p.getSnombreProd() , contador, 2);
+                modelo.setValueAt(p.getSCategoria() , contador, 3);
+                modelo.setValueAt(p.getSdescripProd() , contador, 4);
+                modelo.setValueAt(p.getSprecio() , contador, 5);
+        }
+    
+    }
    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
