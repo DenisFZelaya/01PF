@@ -1,13 +1,14 @@
 package Controlador;
 //class Triangulo extends DosDimensiones
-class cajero extends usuario {
+public class cajero extends usuario {
     private int idCajero=0;
     private String turno="";
 
     public cajero() {
     }
     
-    public cajero(int pidCajero, String pturno) {
+    public cajero(String pnombre, String pusuario, String pcontraseña, String pidentidad, int psalario,int pidCajero, String pturno) {
+        super(pnombre,pusuario,pcontraseña,pidentidad,psalario);
         this.idCajero=pidCajero;
         this.turno=pturno;
     }
@@ -26,17 +27,6 @@ class cajero extends usuario {
 
     public void setTurno(String pturno) {
         this.turno = pturno;
-    }
-        
-    
-        public String getinformacion ()
-    {
-        String datos = "";
-        datos = "Nombre: "+this.getNombre()+"\n"
-                + "Salario: "+this.getSalario()+"\n"
-                + "Id Cajero: "+this.idCajero+"\n"
-                + "Turno: "+this.turno+"\n";    
-        return datos;
     }
 
     

@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package Vista;
-import Controlador.producto;
+import Controlador.usuario;
+import Controlador.cajero;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -19,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class REGISTRARCAJEROS extends javax.swing.JFrame {
  // Creacion de ArrayList
-     ArrayList<producto> lista = new ArrayList<producto>();
+     ArrayList<cajero> lista = new ArrayList<cajero>();
         
      //Variables para los parametros
         int p1 = 0;
@@ -445,8 +446,6 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
       //Llamar a Categoria
         Fecha();
         
-        Categoria(); 
-        
         //Igualar variables a los componentes necesarios de la ventana
         p1 = Integer.valueOf(txtIdCajero.getText());
         p2 = txtNombre.getText();
@@ -457,15 +456,10 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         p7 = turno;
  
         // **********hacer la instancia
-        cajero cajero = new cajero(p1,p2,p3,p4,p5,p6);
-        lista.add(cajero);
 
-        mostrar();
+
         //todos los string
-        txtNombre.setText("");
-        txtCedula.setText("");
-        txtUsuario.setText("");
-        txtContraseña.setText("");
+
         
            // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -486,29 +480,7 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
                 break;
            }
     }
-    public void mostrar(){
-    
-    String matris[][] = new String[lista.size()][7];
-    
-     for (int i=0; i < lista.size(); i++){
-     matris[i][0] = lista.get(i).getSidproducto();
-     matris[i][1] = lista.get(i).getSstock();
-     matris[i][2] = lista.get(i).getSnombreProd();
-     matris[i][3] = lista.get(i).getSdescripProd();
-     matris[i][4] = lista.get(i).getSCategoria();
-     matris[i][5] = lista.get(i).getSprecio();
-       
-    }
-              
-    tbRegistrarProductos.setModel(new javax.swing.table.DefaultTableModel(
-    matris,
-    new String [] {
-    "Id", "Cantidad", "Nombre del Producto", "Descripcion", "Categoria", "Precio"
-    }
-    ));
-    
-    
-    }
+
     /**
      * @param args the command line arguments
      */
