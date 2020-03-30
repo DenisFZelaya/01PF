@@ -421,6 +421,8 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
        JOptionPane.showConfirmDialog(null,"Desea regresar al inicio de sesion?", "Registrar un producto", JOptionPane.YES_NO_OPTION);
     }//GEN-LAST:event_lblCerrarSesionMouseClicked
 
+
+    
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         //Llamar a Categoria
         Fecha();

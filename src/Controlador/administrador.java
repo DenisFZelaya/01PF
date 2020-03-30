@@ -14,13 +14,10 @@ public class administrador extends usuario{
     String especializacion="";
     
     
-    public administrador()
-    {
-        super();
-    }
           
-    public administrador(int pcodigo, String pespecializacion)
+    public administrador(String nombre, String usuario, String contraseña, String identidad, int salario ,int pcodigo, String pespecializacion)
     {
+        super(nombre, usuario, contraseña, identidad, salario);
         this.codigo = pcodigo;
         this.especializacion = pespecializacion;
     }
@@ -43,5 +40,19 @@ public class administrador extends usuario{
     public String getespecializacion()
     {
         return this.especializacion;
+    }
+    
+    //CONVERTIR SALARIO Y CODIGO EN STRING
+    public String getSsalario()
+    {
+          String sal;
+          sal = String.valueOf(this.salario);
+          return sal;
+    }
+    
+    public String getScodigo(){
+        String cod;
+        cod = String.valueOf(this.especializacion);
+        return cod;
     }
 }

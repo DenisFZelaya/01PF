@@ -1,8 +1,8 @@
 package Controlador;
 
 public class usuario {
-    private String nombre="",usuario="",contraseña="", identidad= "";
-    private int salario=0;
+    public String nombre="",usuario="",contraseña="", identidad= "";
+    public int salario=0;
 
     public usuario() {
     }

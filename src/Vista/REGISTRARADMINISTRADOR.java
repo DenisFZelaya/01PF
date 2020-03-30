@@ -5,8 +5,12 @@
  */
 package Vista;
 
-import Controlador.Fecha;
+import Controlador.administrador;
+import Controlador.producto;
+import java.awt.Color;
+import java.util.LinkedList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,18 +18,25 @@ import javax.swing.JOptionPane;
  */
 public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
 
-    /**
-     * Creates new form REGISTRARPRODUCTO
-     */
+     private DefaultTableModel modelo;
+    int contador = 0;
+    // Creacion de ArrayList
+    public static LinkedList contenedor = new LinkedList();
+    
+    // VARIABLES GLOBALES DE LA CLASE ADMINISTRADOR
+        String P1;
+        String P2;
+        String P3;
+        String P4;
+        int P5=0;
+        int P6=0;
+        String P7;
+    
     public REGISTRARADMINISTRADOR() {
         initComponents();
         setLocationRelativeTo(null);
         
-        Fecha fecha = new Fecha();
-        
-        lblFecha.setText(fecha.getSFecha());
-        
-        
+
     }
     
     /**
@@ -46,7 +57,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         ContenedorMesadeTrabajo = new javax.swing.JLayeredPane();
         ContenedorTabla = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbRegistrarCajeros = new javax.swing.JTable();
+        tbRegistrarAdmin = new javax.swing.JTable();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         lblNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
@@ -57,11 +68,11 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         txtCedula = new javax.swing.JTextField();
         lblCedula = new javax.swing.JLabel();
         lblTurno = new javax.swing.JLabel();
-        txtIdCajero = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
         lblSalario = new javax.swing.JLabel();
         txtSalario = new javax.swing.JTextField();
         lblCodigo = new javax.swing.JLabel();
-        txtEspec = new javax.swing.JComboBox<>();
+        cbSpec = new javax.swing.JComboBox<>();
         txtContraseña = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
@@ -154,20 +165,20 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         ContenedorTabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ContenedorTabla.setOpaque(false);
 
-        tbRegistrarCajeros.setBackground(new java.awt.Color(153, 255, 153));
-        tbRegistrarCajeros.setModel(new javax.swing.table.DefaultTableModel(
+        tbRegistrarAdmin.setBackground(new java.awt.Color(153, 255, 153));
+        tbRegistrarAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "No.", "Nombre Completo", "No. de Identidad", "Usuario", "Contraseña", "Salario", "Codigo Empleado"
+                "Nombre Completo", "Usuario", "Contraseña", "No. de Identidad", "Salario", "Codigo Empleado", "Especializacion"
             }
         ));
-        tbRegistrarCajeros.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
-        tbRegistrarCajeros.setEnabled(false);
-        tbRegistrarCajeros.setRowHeight(25);
-        tbRegistrarCajeros.setSelectionBackground(new java.awt.Color(102, 255, 153));
-        jScrollPane1.setViewportView(tbRegistrarCajeros);
+        tbRegistrarAdmin.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
+        tbRegistrarAdmin.setEnabled(false);
+        tbRegistrarAdmin.setRowHeight(25);
+        tbRegistrarAdmin.setSelectionBackground(new java.awt.Color(102, 255, 153));
+        jScrollPane1.setViewportView(tbRegistrarAdmin);
 
         jLayeredPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jLayeredPane1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -186,6 +197,11 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(0, 51, 102));
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         txtUsuario.setPreferredSize(new java.awt.Dimension(6, 30));
 
@@ -203,8 +219,8 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         lblTurno.setForeground(new java.awt.Color(0, 51, 102));
         lblTurno.setText("Especializacion:");
 
-        txtIdCajero.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        txtIdCajero.setSelectionColor(new java.awt.Color(102, 255, 102));
+        txtCodigo.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtCodigo.setSelectionColor(new java.awt.Color(102, 255, 102));
 
         lblSalario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblSalario.setForeground(new java.awt.Color(0, 51, 102));
@@ -217,11 +233,11 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         lblCodigo.setForeground(new java.awt.Color(0, 51, 102));
         lblCodigo.setText("Codigo:");
 
-        txtEspec.setBackground(new java.awt.Color(153, 255, 153));
-        txtEspec.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtEspec.setForeground(new java.awt.Color(0, 51, 102));
-        txtEspec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cajero", "Administrador/Contador", "Programador" }));
-        txtEspec.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cbSpec.setBackground(new java.awt.Color(153, 255, 153));
+        cbSpec.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cbSpec.setForeground(new java.awt.Color(0, 51, 102));
+        cbSpec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador/Contador", "Programador" }));
+        cbSpec.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/201-user.png"))); // NOI18N
@@ -265,11 +281,11 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         jLayeredPane1.setLayer(txtCedula, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblCedula, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblTurno, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(txtIdCajero, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(txtCodigo, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblSalario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(txtSalario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblCodigo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(txtEspec, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(cbSpec, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(txtContraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLayeredPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -296,7 +312,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(lblTurno)
                         .addGap(18, 18, 18)
-                        .addComponent(txtEspec, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbSpec, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblCodigo, javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,7 +320,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtSalario, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                            .addComponent(txtIdCajero)))
+                            .addComponent(txtCodigo)))
                     .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -327,7 +343,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCedula)
-                            .addComponent(txtIdCajero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCodigo))
                         .addGap(18, 18, 18)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,7 +351,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
                                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblTurno)
-                                    .addComponent(txtEspec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbSpec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblUsuario))
                                 .addGap(17, 17, 17)
                                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -375,7 +391,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         lblRegistrarProducto.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblRegistrarProducto.setForeground(new java.awt.Color(0, 51, 102));
         lblRegistrarProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRegistrarProducto.setText("REGISTRAR EMPLEADOS");
+        lblRegistrarProducto.setText("REGISTRAR ADMINISTRADOR");
 
         ContenedorMesadeTrabajo.setLayer(ContenedorTabla, javax.swing.JLayeredPane.DEFAULT_LAYER);
         ContenedorMesadeTrabajo.setLayer(lblRegistrarProducto, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -450,9 +466,96 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         JOptionPane.showConfirmDialog(null,"Desea regresar al inicio de sesion?", "Registrar un producto", JOptionPane.YES_NO_OPTION);
     }//GEN-LAST:event_lblCerrarSesionMouseClicked
 
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+            switch (this.cbSpec.getSelectedIndex())
+            {
+                case 0:
+                    this.P7 = "Administrador/Contador";
+                    break;
+                
+                    case 1:
+                    this.P7 = "Programador";
+                    break;
+            }
+        
+        
+        ValidarDatos();
+
+ 
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
+        public void ValidarDatos(){
+            
+            switch (this.cbSpec.getSelectedIndex())
+            {
+                case 0:
+                    this.P7 = "Administrador/Contador";
+                    break;
+                
+                    case 1:
+                    this.P7 = "Programador";
+                    break;
+            }
+            
+        this.P1 = txtNombre.getText();
+        this.P2 = txtUsuario.getText() ;
+        this.P3 = txtContraseña.getText();
+        this.P4 = txtCedula.getText();
+        this.P5 = Integer.parseInt(txtSalario.getText());
+        this.P6 = Integer.parseInt(txtCodigo.getText());
+        
+        if (P1.equals("")){ txtNombre.setBackground(Color.red); }
+        if (P2.equals("")){ txtUsuario.setBackground(Color.red); }
+        if (P3.equals("")){ txtContraseña.setBackground(Color.red); }
+        if (P4.equals("")){ txtCedula.setBackground(Color.red); }
+        if (txtSalario.getText().equals("")){ txtSalario.setBackground(Color.red); }
+        if (txtCodigo.getText().equals("")){ txtCodigo.setBackground(Color.red); }
+   
+        
+        if (P1.equals("") || P2.equals("") || P3.equals("") || P4.equals("") || txtSalario.getText().equals("")|| txtCodigo.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Llene todos los campos");
+        } else {
+        
+        CargaInterfaz();
+        CargarDatos();  
+        
+        }
+        
+ 
+    
+    }
+              public void CargaInterfaz()
+	{
+            String datos[][] = {};
+            String columna [] = {"NOMBRE COMPLETO","USUARIO","CONTRASEÑA","IDENTIDAD","SALARIO", "CODIGO", "ESPECIALIZACION"}; 
+            modelo = new DefaultTableModel(datos,columna);
+            tbRegistrarAdmin.setModel(modelo);   
+   	} 
+    
+                
+            	public void CargarDatos()
+	{
+       		administrador a; // INSTANCIA DE LA CLASE QUE CREAMOS
+        
+       		for (int i = 0; i < REGISTRARADMINISTRADOR.contenedor.size(); i++){
+            	a = (administrador)REGISTRARADMINISTRADOR.contenedor.get(i);
+            	modelo.insertRow(contador, new Object []{});
+           	modelo.setValueAt(a.getNombre(), contador, 0); 
+            	modelo.setValueAt(a.getUsuario() , contador, 1);
+            	modelo.setValueAt(a.getContraseña() , contador, 2);
+                modelo.setValueAt(a.getIdentidad() , contador, 3);
+                modelo.setValueAt(a.getSsalario() , contador, 4);
+                modelo.setValueAt(a.getScodigo() , contador, 5);
+                modelo.setValueAt(a.getespecializacion() , contador, 6);
+        } 
+        
+        }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -496,6 +599,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
     private javax.swing.JPanel ContenedorTabla;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRegresar;
+    private javax.swing.JComboBox<String> cbSpec;
     private Modelo.FONDOADMIN fONDOADMIN1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -515,11 +619,10 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
     private javax.swing.JLabel lblSalario;
     private javax.swing.JLabel lblTurno;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JTable tbRegistrarCajeros;
+    private javax.swing.JTable tbRegistrarAdmin;
     private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtCodigo;
     private javax.swing.JPasswordField txtContraseña;
-    private javax.swing.JComboBox<String> txtEspec;
-    private javax.swing.JTextField txtIdCajero;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtSalario;
     private javax.swing.JTextField txtUsuario;
