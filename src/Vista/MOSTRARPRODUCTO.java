@@ -76,7 +76,12 @@ public class MOSTRARPRODUCTO extends javax.swing.JFrame {
 
         btnRegresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(0, 51, 102));
-        btnRegresar.setText("Regresar");
+        btnRegresar.setText("Actualizar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
 
         ContenedorMenu.setLayer(btnRegresar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -318,6 +323,12 @@ public class MOSTRARPRODUCTO extends javax.swing.JFrame {
 
        JOptionPane.showConfirmDialog(null,"Desea regresar al inicio de sesion?", "Registrar un producto", JOptionPane.YES_NO_OPTION);
     }//GEN-LAST:event_lblCerrarSesionMouseClicked
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+                CargaInterfaz();
+        CargarDatos();  
+    }//GEN-LAST:event_btnRegresarActionPerformed
     
       	public void CargaInterfaz()
 	{
