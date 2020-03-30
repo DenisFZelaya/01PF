@@ -14,17 +14,12 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 
 
-public class REGISTRARPRODUCTO extends javax.swing.JFrame {
+public class MOSTRARPRODUCTO extends javax.swing.JFrame {
     // Creacion de ArrayList
-     ArrayList<producto> lista = new ArrayList<producto>();
-        
-     //Variables para los parametros
-        int p1 = 0, p2 = 0;
-        String p3, p4, p5;
-        double p6;
-        String cate;
-       
-    public REGISTRARPRODUCTO() {
+
+    REGISTRARPRODUCTO PROD = new REGISTRARPRODUCTO();   
+    
+    public MOSTRARPRODUCTO() {
         initComponents();
         setLocationRelativeTo(null);
 
@@ -50,7 +45,6 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         fONDOADMIN1 = new Modelo.FONDOADMIN();
         ContenedorMenu = new javax.swing.JLayeredPane();
         btnRegresar = new javax.swing.JButton();
-        btnRegresar1 = new javax.swing.JButton();
         ContenedorBarraSuperior = new javax.swing.JLayeredPane();
         lblCerrarSesion = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
@@ -83,42 +77,25 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
         btnRegresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(0, 51, 102));
-        btnRegresar.setText("MOSTRAR PRODUCTO");
-        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresarActionPerformed(evt);
-            }
-        });
-
-        btnRegresar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        btnRegresar1.setForeground(new java.awt.Color(0, 51, 102));
-        btnRegresar1.setText("Regresar");
+        btnRegresar.setText("Regresar");
 
         ContenedorMenu.setLayer(btnRegresar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        ContenedorMenu.setLayer(btnRegresar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout ContenedorMenuLayout = new javax.swing.GroupLayout(ContenedorMenu);
         ContenedorMenu.setLayout(ContenedorMenuLayout);
         ContenedorMenuLayout.setHorizontalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-            .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ContenedorMenuLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(btnRegresar1, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(ContenedorMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                .addContainerGap())
         );
         ContenedorMenuLayout.setVerticalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                .addContainerGap(517, Short.MAX_VALUE)
+                .addContainerGap(594, Short.MAX_VALUE)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(142, 142, 142))
-            .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                    .addContainerGap(604, Short.MAX_VALUE)
-                    .addComponent(btnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(55, 55, 55)))
+                .addGap(65, 65, 65))
         );
 
         fONDOADMIN1.add(ContenedorMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 700));
@@ -340,7 +317,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         lblRegistrarProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
         lblRegistrarProducto.setForeground(new java.awt.Color(0, 51, 102));
         lblRegistrarProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRegistrarProducto.setText("REGISTRAR PRODUCTOS");
+        lblRegistrarProducto.setText("MOSTRAR PRODUCTOS");
 
         ContenedorMesadeTrabajo.setLayer(ContenedorTabla, javax.swing.JLayeredPane.DEFAULT_LAYER);
         ContenedorMesadeTrabajo.setLayer(lblRegistrarProducto, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -417,131 +394,16 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         //Llamar a Categoria
-        Fecha();
-        
-        Categoria(); 
-        
-        //Igualar variables a los componentes necesarios de la ventana
-        p1++;
-        p2 = Integer.valueOf(txtCantidad.getText());
-        p3 = txtDesc.getText();
-        p4 = txtNombre.getText();
-        p5 = cate;
-        p6 = Double.parseDouble(txtPrecios.getText());
-        
-        producto producto = new producto(p1,p2,p3,p4,p5,p6);
-        lista.add(producto);
 
-        mostrar();
-        
-        txtCantidad.setText("");
-        txtDesc.setText("");
-        txtNombre.setText("");
-        txtPrecios.setText("");
-        
+        PROD.mostrar();
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void cbCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCategoriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbCategoriaActionPerformed
-
-    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        // TODO add your handling code here:
-        MOSTRARPRODUCTO MP = new MOSTRARPRODUCTO();
-        MP.setVisible(true);
-        
-    }//GEN-LAST:event_btnRegresarActionPerformed
     
-    
-    public void Categoria(){
-                switch (cbCategoria.getSelectedIndex()){
-            case 0:
-                this.cate = "Refrescos";
-                break;
-            case 1:
-                this.cate = "Lacteos";
-                break; 
-            case 2:
-                this.cate = "Embutidos";
-                break;
-            case 3:
-                this.cate = "Consome";
-                break; 
-             case 4:
-                this.cate = "Crema de cacahuate";
-                break;
-            case 5:
-                this.cate = "Alimento para bebe";
-                break; 
-            case 6:
-                this.cate = "Cereales";
-                break;
-            case 7:
-                this.cate = "Especias";
-                break;                
-             case 8:
-                this.cate = "Harinas";
-                break;
-            case 9:
-                this.cate = "Salsas";
-                break; 
-            case 10:
-                this.cate = "Sazonadores";
-                break;
-            case 11:
-                this.cate = "Pastas";
-                break;            
-             case 12:
-                this.cate = "Enlatadas";
-                break;
-            case 13:
-                this.cate = "Confiteria";
-                break; 
-            case 14:
-                this.cate = "Frutas y verduras";
-                break;
-            case 15:
-                this.cate = "Bebidas";
-                break;                
-             case 16:
-                this.cate = "Carnes";
-                break;
-            case 17:
-                this.cate = "Medicamentos";
-                break; 
-            case 18:
-                this.cate = "Higuiene";
-                break;
-           }
-    
-    } 
-    
-    
-    public void mostrar(){
-    
-    String matris[][] = new String[lista.size()][6];
-    
-     for (int i=0; i < lista.size(); i++){
-     matris[i][0] = lista.get(i).getSidproducto();
-     matris[i][1] = lista.get(i).getSstock();
-     matris[i][2] = lista.get(i).getSnombreProd();
-     matris[i][3] = lista.get(i).getSdescripProd();
-     matris[i][4] = lista.get(i).getSCategoria();
-     matris[i][5] = lista.get(i).getSprecio();
-       
-    }
-              
-    tbRegistrarProductos.setModel(new javax.swing.table.DefaultTableModel(
-    matris,
-    new String [] {
-    "Id", "Cantidad", "Nombre del Producto", "Descripcion", "Categoria", "Precio"
-    }
-    ));
-    
-    
-    }
-
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -556,20 +418,21 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(REGISTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MOSTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(REGISTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MOSTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(REGISTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MOSTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(REGISTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MOSTRARPRODUCTO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new REGISTRARPRODUCTO().setVisible(true);
+                new MOSTRARPRODUCTO().setVisible(true);
             }
         });
     }
@@ -582,7 +445,6 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     private javax.swing.JPanel ContenedorTabla;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JButton btnRegresar1;
     private javax.swing.JComboBox<String> cbCategoria;
     private Modelo.FONDOADMIN fONDOADMIN1;
     private javax.swing.JLayeredPane jLayeredPane1;
