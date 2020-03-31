@@ -126,6 +126,8 @@ public class MENUADMIN extends javax.swing.JFrame {
         CONTABILIDAD frm = new CONTABILIDAD();
         frm.setVisible(true);
         this.setVisible(false);
+        frm.CargaInterfaz();
+        frm.CargarDatos(); 
     }//GEN-LAST:event_btncontaActionPerformed
 
     private void txtcerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcerrarActionPerformed
