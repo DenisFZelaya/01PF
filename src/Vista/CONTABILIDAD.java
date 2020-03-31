@@ -9,6 +9,7 @@ import Controlador.Fechas;
 import Controlador.contabilidad;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.HeadlessException;
 import java.awt.Image;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -35,9 +36,15 @@ public class CONTABILIDAD extends javax.swing.JFrame {
         int p2 = 0, p3 = 0, p4 = 0;
         String p1;
         String cate;
-
+public void validar()
+    {
+         if(txting.getText().equals("") || txtegre.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null,"Asegurese de llenar todos los campos"); 
+        }
+    }
      
-
+  
     /**
      * Creates new form CONTABILIDAD
      */
@@ -71,6 +78,7 @@ public class CONTABILIDAD extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         conta = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -89,9 +97,13 @@ public class CONTABILIDAD extends javax.swing.JFrame {
         btnactualizar = new javax.swing.JButton();
         lblFecha = new javax.swing.JLabel();
         txtutil = new javax.swing.JTextField();
+        uti = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(960, 594));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         conta.setModel(new javax.swing.table.DefaultTableModel(
@@ -153,6 +165,11 @@ public class CONTABILIDAD extends javax.swing.JFrame {
                 txtingActionPerformed(evt);
             }
         });
+        txting.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtingKeyTyped(evt);
+            }
+        });
         getContentPane().add(txting, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 106, 66, 30));
 
         jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
@@ -164,6 +181,11 @@ public class CONTABILIDAD extends javax.swing.JFrame {
         txtegre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtegreActionPerformed(evt);
+            }
+        });
+        txtegre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtegreKeyTyped(evt);
             }
         });
         getContentPane().add(txtegre, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 106, 66, 30));
@@ -181,7 +203,7 @@ public class CONTABILIDAD extends javax.swing.JFrame {
                 btnguardarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, -1, 30));
+        getContentPane().add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 145, -1, 30));
 
         btnregresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         btnregresar.setForeground(new java.awt.Color(0, 51, 102));
@@ -218,12 +240,24 @@ public class CONTABILIDAD extends javax.swing.JFrame {
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 160, 30));
 
+        txtutil.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        txtutil.setEnabled(false);
         txtutil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtutilActionPerformed(evt);
             }
         });
         getContentPane().add(txtutil, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 106, 70, 30));
+
+        uti.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        uti.setForeground(new java.awt.Color(0, 51, 102));
+        uti.setText("Calcular Utilidad");
+        uti.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                utiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(uti, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 130, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -248,10 +282,10 @@ public class CONTABILIDAD extends javax.swing.JFrame {
         mes();
         int error=0;
        
-          try{
-         if(txting.getText().equals("") || txtegre.getText().equals("")|| txtutil.getText().equals(""))
+        try{
+        if(txting.getText().equals("") || txtegre.getText().equals("") ||txtutil.getText().equals(""))
         {
-        JOptionPane.showMessageDialog(null,"Asegurese de llenar todos los campos");
+            JOptionPane.showMessageDialog(null,"Asegurese de llenar todos los campos"); 
         }else{
         p1 = cate;
         p2 = Integer.valueOf(txting.getText());
@@ -267,8 +301,10 @@ public class CONTABILIDAD extends javax.swing.JFrame {
         
         txting.setText("");
         txtegre.setText("");
-        txtutil.setText("");       
-        }
+        txtutil.setText("");  
+            
+        }     
+        
         }catch(Exception e){
         error=1;
         JOptionPane.showMessageDialog(null,"Por favor revise los campos");
@@ -306,6 +342,51 @@ public class CONTABILIDAD extends javax.swing.JFrame {
         CargaInterfaz();
         CargarDatos();  
     }//GEN-LAST:event_btnactualizarActionPerformed
+
+    private void txtingKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtingKeyTyped
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar))
+        {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Por favor ingresar solo números");
+        }
+    }//GEN-LAST:event_txtingKeyTyped
+
+    private void txtegreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtegreKeyTyped
+char validar = evt.getKeyChar();
+        if(Character.isLetter(validar))
+        {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Por favor ingresar solo números");
+        }
+    }//GEN-LAST:event_txtegreKeyTyped
+
+    private void utiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_utiActionPerformed
+        
+        int ingr=Integer.parseInt(txting.getText());
+        int egre=Integer.parseInt(txtegre.getText());
+        int ganancia;
+        String i, e;
+        i = String.valueOf(ingr);
+        e = String.valueOf(egre);
+        
+        if(i.equals("") || e.equals(""))
+        {
+            JOptionPane.showMessageDialog(null,"Asegurese de llenar todos los campos"); 
+        }else{
+         if (ingr < egre)
+            {
+            JOptionPane.showMessageDialog(null,"Este mes no obtuvo ganancias, solo pérdidas");
+            ganancia = ingr - egre;    
+            txtutil.setText(String.valueOf(ganancia));
+            }else{
+            ganancia = ingr - egre;    
+            txtutil.setText(String.valueOf(ganancia));    
+            }   
+        }
+    }//GEN-LAST:event_utiActionPerformed
     
     public void mes(){
                 switch (cbmes.getSelectedIndex()){
@@ -349,6 +430,10 @@ public class CONTABILIDAD extends javax.swing.JFrame {
     }   
     }
     
+                
+    
+  
+    
     public void CargaInterfaz()
 	{
             String datos[][] = {};
@@ -372,7 +457,7 @@ public class CONTABILIDAD extends javax.swing.JFrame {
         }
     
     }
-                
+               
                 
     /**
      * @param args the command line arguments
@@ -415,6 +500,7 @@ public class CONTABILIDAD extends javax.swing.JFrame {
     private javax.swing.JButton btnregresar;
     private javax.swing.JComboBox<String> cbmes;
     private javax.swing.JTable conta;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -428,6 +514,7 @@ public class CONTABILIDAD extends javax.swing.JFrame {
     private javax.swing.JTextField txtegre;
     private javax.swing.JTextField txting;
     private javax.swing.JTextField txtutil;
+    private javax.swing.JButton uti;
     // End of variables declaration//GEN-END:variables
 class ImagenFondo extends JPanel
 {

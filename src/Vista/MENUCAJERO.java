@@ -98,7 +98,9 @@ ImagenFondo ejemplo =  new ImagenFondo();
     }//GEN-LAST:event_txtcerrarActionPerformed
 
     private void btnclientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclientesActionPerformed
-       
+       REGISTRARCAJEROS frm = new REGISTRARCAJEROS();
+        frm.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnclientesActionPerformed
 
     private void btnfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfacturaActionPerformed
