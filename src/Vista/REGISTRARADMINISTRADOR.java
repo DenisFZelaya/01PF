@@ -6,7 +6,6 @@
 package Vista;
 
 import Controlador.administrador;
-import Controlador.producto;
 import java.awt.Color;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
@@ -31,11 +30,11 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         int P5=0;
         int P6=0;
         String P7;
+        
     
     public REGISTRARADMINISTRADOR() {
         initComponents();
         setLocationRelativeTo(null);
-        
 
     }
     
@@ -467,22 +466,17 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
     }//GEN-LAST:event_lblCerrarSesionMouseClicked
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
-            switch (this.cbSpec.getSelectedIndex())
-            {
-                case 0:
-                    this.P7 = "Administrador/Contador";
-                    break;
-                
-                    case 1:
-                    this.P7 = "Programador";
-                    break;
-            }
-        
-        
-        ValidarDatos();
 
- 
+          
+
+        
+          ValidarDatos();
+     
+         CargaInterfaz();
+        CargarDatos();  
+
+            
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
@@ -502,33 +496,37 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
                     break;
             }
             
+            
+            
+        //if (P1.equals("")){ txtNombre.setBackground(Color.red); }
+        //if (P2.equals("")){ txtUsuario.setBackground(Color.red); }
+        //if (P3.equals("")){ txtContraseña.setBackground(Color.red); }
+        //if (P4.equals("")){ txtCedula.setBackground(Color.red); }
+        //if (txtSalario.getText().equals("")){ txtSalario.setBackground(Color.red); }
+        //if (txtCodigo.getText().equals("")){ txtCodigo.setBackground(Color.red); }
+   
+        
+        if (txtNombre.getText().equals("") || txtUsuario.getText().equals("") || txtContraseña.getText().equals("") || txtCedula.getText().equals("") || txtSalario.getText().equals("")|| txtCodigo.getText().equals(""))
+        {
+            
+        if (txtNombre.getText().equals("")){ txtNombre.setBackground(Color.red); }
+ 
+            
+            
+            JOptionPane.showMessageDialog(null, "Llene todos los campos");
+        } else {
+         
         this.P1 = txtNombre.getText();
         this.P2 = txtUsuario.getText() ;
         this.P3 = txtContraseña.getText();
         this.P4 = txtCedula.getText();
         this.P5 = Integer.parseInt(txtSalario.getText());
         this.P6 = Integer.parseInt(txtCodigo.getText());
-        
-        if (P1.equals("")){ txtNombre.setBackground(Color.red); }
-        if (P2.equals("")){ txtUsuario.setBackground(Color.red); }
-        if (P3.equals("")){ txtContraseña.setBackground(Color.red); }
-        if (P4.equals("")){ txtCedula.setBackground(Color.red); }
-        if (txtSalario.getText().equals("")){ txtSalario.setBackground(Color.red); }
-        if (txtCodigo.getText().equals("")){ txtCodigo.setBackground(Color.red); }
-   
-        
-        if (P1.equals("") || P2.equals("") || P3.equals("") || P4.equals("") || txtSalario.getText().equals("")|| txtCodigo.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null, "Llene todos los campos");
-        } else {
-        
-        CargaInterfaz();
-        CargarDatos();  
-        
+        administrador admin = new administrador(P1,P2,P3,P4,P5,P6,P7);
+        contenedor.add(admin);     
+
         }
-        
- 
-    
+
     }
               public void CargaInterfaz()
 	{

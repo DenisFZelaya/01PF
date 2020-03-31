@@ -12,9 +12,7 @@ package Controlador;
 public class administrador extends usuario{
     int codigo=0;
     String especializacion="";
-    
-    
-          
+
     public administrador(String nombre, String usuario, String contraseña, String identidad, int salario ,int pcodigo, String pespecializacion)
     {
         super(nombre, usuario, contraseña, identidad, salario);
