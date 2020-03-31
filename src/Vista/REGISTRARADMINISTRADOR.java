@@ -5,11 +5,8 @@
  */
 package Vista;
 
-import Controlador.administrador;
-import java.awt.Color;
-import java.util.LinkedList;
+import Controlador.Fecha;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,27 +14,18 @@ import javax.swing.table.DefaultTableModel;
  */
 public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
 
-     private DefaultTableModel modelo;
-    int contador = 0;
-    // Creacion de ArrayList
-    public static LinkedList contenedor = new LinkedList();
-    
-    // VARIABLES GLOBALES DE LA CLASE ADMINISTRADOR
-        String P1;
-        String P2;
-        String P3;
-        String P4;
-        int P5=0;
-        int P6=0;
-        String P7;
-        
-    
+    /**
+     * Creates new form REGISTRARPRODUCTO
+     */
     public REGISTRARADMINISTRADOR() {
         initComponents();
         setLocationRelativeTo(null);
-        lblMAL.setVisible(false);
         
-
+        Fecha fecha = new Fecha();
+        
+        lblFecha.setText(fecha.getSFecha());
+        
+        
     }
     
     /**
@@ -58,7 +46,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         ContenedorMesadeTrabajo = new javax.swing.JLayeredPane();
         ContenedorTabla = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbRegistrarAdmin = new javax.swing.JTable();
+        tbRegistrarCajeros = new javax.swing.JTable();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         lblNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
@@ -69,15 +57,16 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         txtCedula = new javax.swing.JTextField();
         lblCedula = new javax.swing.JLabel();
         lblTurno = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
+        txtIdCajero = new javax.swing.JTextField();
         lblSalario = new javax.swing.JLabel();
         txtSalario = new javax.swing.JTextField();
         lblCodigo = new javax.swing.JLabel();
-        cbSpec = new javax.swing.JComboBox<>();
+        txtEspec = new javax.swing.JComboBox<>();
         txtContraseña = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
-        lblMAL = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         lblRegistrarProducto = new javax.swing.JLabel();
         ContenedorBarraSuperior1 = new javax.swing.JLayeredPane();
         lblHora1 = new javax.swing.JLabel();
@@ -91,11 +80,6 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
 
         btnRegresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         btnRegresar.setText("Regresar");
-        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresarActionPerformed(evt);
-            }
-        });
 
         ContenedorMenu.setLayer(btnRegresar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -170,20 +154,20 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         ContenedorTabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ContenedorTabla.setOpaque(false);
 
-        tbRegistrarAdmin.setBackground(new java.awt.Color(153, 255, 153));
-        tbRegistrarAdmin.setModel(new javax.swing.table.DefaultTableModel(
+        tbRegistrarCajeros.setBackground(new java.awt.Color(153, 255, 153));
+        tbRegistrarCajeros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nombre Completo", "Usuario", "Contraseña", "No. de Identidad", "Salario", "Codigo Empleado", "Especializacion"
+                "No.", "Nombre Completo", "No. de Identidad", "Usuario", "Contraseña", "Salario", "Codigo Empleado"
             }
         ));
-        tbRegistrarAdmin.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
-        tbRegistrarAdmin.setEnabled(false);
-        tbRegistrarAdmin.setRowHeight(25);
-        tbRegistrarAdmin.setSelectionBackground(new java.awt.Color(102, 255, 153));
-        jScrollPane1.setViewportView(tbRegistrarAdmin);
+        tbRegistrarCajeros.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
+        tbRegistrarCajeros.setEnabled(false);
+        tbRegistrarCajeros.setRowHeight(25);
+        tbRegistrarCajeros.setSelectionBackground(new java.awt.Color(102, 255, 153));
+        jScrollPane1.setViewportView(tbRegistrarCajeros);
 
         jLayeredPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jLayeredPane1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -202,11 +186,6 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(0, 51, 102));
         btnRegistrar.setText("Registrar");
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
-            }
-        });
 
         txtUsuario.setPreferredSize(new java.awt.Dimension(6, 30));
 
@@ -224,8 +203,8 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         lblTurno.setForeground(new java.awt.Color(0, 51, 102));
         lblTurno.setText("Especializacion:");
 
-        txtCodigo.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        txtCodigo.setSelectionColor(new java.awt.Color(102, 255, 102));
+        txtIdCajero.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtIdCajero.setSelectionColor(new java.awt.Color(102, 255, 102));
 
         lblSalario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblSalario.setForeground(new java.awt.Color(0, 51, 102));
@@ -238,19 +217,23 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         lblCodigo.setForeground(new java.awt.Color(0, 51, 102));
         lblCodigo.setText("Codigo:");
 
-        cbSpec.setBackground(new java.awt.Color(153, 255, 153));
-        cbSpec.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cbSpec.setForeground(new java.awt.Color(0, 51, 102));
-        cbSpec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador/Contador", "Programador" }));
-        cbSpec.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        txtEspec.setBackground(new java.awt.Color(153, 255, 153));
+        txtEspec.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtEspec.setForeground(new java.awt.Color(0, 51, 102));
+        txtEspec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cajero", "Administrador/Contador", "Programador" }));
+        txtEspec.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/201-user.png"))); // NOI18N
 
-        lblMAL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMAL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/201-delete.png"))); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/201-check-1.png"))); // NOI18N
 
-        jLayeredPane2.setLayer(lblMAL, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/201-delete.png"))); // NOI18N
+
+        jLayeredPane2.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
@@ -258,14 +241,19 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblMAL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(lblMAL)
-                .addContainerGap())
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jLayeredPane1.setLayer(lblNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -277,11 +265,11 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         jLayeredPane1.setLayer(txtCedula, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblCedula, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblTurno, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(txtCodigo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(txtIdCajero, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblSalario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(txtSalario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblCodigo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(cbSpec, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(txtEspec, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(txtContraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLayeredPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -308,7 +296,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(lblTurno)
                         .addGap(18, 18, 18)
-                        .addComponent(cbSpec, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtEspec, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblCodigo, javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,11 +304,11 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtSalario, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                            .addComponent(txtCodigo)))
+                            .addComponent(txtIdCajero)))
                     .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLayeredPane2))
                 .addContainerGap())
         );
@@ -339,7 +327,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCedula)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdCajero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCodigo))
                         .addGap(18, 18, 18)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,7 +335,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
                                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblTurno)
-                                    .addComponent(cbSpec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEspec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblUsuario))
                                 .addGap(17, 17, 17)
                                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -387,7 +375,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         lblRegistrarProducto.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblRegistrarProducto.setForeground(new java.awt.Color(0, 51, 102));
         lblRegistrarProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRegistrarProducto.setText("REGISTRAR ADMINISTRADOR");
+        lblRegistrarProducto.setText("REGISTRAR EMPLEADOS");
 
         ContenedorMesadeTrabajo.setLayer(ContenedorTabla, javax.swing.JLayeredPane.DEFAULT_LAYER);
         ContenedorMesadeTrabajo.setLayer(lblRegistrarProducto, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -462,169 +450,9 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         JOptionPane.showConfirmDialog(null,"Desea regresar al inicio de sesion?", "Registrar un producto", JOptionPane.YES_NO_OPTION);
     }//GEN-LAST:event_lblCerrarSesionMouseClicked
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-
-        lblMAL.setVisible(false);
-        
-
-        //VALIDA QUE LA INFORMACION INGRESADA ESTE COMPLETA
-          ValidarDatos();
-     
-         CargaInterfaz();
-        CargarDatos();  
-    }//GEN-LAST:event_btnRegistrarActionPerformed
-
-    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        // TODO add your handling code here:
-        MENUADMIN ma = new MENUADMIN();
-        ma.setVisible(true);
-        this.disable();
-    }//GEN-LAST:event_btnRegresarActionPerformed
-
     /**
      * @param args the command line arguments
      */
-    
-        public void ValidarDatos(){
-
-
-
-            switch (this.cbSpec.getSelectedIndex())
-            {
-                case 0:
-                    this.P7 = "Administrador/Contador";
-                break;
-                case 1:
-                    this.P7 = "Programador";
-                break;
-            }
-            
-                 isNumericSal();
-        isNumericCod(); 
-            
-        if (txtNombre.getText().equals("") || txtUsuario.getText().equals("") || txtContraseña.getText().equals("") || txtCedula.getText().equals("") || txtSalario.getText().equals("")|| txtCodigo.getText().equals(""))
-        {   
-         //SI LAS CASILLAS ESTAN VACIAS COLOCAR UN BACKGROUND ROJO
-        COLORSIVACIO();
-         JOptionPane.showMessageDialog(null, "Llene todos los campos correctamente.");
-         lblMAL.setVisible(true);
-
-        } else {
-         
-        this.P1 = txtNombre.getText();
-        this.P2 = txtUsuario.getText() ;
-        this.P3 = txtContraseña.getText();
-        this.P4 = txtCedula.getText();
-        this.P5 = Integer.parseInt(txtSalario.getText());
-        this.P6 = Integer.parseInt(txtCodigo.getText());
-        administrador admin = new administrador(P1,P2,P3,P4,P5,P6,P7);
-        contenedor.add(admin);     
-        
-        CASILLASDEFAULT();
-
-        }
-
-    }
-              public void CargaInterfaz()
-	{
-            String datos[][] = {};
-            String columna [] = {"NOMBRE COMPLETO","USUARIO","CONTRASEÑA","IDENTIDAD","SALARIO", "CODIGO", "ESPECIALIZACION"}; 
-            modelo = new DefaultTableModel(datos,columna);
-            tbRegistrarAdmin.setModel(modelo);   
-   	} 
-    
-                
-            	public void CargarDatos()
-	{
-       		administrador a; // INSTANCIA DE LA CLASE QUE CREAMOS
-        
-       		for (int i = 0; i < REGISTRARADMINISTRADOR.contenedor.size(); i++){
-            	a = (administrador)REGISTRARADMINISTRADOR.contenedor.get(i);
-            	modelo.insertRow(contador, new Object []{});
-           	modelo.setValueAt(a.getNombre(), contador, 0); 
-            	modelo.setValueAt(a.getUsuario() , contador, 1);
-            	modelo.setValueAt(a.getContraseña() , contador, 2);
-                modelo.setValueAt(a.getIdentidad() , contador, 3);
-                modelo.setValueAt(a.getSsalario() , contador, 4);
-                modelo.setValueAt(a.getScodigo() , contador, 5);
-                modelo.setValueAt(a.getespecializacion() , contador, 6);
-        } 
-        
-        }
-                
-                public void COLORSIVACIO(){
-                        if (txtNombre.getText().equals("")){ txtNombre.setBackground(Color.red); }
-                        if (txtUsuario.getText().equals("")){ txtUsuario.setBackground(Color.red); }
-                         if (txtContraseña.getText().equals("")){ txtContraseña.setBackground(Color.red); }
-                          if (txtCedula.getText().equals("")){ txtCedula.setBackground(Color.red); }
-                           if (txtSalario.getText().equals("")){ txtSalario.setBackground(Color.red); }
-                            if (txtCodigo.getText().equals("")){ txtCodigo.setBackground(Color.red); }
-                }
-                
-                public void CASILLASDEFAULT(){
-                    txtNombre.setText("");
-                    txtUsuario.setText("");
-                    txtContraseña.setText("");
-                    txtCedula.setText("");
-                    txtSalario.setText("");
-                    txtCodigo.setText("");
-                    
-                        if (txtNombre.getText().equals("")){ txtNombre.setBackground(Color.white); }
-                         if (txtUsuario.getText().equals("")){ txtUsuario.setBackground(Color.white); }
-                         if (txtContraseña.getText().equals("")){ txtContraseña.setBackground(Color.white); }
-                        if (txtCedula.getText().equals("")){ txtCedula.setBackground(Color.white); }
-                    if (txtSalario.getText().equals("")){ txtSalario.setBackground(Color.white); }
-                    if (txtCodigo.getText().equals("")){ txtCodigo.setBackground(Color.white); }
-                    
-                    
-                    
-                    
-                    
-                }
-                
-                public void ColorNormal(){
-                
-                                      if (txtNombre.getText().equals("")){ txtNombre.setBackground(Color.white); }
-                         if (txtUsuario.getText().equals("")){ txtUsuario.setBackground(Color.white); }
-                         if (txtContraseña.getText().equals("")){ txtContraseña.setBackground(Color.white); }
-                        if (txtCedula.getText().equals("")){ txtCedula.setBackground(Color.white); }
-                    if (txtSalario.getText().equals("")){ txtSalario.setBackground(Color.white); }
-                    if (txtCodigo.getText().equals("")){ txtCodigo.setBackground(Color.white); }  
-                }
-                
-         public  boolean isNumericSal() {
-
-        String ver;
-        ver = txtSalario.getText();  
-        boolean resultado;
-
-        try {
-            Integer.parseInt(ver);
-            resultado = true;
-        } catch (NumberFormatException excepcion) {
-            resultado = false;
-            txtSalario.setText("");
-        }
-
-        return resultado;
-    }
-    
-            public  boolean isNumericCod() {
-
-        String ver;
-        ver = txtCodigo.getText();  
-        boolean resultado;
-
-        try {
-            Integer.parseInt(ver);
-            resultado = true;
-        } catch (NumberFormatException excepcion) {
-            resultado = false;
-            txtCodigo.setText("");
-        }
-
-        return resultado;
-    }             
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -659,7 +487,6 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
             }
         });
     }
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane ContenedorBarraSuperior;
@@ -669,9 +496,10 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
     private javax.swing.JPanel ContenedorTabla;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JComboBox<String> cbSpec;
     private Modelo.FONDOADMIN fONDOADMIN1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -682,16 +510,16 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblFecha1;
     private javax.swing.JLabel lblHora1;
-    private javax.swing.JLabel lblMAL;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblRegistrarProducto;
     private javax.swing.JLabel lblSalario;
     private javax.swing.JLabel lblTurno;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JTable tbRegistrarAdmin;
+    private javax.swing.JTable tbRegistrarCajeros;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtCodigo;
     private javax.swing.JPasswordField txtContraseña;
+    private javax.swing.JComboBox<String> txtEspec;
+    private javax.swing.JTextField txtIdCajero;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtSalario;
     private javax.swing.JTextField txtUsuario;

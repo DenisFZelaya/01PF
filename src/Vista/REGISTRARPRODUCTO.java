@@ -57,6 +57,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         ContenedorMenu = new javax.swing.JLayeredPane();
         btnRegresar = new javax.swing.JButton();
         btnRegresar1 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         ContenedorBarraSuperior = new javax.swing.JLayeredPane();
         lblCerrarSesion = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
@@ -99,15 +100,32 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         btnRegresar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         btnRegresar1.setForeground(new java.awt.Color(0, 51, 102));
         btnRegresar1.setText("Regresar");
+        btnRegresar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresar1ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         ContenedorMenu.setLayer(btnRegresar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         ContenedorMenu.setLayer(btnRegresar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        ContenedorMenu.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout ContenedorMenuLayout = new javax.swing.GroupLayout(ContenedorMenu);
         ContenedorMenu.setLayout(ContenedorMenuLayout);
         ContenedorMenuLayout.setHorizontalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+            .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 248, Short.MAX_VALUE)
+            .addGroup(ContenedorMenuLayout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(jButton1)
+                .addContainerGap(99, Short.MAX_VALUE))
             .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(ContenedorMenuLayout.createSequentialGroup()
                     .addContainerGap()
@@ -117,7 +135,9 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         ContenedorMenuLayout.setVerticalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                .addContainerGap(517, Short.MAX_VALUE)
+                .addContainerGap(347, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(145, 145, 145)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(142, 142, 142))
             .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +199,6 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         ContenedorTabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ContenedorTabla.setOpaque(false);
 
-        tbRegistrarProductos.setBackground(new java.awt.Color(255, 255, 255));
         tbRegistrarProductos.setForeground(new java.awt.Color(0, 51, 102));
         tbRegistrarProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -200,7 +219,6 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         tbRegistrarProductos.setGridColor(new java.awt.Color(255, 255, 255));
         tbRegistrarProductos.setRowHeight(25);
         tbRegistrarProductos.setSelectionBackground(new java.awt.Color(0, 51, 102));
-        tbRegistrarProductos.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tbRegistrarProductos);
 
         lblNombreProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
@@ -421,8 +439,6 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
        JOptionPane.showConfirmDialog(null,"Desea regresar al inicio de sesion?", "Registrar un producto", JOptionPane.YES_NO_OPTION);
     }//GEN-LAST:event_lblCerrarSesionMouseClicked
 
-
-    
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         //Llamar a Categoria
         Fecha();
@@ -462,6 +478,18 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         MP.setVisible(true);
         
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void btnRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar1ActionPerformed
+ MENUADMIN frm = new MENUADMIN();
+        frm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnRegresar1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+                CargaInterfaz();
+        CargarDatos();  
+
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     
     public void Categoria(){
@@ -621,6 +649,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresar1;
     private javax.swing.JComboBox<String> cbCategoria;
     private Modelo.FONDOADMIN fONDOADMIN1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCantidad;
