@@ -109,15 +109,12 @@ public class Login01 extends javax.swing.JFrame {
     
               if (txtUsuario.getText().equals(user) || txtContra.getText().equals(contra))
           {
-              
+              JOptionPane.showMessageDialog(null, "ADMINISTRADOR ENCONTRADO");
+
            MA.setVisible(true);
            this.dispose();
            
-          } else {
-              JOptionPane.showMessageDialog(null, "USUARIO NO ENCONTRADO");
-              txtUsuario.setText("");
-               txtContra.setText("");
-              }
+          } 
     
           administrador p;
           for (int i = 0; i < REGISTRARADMINISTRADOR.contenedor.size(); i++){
@@ -130,8 +127,6 @@ public class Login01 extends javax.swing.JFrame {
           } else
 
           JOptionPane.showMessageDialog(null, "ADMINISTRADOR NO ENCONTRADO");
-               txtUsuario.setText("");
-               txtContra.setText("");
           }//FOR
 
     }
