@@ -232,7 +232,7 @@ public void validar()
                 txtcerrar1ActionPerformed(evt);
             }
         });
-        getContentPane().add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 510, 150, -1));
+        getContentPane().add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 150, 40));
 
         lblFecha.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
