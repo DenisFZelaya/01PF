@@ -37,7 +37,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         lblMAL.setVisible(false);
         
-        CargaInterfaz();
+                 CargaInterfaz();
         CargarDatos();  
         
 
@@ -541,10 +541,6 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         this.P4 = txtCedula.getText();
         this.P5 = Integer.parseInt(txtSalario.getText());
         this.P6 = Integer.parseInt(txtCodigo.getText());
-        
-        
-        
-        
         administrador admin = new administrador(P1,P2,P3,P4,P5,P6,P7);
         contenedor.add(admin);     
         
