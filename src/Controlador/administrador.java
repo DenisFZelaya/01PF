@@ -50,7 +50,7 @@ public class administrador extends usuario{
     
     public String getScodigo(){
         String cod;
-        cod = String.valueOf(this.especializacion);
+        cod = String.valueOf(this.codigo);
         return cod;
     }
 }
