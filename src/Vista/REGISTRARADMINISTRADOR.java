@@ -37,6 +37,9 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         lblMAL.setVisible(false);
         
+                 CargaInterfaz();
+        CargarDatos();  
+        
 
     }
     

@@ -43,6 +43,9 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         
         Fechas hora = new Fechas();
         
+        CargaInterfaz();
+        CargarDatos();  
+        
         lblFecha.setText("Fecha: " + hora.fechaActual());
         
 
