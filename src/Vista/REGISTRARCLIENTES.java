@@ -12,6 +12,7 @@ import java.awt.Image;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -25,6 +26,16 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
      Login01 ventana=new Login01();
    ImagenFondo ejemplo= new ImagenFondo();
     DefaultTableModel modelo;
+    int contador = 0;
+     
+    // Creacion de ArrayList
+    public static LinkedList contenedor = new LinkedList();
+     //ArrayList<producto> lista = new ArrayList<producto>();
+        
+     //Variables para los parametros
+        int p1=0;
+        String p2="", p3="";
+        
 
     /**
      * Creates new form REGISTRARCLIENTES
@@ -60,14 +71,14 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jLayeredPane3 = new javax.swing.JLayeredPane();
         txtNombre = new javax.swing.JLabel();
-        txtIngresoTelefono = new javax.swing.JTextField();
+        txttel = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtIngresoNombre1 = new javax.swing.JTextField();
+        txtnombre = new javax.swing.JTextField();
         lblFecha = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        datos = new javax.swing.JTable();
+        tbdatos = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         txtcerrar1 = new javax.swing.JButton();
@@ -102,8 +113,13 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
         txtNombre.setText("Nombre");
         jLayeredPane3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 68, -1));
 
-        txtIngresoTelefono.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLayeredPane3.add(txtIngresoTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 163, -1));
+        txttel.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txttel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txttelKeyTyped(evt);
+            }
+        });
+        jLayeredPane3.add(txttel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 163, -1));
 
         txtTelefono.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         txtTelefono.setForeground(new java.awt.Color(0, 51, 102));
@@ -116,13 +132,13 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
         jLabel1.setText("REGISTRO DE CLIENTES");
         jLayeredPane3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 32, 654, -1));
 
-        txtIngresoNombre1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLayeredPane3.add(txtIngresoNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 163, -1));
+        txtnombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jLayeredPane3.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 163, -1));
 
         lblFecha.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
         lblFecha.setText("Fecha");
-        jLayeredPane3.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, -10, 210, 24));
+        jLayeredPane3.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 210, 24));
 
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(0, 51, 102));
@@ -136,8 +152,8 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
 
         getContentPane().add(jLayeredPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 655, 165));
 
-        datos.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        datos.setModel(new javax.swing.table.DefaultTableModel(
+        tbdatos.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        tbdatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -145,7 +161,7 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(datos);
+        jScrollPane1.setViewportView(tbdatos);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 630, 320));
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -190,17 +206,37 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        DefaultTableModel modelo=(DefaultTableModel) datos.getModel();
+     int error=0;
+       
+        
+        try{
+        if(txttel.getText().equals("") || txtnombre.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null,"Asegurese de llenar todos los campos"); 
+        }else{
+        p1 = (contenedor.size() + 1);
+        p2 = txtnombre.getText();
+        p3 = txttel.getText();
+       
+        cliente c = new cliente(p1,p2,p3);
+        contenedor.add(c);
 
-        Object [] fila=new Object [3];
-
-        fila[0]=txtIngresoTelefono.getText();
-        fila[1]=txtIngresoIdCliente.getText();
-        fila[2]=txtIngresoTelefono.getText();
-
-        modelo.addRow(fila);
-
-        datos.setModel(modelo);
+        //mostrar();
+        CargaInterfaz();
+        CargarDatos();  
+        
+        txtnombre.setText("");
+        txttel.setText("");
+        
+        }     
+        
+        }catch(Exception e){
+        error=1;
+        JOptionPane.showMessageDialog(null,"Por favor revise los campos");
+        txtnombre.setText("");
+        txttel.setText("");
+         }
+      
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -216,12 +252,23 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcerrar1ActionPerformed
 
+    private void txttelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttelKeyTyped
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar))
+        {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Por favor ingresar solo números");
+        }
+        
+    }//GEN-LAST:event_txttelKeyTyped
+
     public void CargaInterfaz()
 	{
             String datos[][] = {};
-            String columna [] = {"ID","MES","AÑO","EGRESOS","INGRESOS","UTILIDAD"}; 
+            String columna [] = {"ID","NOMBRE","TELÉFONO"}; 
             modelo = new DefaultTableModel(datos,columna);
-            datos.setModel(modelo);   
+            tbdatos.setModel(modelo);   
    	} 
     
             	public void CargarDatos()
@@ -231,12 +278,9 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
        		for (int i = 0; i < REGISTRARCLIENTES.contenedor.size(); i++){
             	c = (cliente)REGISTRARCLIENTES.contenedor.get(i);
             	modelo.insertRow(contador, new Object []{});
-                modelo.setValueAt(c.getidC(), contador, 0);
-           	modelo.setValueAt(c.getMes(), contador, 1);
-                modelo.setValueAt(c.getAño(), contador, 2);
-            	modelo.setValueAt(c.getIngreso() , contador, 3);
-            	modelo.setValueAt(c.getInversion() , contador, 4);
-                modelo.setValueAt(c.getGanancia() , contador, 5);
+                modelo.setValueAt(c.getidcliente(), contador, 0);
+           	modelo.setValueAt(c.getnombreCliente(), contador, 1);
+                modelo.setValueAt(c.gettelefono(), contador, 2);
                
         }
     
@@ -280,7 +324,6 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JTable datos;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
@@ -291,11 +334,12 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblnombre;
-    private javax.swing.JTextField txtIngresoNombre1;
-    private javax.swing.JTextField txtIngresoTelefono;
+    private javax.swing.JTable tbdatos;
     private javax.swing.JLabel txtNombre;
     private javax.swing.JLabel txtTelefono;
     private javax.swing.JButton txtcerrar1;
+    private javax.swing.JTextField txtnombre;
+    private javax.swing.JTextField txttel;
     // End of variables declaration//GEN-END:variables
 
 
