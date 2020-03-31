@@ -39,12 +39,11 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
      */
     public REGISTRARCAJEROS() {
         initComponents();
+        CargaInterfaz();
+        CargarDatos();
         setLocationRelativeTo(null);
         
         Fechas hora = new Fechas();
-        
-        CargaInterfaz();
-        CargarDatos();  
         
         lblFecha.setText("Fecha: " + hora.fechaActual());
         
@@ -70,7 +69,6 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         fONDOADMIN1 = new Modelo.FONDOADMIN();
         ContenedorMenu = new javax.swing.JLayeredPane();
         btnRegresar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         ContenedorBarraSuperior = new javax.swing.JLayeredPane();
         lblCerrarSesion = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
@@ -86,15 +84,13 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         btnRegistrar = new javax.swing.JButton();
         txtUsuario = new javax.swing.JTextField();
         lblContraseña = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
         lblCedula = new javax.swing.JLabel();
         lblTurno = new javax.swing.JLabel();
-        txtIdCajero = new javax.swing.JTextField();
         lblSalario = new javax.swing.JLabel();
         txtSalario = new javax.swing.JTextField();
-        lblIdCajero = new javax.swing.JLabel();
         cbTurno = new javax.swing.JComboBox<>();
+        txtContraseña = new javax.swing.JPasswordField();
         lblRegistrarProducto = new javax.swing.JLabel();
         ContenedorBarraSuperior1 = new javax.swing.JLayeredPane();
         lblHora1 = new javax.swing.JLabel();
@@ -114,15 +110,7 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         ContenedorMenu.setLayer(btnRegresar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        ContenedorMenu.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout ContenedorMenuLayout = new javax.swing.GroupLayout(ContenedorMenu);
         ContenedorMenu.setLayout(ContenedorMenuLayout);
@@ -132,17 +120,11 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(63, 63, 63))
         );
         ContenedorMenuLayout.setVerticalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                .addContainerGap(304, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(258, 258, 258)
+                .addContainerGap(587, Short.MAX_VALUE)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72))
         );
@@ -180,11 +162,11 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         ContenedorBarraSuperiorLayout.setHorizontalGroup(
             ContenedorBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorBarraSuperiorLayout.createSequentialGroup()
-                .addGap(237, 237, 237)
+                .addGap(175, 175, 175)
                 .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
                 .addComponent(lblHora2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106)
+                .addGap(94, 94, 94)
                 .addComponent(lblCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -247,8 +229,6 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         lblContraseña.setForeground(new java.awt.Color(0, 51, 102));
         lblContraseña.setText("Contraseña:");
 
-        txtContraseña.setPreferredSize(new java.awt.Dimension(6, 30));
-
         txtCedula.setPreferredSize(new java.awt.Dimension(6, 30));
 
         lblCedula.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
@@ -259,19 +239,12 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         lblTurno.setForeground(new java.awt.Color(0, 51, 102));
         lblTurno.setText("Turno:");
 
-        txtIdCajero.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        txtIdCajero.setSelectionColor(new java.awt.Color(102, 255, 102));
-
         lblSalario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblSalario.setForeground(new java.awt.Color(0, 51, 102));
         lblSalario.setText("Salario: ");
 
         txtSalario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         txtSalario.setSelectionColor(new java.awt.Color(102, 255, 102));
-
-        lblIdCajero.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        lblIdCajero.setForeground(new java.awt.Color(0, 51, 102));
-        lblIdCajero.setText("Id Cajero:");
 
         cbTurno.setBackground(new java.awt.Color(153, 255, 153));
         cbTurno.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -284,21 +257,21 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
             }
         });
 
+        txtContraseña.setPreferredSize(new java.awt.Dimension(6, 30));
+
         jLayeredPane1.setLayer(lblNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(txtNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(btnRegistrar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(txtUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblContraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(txtContraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(txtCedula, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblCedula, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblTurno, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(txtIdCajero, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblSalario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(txtSalario, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(lblIdCajero, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(cbTurno, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(txtContraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -313,31 +286,27 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
                     .addComponent(lblCedula))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtContraseña, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37)
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                                .addComponent(lblSalario)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                                .addComponent(lblIdCajero)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtIdCajero, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
                                 .addComponent(lblTurno)
-                                .addGap(32, 32, 32)
-                                .addComponent(cbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22))))
+                                .addGap(26, 26, 26))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(lblSalario)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -348,25 +317,27 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblSalario)
                     .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCedula)
-                    .addComponent(txtIdCajero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIdCajero))
-                .addGap(18, 18, 18)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTurno)
                             .addComponent(cbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblUsuario))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblContraseña, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(lblTurno))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCedula))
+                        .addGap(18, 18, 18)))
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUsuario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblContraseña))
                 .addContainerGap())
         );
 
@@ -469,35 +440,50 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
     }//GEN-LAST:event_lblCerrarSesionMouseClicked
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+       
+        int error = 0;
        Fecha();
        
        Turno();
        
        //Igualar variables a los componentes necesarios de la ventana
+       try{
+           if(txtNombre.getText().equals("") || txtUsuario.getText().equals("") || txtContraseña.getText().equals("") || txtSalario.getText().equals(""))
+        {
+        JOptionPane.showMessageDialog(null,"Asegurese de llenar todos los campos");
+        }else{
        p1= txtNombre.getText();//nombre
        p2= txtCedula.getText();//usuario
        p3= txtUsuario.getText();//contrase;a 
        p4= txtContraseña.getText();//identidad
        p5= Integer.valueOf(txtSalario.getText());//salario 
-       p6= Integer.valueOf(txtIdCajero.getText());//idcajero
+       //p6++;//idcajero
        p7= turno;//turno
        
+       
+       cajero c;
+       p6 = (contenedor.size() + 1);
+
+ 
         cajero cajero = new cajero(p1,p2,p3,p4,p5,p6,p7);
         contenedor.add(cajero);
 
         //mostrar();
         CargaInterfaz();
-        CargarDatos();  
-        
-        
-        //dejar vacios los campos
+        CargarDatos(); 
         txtNombre.setText("");
         txtCedula.setText("");
         txtUsuario.setText("");
         txtContraseña.setText("");
         txtSalario.setText("");
-        txtIdCajero.setText("");
+
         
+        }
+        }catch(Exception e){
+        error=1;
+        JOptionPane.showMessageDialog(null,"Por favor revise los campos");
+        
+    }
       
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
@@ -506,16 +492,10 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
     }//GEN-LAST:event_cbTurnoActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        MENUCAJERO frm = new MENUCAJERO();
+        MENUADMIN frm = new MENUADMIN();
         frm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                CargaInterfaz();
-        CargarDatos();  
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
     public void Turno(){
                 switch (cbTurno.getSelectedIndex()){
             case 0:
@@ -602,7 +582,6 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> cbTurno;
     private Modelo.FONDOADMIN fONDOADMIN1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCedula;
@@ -612,7 +591,6 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
     private javax.swing.JLabel lblFecha1;
     private javax.swing.JLabel lblHora1;
     private javax.swing.JLabel lblHora2;
-    private javax.swing.JLabel lblIdCajero;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblRegistrarProducto;
     private javax.swing.JLabel lblSalario;
@@ -620,8 +598,7 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JTable tbRegistrarCajeros;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtContraseña;
-    private javax.swing.JTextField txtIdCajero;
+    private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtSalario;
     private javax.swing.JTextField txtUsuario;
