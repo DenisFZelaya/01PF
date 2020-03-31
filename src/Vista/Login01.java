@@ -8,9 +8,12 @@ import javax.swing.JOptionPane;
 
 public class Login01 extends javax.swing.JFrame {
 
+     MENUADMIN MA = new MENUADMIN();  
+     MENUCAJERO MC = new MENUCAJERO();      
  
     public Login01() {
         initComponents();
+       
     }
 
     /**
@@ -105,8 +108,7 @@ public class Login01 extends javax.swing.JFrame {
             txtContra.setText("");
             txtUsuario.setText("");
         }
-        
-        
+
         switch (txtseleccion.getSelectedIndex()){
             case 0://cajero
                     buscarCajero();
@@ -121,7 +123,7 @@ public class Login01 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngresarActionPerformed
    
     public void buscarAdmin(){
-          MENUADMIN MA = new MENUADMIN();      
+           
         
     String user = "GRUPO";
     String contra = "GRUPO";
@@ -131,8 +133,7 @@ public class Login01 extends javax.swing.JFrame {
            MA.setVisible(true);
            this.dispose();
           } else {
-              JOptionPane.showMessageDialog(null, "Perfil no encontrado");
-              
+
               }
     
           administrador p;
@@ -151,7 +152,7 @@ public class Login01 extends javax.swing.JFrame {
     
     
     public void buscarCajero(){
-              MENUCAJERO MC = new MENUCAJERO();      
+              
         
     String user = "C";
     String contra = "C";
@@ -162,7 +163,6 @@ public class Login01 extends javax.swing.JFrame {
            this.dispose();
            
           } else {
-              JOptionPane.showMessageDialog(null, "Cajero no encontrado");
               
               }
     
@@ -181,6 +181,7 @@ public class Login01 extends javax.swing.JFrame {
           }//FOR
 
     }
+    
     
     
     /**
