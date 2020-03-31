@@ -66,13 +66,16 @@ public class FACTURA extends javax.swing.JFrame {
         txtisv = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txttotal = new javax.swing.JTextField();
-        btnagregar1 = new javax.swing.JButton();
+        btnbuscar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         txtcerrar1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtNombreP = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
+        btnagregar2 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        txtPrecio = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(960, 594));
@@ -162,16 +165,16 @@ public class FACTURA extends javax.swing.JFrame {
         txttotal.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         getContentPane().add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 460, 71, 25));
 
-        btnagregar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
-        btnagregar1.setForeground(new java.awt.Color(0, 51, 102));
-        btnagregar1.setText("AGREGAR");
-        btnagregar1.setPreferredSize(new java.awt.Dimension(99, 33));
-        btnagregar1.addActionListener(new java.awt.event.ActionListener() {
+        btnbuscar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        btnbuscar.setForeground(new java.awt.Color(0, 51, 102));
+        btnbuscar.setText("Buscar");
+        btnbuscar.setPreferredSize(new java.awt.Dimension(99, 33));
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnagregar1ActionPerformed(evt);
+                btnbuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnagregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, -1, 27));
+        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, -1, 27));
 
         jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 51, 102));
@@ -210,12 +213,42 @@ public class FACTURA extends javax.swing.JFrame {
         txtCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         getContentPane().add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 120, 25));
 
+        btnagregar2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        btnagregar2.setForeground(new java.awt.Color(0, 51, 102));
+        btnagregar2.setText("AGREGAR");
+        btnagregar2.setPreferredSize(new java.awt.Dimension(99, 33));
+        btnagregar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagregar2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnagregar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 150, -1, 27));
+
+        jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel10.setText("Precio:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 60, -1));
+
+        txtPrecio.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtPrecio.setEnabled(false);
+        getContentPane().add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 120, 25));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnagregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnagregar1ActionPerformed
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+
+        String ID = txtId.getText().trim();
+        producto p;
+        
+        for (int i= 0; i < REGISTRARPRODUCTO.contenedor.size(); i++){
+            p=(producto)REGISTRARPRODUCTO.contenedor.get(i);
+            if (ID.equalsIgnoreCase(p.getSidproducto())){
+                txtNombreP.setText(p.getDescripcion());
+                txtPrecio.setText(p.getSprecio());
+            }
+        }  
+    }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         MENUCAJERO frm = new MENUCAJERO();
@@ -246,6 +279,10 @@ public class FACTURA extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtIdKeyTyped
     }
+    private void btnagregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnagregar2ActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -282,10 +319,12 @@ public class FACTURA extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnagregar1;
+    private javax.swing.JButton btnagregar2;
+    private javax.swing.JButton btnbuscar;
     private javax.swing.JTable factura;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -299,6 +338,7 @@ public class FACTURA extends javax.swing.JFrame {
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombreP;
+    private javax.swing.JTextField txtPrecio;
     private javax.swing.JButton txtcerrar1;
     private javax.swing.JTextField txtidcliente;
     private javax.swing.JTextField txtisv;
