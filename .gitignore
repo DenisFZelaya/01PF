@@ -67,3 +67,4 @@ dist/01PF.jar
 dist/lib/AbsoluteLayout.jar
 dist/lib/beansbinding-1.2.1.jar
 dist/README.TXT
+/dist/

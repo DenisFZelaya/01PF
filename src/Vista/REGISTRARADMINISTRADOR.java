@@ -49,7 +49,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         txtCodigo.setText(String.valueOf( contenedor.size() + 1));
    
         
-                 CargaInterfaz();
+        CargaInterfaz();
         CargarDatos();  
         
 
@@ -465,7 +465,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         // TODO add your handling code here:
         MENUADMIN ma = new MENUADMIN();
         ma.setVisible(true);
-        this.disable();
+        this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed

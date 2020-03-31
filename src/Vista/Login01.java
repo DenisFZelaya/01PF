@@ -2,6 +2,7 @@ package Vista;
 
 
 import Controlador.administrador;
+import Controlador.cajero;
 import javax.swing.JOptionPane;
 
 
@@ -21,7 +22,7 @@ public class Login01 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtseleccion = new javax.swing.JComboBox<>();
         btnSalir = new javax.swing.JButton();
         btnIngresar = new javax.swing.JButton();
         lblUsuario = new javax.swing.JLabel();
@@ -39,9 +40,9 @@ public class Login01 extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cajero", "Administrador" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 266, 170, 40));
+        txtseleccion.setForeground(new java.awt.Color(255, 255, 255));
+        txtseleccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cajero", "Administrador" }));
+        getContentPane().add(txtseleccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 266, 170, 40));
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -98,38 +99,90 @@ public class Login01 extends javax.swing.JFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
         
-        buscarUsuario();
-        //JOptionPane.showMessageDialog(null, "Campos Invalidos");
+        if (txtUsuario.getText().equals("") || (txtContra.getText().equals("") ) ){
+            JOptionPane.showMessageDialog(null, "Verifique los datos ingresados.");
+            
+            txtContra.setText("");
+            txtUsuario.setText("");
+        }
+        
+        
+        switch (txtseleccion.getSelectedIndex()){
+            case 0://cajero
+                    buscarCajero();
+                break;
+                
+            case 1:
+                    buscarAdmin();
+                break;
+        
+        }
+       
     }//GEN-LAST:event_btnIngresarActionPerformed
-    public void buscarUsuario(){
+   
+    public void buscarAdmin(){
           MENUADMIN MA = new MENUADMIN();      
         
     String user = "GRUPO";
     String contra = "GRUPO";
     
-              if (txtUsuario.getText().equals(user) || txtContra.getText().equals(contra))
+              if (txtUsuario.getText().equals(user) && txtContra.getText().equals(contra))
           {
-              JOptionPane.showMessageDialog(null, "ADMINISTRADOR ENCONTRADO");
-
            MA.setVisible(true);
            this.dispose();
-           
-          } 
+          } else {
+              JOptionPane.showMessageDialog(null, "Perfil no encontrado");
+              
+              }
     
           administrador p;
           for (int i = 0; i < REGISTRARADMINISTRADOR.contenedor.size(); i++){
           p = (administrador)REGISTRARADMINISTRADOR.contenedor.get(i);
           
-          if (txtUsuario.getText().equals(p.getUsuario()) || txtContra.getText().equals(p.getContraseña()))
+          if (txtUsuario.getText().equals(p.getUsuario()) && txtContra.getText().equals(p.getContraseña()))
           {
            MA.setVisible(true);
            this.dispose();
-          } else
+          } else {
+              JOptionPane.showMessageDialog(null, "Administrador no encontrado");
+          }
+          }//FOR
+    }
+    
+    
+    public void buscarCajero(){
+              MENUCAJERO MC = new MENUCAJERO();      
+        
+    String user = "C";
+    String contra = "C";
+    
+              if (txtUsuario.getText().equals(user) && txtContra.getText().equals(contra))
+          {
+           MC.setVisible(true);
+           this.dispose();
+           
+          } else {
+              JOptionPane.showMessageDialog(null, "Cajero no encontrado");
+              
+              }
+    
+          cajero c;
+          for (int i = 0; i < REGISTRARCAJEROS.contenedor.size(); i++){
+          c = (cajero)REGISTRARCAJEROS.contenedor.get(i);
+          
+          if (txtUsuario.getText().equals(c.getUsuario()) && txtContra.getText().equals(c.getContraseña()))
+          {
+           MC.setVisible(true);
+           this.dispose();
+          } else {
+          JOptionPane.showMessageDialog(null, "Cajero no encontrado");
+          }
 
-          JOptionPane.showMessageDialog(null, "ADMINISTRADOR NO ENCONTRADO");
           }//FOR
 
     }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -168,7 +221,6 @@ public class Login01 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblContraseña1;
     private javax.swing.JLabel lblContraseña2;
@@ -176,5 +228,6 @@ public class Login01 extends javax.swing.JFrame {
     private javax.swing.JLabel lblfondo1;
     private javax.swing.JPasswordField txtContra;
     private javax.swing.JTextField txtUsuario;
+    private javax.swing.JComboBox<String> txtseleccion;
     // End of variables declaration//GEN-END:variables
 }
