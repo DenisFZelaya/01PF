@@ -101,10 +101,10 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
-                      <Component id="lblFecha" min="-2" pref="72" max="-2" attributes="0"/>
-                      <EmptySpace pref="185" max="32767" attributes="0"/>
-                      <Component id="lblHora2" min="-2" pref="72" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                      <Component id="lblFecha" min="-2" pref="166" max="-2" attributes="0"/>
+                      <EmptySpace pref="91" max="32767" attributes="0"/>
+                      <Component id="lblHora2" min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       <Component id="lblCerrarSesion" min="-2" pref="137" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
