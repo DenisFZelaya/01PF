@@ -2,8 +2,6 @@ package Vista;
 
 
 import Controlador.administrador;
-import Controlador.cajero;
-import java.awt.Color;
 import javax.swing.JOptionPane;
 
 
@@ -23,7 +21,7 @@ public class Login01 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cbseleccion = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         btnSalir = new javax.swing.JButton();
         btnIngresar = new javax.swing.JButton();
         lblUsuario = new javax.swing.JLabel();
@@ -41,9 +39,9 @@ public class Login01 extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cbseleccion.setForeground(new java.awt.Color(255, 255, 255));
-        cbseleccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cajero", "Administrador" }));
-        getContentPane().add(cbseleccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 266, 170, 40));
+        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cajero", "Administrador" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 266, 170, 40));
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -100,36 +98,23 @@ public class Login01 extends javax.swing.JFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
         
-        COLORSIVACIO();
-        
-        switch (cbseleccion.getSelectedIndex()){
-            case 0: 
-                buscarCajero();
-                break;
-                
-            case 1:
-                 buscarAdmin();
-                break;
-        }
-        
-        COLORDEFAULT();
-      
+        buscarUsuario();
         //JOptionPane.showMessageDialog(null, "Campos Invalidos");
     }//GEN-LAST:event_btnIngresarActionPerformed
-    public void buscarAdmin(){
+    public void buscarUsuario(){
           MENUADMIN MA = new MENUADMIN();      
         
     String user = "GRUPO";
     String contra = "GRUPO";
     
-              if (txtUsuario.getText().equals(user) && txtContra.getText().equals(contra))
+              if (txtUsuario.getText().equals(user) || txtContra.getText().equals(contra))
           {
               
            MA.setVisible(true);
            this.dispose();
            
           } else {
-              JOptionPane.showMessageDialog(null, "ADMINISTRADOR NO ENCONTRADO\nVerifique sus credenciales");
+              JOptionPane.showMessageDialog(null, "USUARIO NO ENCONTRADO");
               txtUsuario.setText("");
                txtContra.setText("");
               }
@@ -138,64 +123,18 @@ public class Login01 extends javax.swing.JFrame {
           for (int i = 0; i < REGISTRARADMINISTRADOR.contenedor.size(); i++){
           p = (administrador)REGISTRARADMINISTRADOR.contenedor.get(i);
           
-          if (txtUsuario.getText().equals(p.getUsuario()) && txtContra.getText().equals(p.getContraseña()))
+          if (txtUsuario.getText().equals(p.getUsuario()) || txtContra.getText().equals(p.getContraseña()))
           {
            MA.setVisible(true);
            this.dispose();
           } else
 
-          JOptionPane.showMessageDialog(null, "ADMINISTRADOR NO ENCONTRADO\nVerifique sus credenciales");
+          JOptionPane.showMessageDialog(null, "ADMINISTRADOR NO ENCONTRADO");
                txtUsuario.setText("");
                txtContra.setText("");
           }//FOR
 
     }
-    
-    public void buscarCajero(){
-    MENUCAJERO MC = new MENUCAJERO();      
-        
-    String user = "C";
-    String contra = "C";
-    
-              if (txtUsuario.getText().equals(user) && txtContra.getText().equals(contra))
-          {
-              
-           MC.setVisible(true);
-           this.dispose();
-           
-          } else {
-              JOptionPane.showMessageDialog(null, "CAJERO NO ENCONTRADO\nVerifique sus credenciales");
-              txtContra.setText("");
-              }
-    
-          cajero c;
-          for (int i = 0; i < REGISTRARCAJEROS.contenedor.size(); i++){
-          c = (cajero)REGISTRARCAJEROS.contenedor.get(i);
-          
-          if (txtUsuario.getText().equals(c.getUsuario()) && txtContra.getText().equals(c.getContraseña()))
-          {
-           MC.setVisible(true);
-           this.dispose();
-          } else
-
-          JOptionPane.showMessageDialog(null, "CAJERO NO ENCONTRADO\nVerifique sus credenciales");
-               txtUsuario.setText("");
-               txtContra.setText("");
-          }//FOR
-
-    }
-    
-     public void COLORSIVACIO(){
-     if (txtUsuario.getText().equals("")){ txtUsuario.setBackground(Color.red); }
-     if (txtContra.getText().equals("")){ txtContra.setBackground(Color.red); }
-      }
-     public void COLORDEFAULT(){
-     if (txtUsuario.getText().equals("")){ txtUsuario.setBackground(Color.white); }
-     if (txtContra.getText().equals("")){ txtContra.setBackground(Color.white); }
-      }     
-     
-     
-    
     /**
      * @param args the command line arguments
      */
@@ -234,7 +173,7 @@ public class Login01 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JComboBox<String> cbseleccion;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblContraseña1;
     private javax.swing.JLabel lblContraseña2;
