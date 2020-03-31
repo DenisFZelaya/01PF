@@ -10,10 +10,11 @@ public class contabilidad {
     }
     
     //Constructor para capturar datos
-    public contabilidad (String mes, int inversion,int ingreso){
+    public contabilidad (String mes, int inversion,int ingreso, int ganancia){
     this.mes = mes;
     this.inversion = inversion;
     this.ingreso = ingreso;
+    this.ganancia = ganancia;
     }
 
     public String getMes() {
@@ -40,9 +41,11 @@ public class contabilidad {
         this.ingreso = ingreso;
     }
 
+    public void setGanancia(int ganancia) {
+        this.ganancia = ganancia;
+    }
+    
     public int getGanancia() {
-        this.ganancia = this.ingreso - this.inversion;
-        
         return ganancia;
     }
  

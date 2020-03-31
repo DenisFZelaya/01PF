@@ -5,10 +5,17 @@
  */
 package Vista;
 
+import Controlador.Fechas;
+import Controlador.contabilidad;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.LinkedList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,7 +25,19 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CONTABILIDAD extends javax.swing.JFrame {
     ImagenFondo ejemplo =  new ImagenFondo();
-     DefaultTableModel modelo;
+    private DefaultTableModel modelo;
+    int contador = 0;
+    // Creacion de ArrayList
+    public static LinkedList contenedor = new LinkedList();
+     //ArrayList<producto> lista = new ArrayList<producto>();
+        
+     //Variables para los parametros
+        int p2 = 0, p3 = 0, p4 = 0;
+        String p1;
+        String cate;
+
+     
+
     /**
      * Creates new form CONTABILIDAD
      */
@@ -27,14 +46,19 @@ public class CONTABILIDAD extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         
-        modelo=new DefaultTableModel();
-        modelo.addColumn("N°");
-        modelo.addColumn("Mes");
-        modelo.addColumn("Inversión");
-        modelo.addColumn("Ingresos");
-        modelo.addColumn("Ganancias");
-        this.conta.setModel(modelo);
-        this.conta.setBackground(Color.white);
+        
+        //Para obtener la hora actual
+        Fechas hora = new Fechas();
+        
+        lblFecha.setText("Fecha: " + hora.fechaActual());
+       
+    }
+    
+    public void Fecha(){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();        
+        lblFecha.setText(String.valueOf(date));
+    
 
     }
 
@@ -51,22 +75,20 @@ public class CONTABILIDAD extends javax.swing.JFrame {
         conta = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbmes = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txting = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtegre = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnguardar = new javax.swing.JButton();
+        btnregresar = new javax.swing.JButton();
         txtcerrar1 = new javax.swing.JButton();
-        btnRegistrar2 = new javax.swing.JButton();
-        btnRegistrar3 = new javax.swing.JButton();
-        btnRegistrar1 = new javax.swing.JButton();
+        btnactualizar = new javax.swing.JButton();
+        lblFecha = new javax.swing.JLabel();
+        txtutil = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(960, 594));
@@ -97,14 +119,14 @@ public class CONTABILIDAD extends javax.swing.JFrame {
         jLabel1.setText("Mes");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, 20));
 
-        jComboBox1.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cbmes.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        cbmes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        cbmes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cbmesActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 146, -1, 30));
+        getContentPane().add(cbmes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 146, -1, 30));
 
         jComboBox2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025" }));
@@ -125,73 +147,56 @@ public class CONTABILIDAD extends javax.swing.JFrame {
         jLabel4.setText("Ingresos");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, 20));
 
-        jTextField1.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txting.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        txting.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtingActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 106, 66, 30));
+        getContentPane().add(txting, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 106, 66, 30));
 
         jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 51, 102));
         jLabel5.setText("Egresos");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, -1, 20));
 
-        jTextField2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtegre.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        txtegre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtegreActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 106, 66, 30));
+        getContentPane().add(txtegre, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 106, 66, 30));
 
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 51, 102));
-        jLabel6.setText("Ganancias");
+        jLabel6.setText("Utilidades");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, -1, 20));
 
-        jTextField3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        btnguardar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        btnguardar.setForeground(new java.awt.Color(0, 51, 102));
+        btnguardar.setText("Guardar");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                btnguardarActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 106, 66, 30));
+        getContentPane().add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, -1, 30));
 
-        jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 51, 102));
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnregresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        btnregresar.setForeground(new java.awt.Color(0, 51, 102));
+        btnregresar.setText("Regresar");
+        btnregresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnregresarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 145, -1, 30));
-
-        jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 51, 102));
-        jButton2.setText("Regresar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, -1, 30));
-
-        jButton3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 51, 102));
-        jButton3.setText("Calcular Ganancias");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 105, -1, 30));
+        getContentPane().add(btnregresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, -1, 30));
 
         txtcerrar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         txtcerrar1.setForeground(new java.awt.Color(0, 51, 102));
         txtcerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
+        txtcerrar1.setText("Cerrar Sesión");
         txtcerrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcerrar1ActionPerformed(evt);
@@ -199,57 +204,92 @@ public class CONTABILIDAD extends javax.swing.JFrame {
         });
         getContentPane().add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 510, 150, -1));
 
-        btnRegistrar2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        btnRegistrar2.setForeground(new java.awt.Color(0, 51, 102));
-        btnRegistrar2.setText("Eliminar Registro");
-        getContentPane().add(btnRegistrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 145, 40));
+        btnactualizar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        btnactualizar.setForeground(new java.awt.Color(0, 51, 102));
+        btnactualizar.setText("Actualizar");
+        btnactualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnactualizarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 145, 40));
 
-        btnRegistrar3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        btnRegistrar3.setForeground(new java.awt.Color(0, 51, 102));
-        btnRegistrar3.setText("Editar Registro");
-        getContentPane().add(btnRegistrar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 145, 40));
+        lblFecha.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        lblFecha.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 160, 30));
 
-        btnRegistrar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        btnRegistrar1.setForeground(new java.awt.Color(0, 51, 102));
-        btnRegistrar1.setText("Buscar Registro");
-        getContentPane().add(btnRegistrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 145, 40));
+        txtutil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtutilActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtutil, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 106, 70, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cbmesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cbmesActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
     
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtingActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtegreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtegreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtegreActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+        mes();
+        int error=0;
+       
+          try{
+         if(txting.getText().equals("") || txtegre.getText().equals("")|| txtutil.getText().equals(""))
+        {
+        JOptionPane.showMessageDialog(null,"Asegurese de llenar todos los campos");
+        }else{
+        p1 = cate;
+        p2 = Integer.valueOf(txting.getText());
+        p3 = Integer.valueOf(txtegre.getText());
+        p4 = Integer.valueOf(txtutil.getText());
+         
+        contabilidad conta = new contabilidad(p1,p2,p3,p4);
+        contenedor.add(conta);
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        //mostrar();
+        CargaInterfaz();
+        CargarDatos();  
+        
+        txting.setText("");
+        txtegre.setText("");
+        txtutil.setText("");       
+        }
+        }catch(Exception e){
+        error=1;
+        JOptionPane.showMessageDialog(null,"Por favor revise los campos");
+        txting.setText("");
+        txtegre.setText("");
+        txtutil.setText("");
+    }
+      
+        
+        
+        
+        
+       
+        
+    }//GEN-LAST:event_btnguardarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed
     MENUADMIN frm = new MENUADMIN();
     frm.setVisible(true);
     this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnregresarActionPerformed
 
     private void txtcerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcerrar1ActionPerformed
         Login01 frm = new Login01();
@@ -258,6 +298,82 @@ public class CONTABILIDAD extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcerrar1ActionPerformed
 
+    private void txtutilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtutilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtutilActionPerformed
+
+    private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
+        CargaInterfaz();
+        CargarDatos();  
+    }//GEN-LAST:event_btnactualizarActionPerformed
+    
+    public void mes(){
+                switch (cbmes.getSelectedIndex()){
+            case 0:
+                this.cate = "Enero";
+                break;
+            case 1:
+                this.cate = "Febrero";
+                break; 
+            case 2:
+                this.cate = "Marzo";
+                break;
+            case 3:
+                this.cate = "Abril";
+                break; 
+             case 4:
+                this.cate = "Mayo";
+                break;
+            case 5:
+                this.cate = "Junio";
+                break; 
+            case 6:
+                this.cate = "Julio";
+                break;
+            case 7:
+                this.cate = "Agosto";
+                break;                
+             case 8:
+                this.cate = "Septiembre";
+                break;
+            case 9:
+                this.cate = "Octubre";
+                break; 
+            case 10:
+                this.cate = "Noviembre";
+                break;
+            case 11:
+                this.cate = "Diciembre";
+                break;            
+                
+    }   
+    }
+    
+    public void CargaInterfaz()
+	{
+            String datos[][] = {};
+            String columna [] = {"MES","INGRESOS","EGRESOS","UTILIDAD"}; 
+            modelo = new DefaultTableModel(datos,columna);
+            conta.setModel(modelo);   
+   	} 
+    
+            	public void CargarDatos()
+	{
+       		contabilidad c = new contabilidad(); // INSTANCIA DE LA CLASE QUE CREAMOS
+        
+       		for (int i = 0; i < CONTABILIDAD.contenedor.size(); i++){
+            	c = (contabilidad)CONTABILIDAD.contenedor.get(i);
+            	modelo.insertRow(contador, new Object []{});
+           	modelo.setValueAt(c.getMes(), contador, 0);
+            	modelo.setValueAt(c.getIngreso() , contador, 1);
+            	modelo.setValueAt(c.getInversion() , contador, 2);
+                modelo.setValueAt(c.getGanancia() , contador, 3);
+               
+        }
+    
+    }
+                
+                
     /**
      * @param args the command line arguments
      */
@@ -294,14 +410,11 @@ public class CONTABILIDAD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegistrar1;
-    private javax.swing.JButton btnRegistrar2;
-    private javax.swing.JButton btnRegistrar3;
+    private javax.swing.JButton btnactualizar;
+    private javax.swing.JButton btnguardar;
+    private javax.swing.JButton btnregresar;
+    private javax.swing.JComboBox<String> cbmes;
     private javax.swing.JTable conta;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -310,10 +423,11 @@ public class CONTABILIDAD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel lblFecha;
     private javax.swing.JButton txtcerrar1;
+    private javax.swing.JTextField txtegre;
+    private javax.swing.JTextField txting;
+    private javax.swing.JTextField txtutil;
     // End of variables declaration//GEN-END:variables
 class ImagenFondo extends JPanel
 {
@@ -326,4 +440,13 @@ class ImagenFondo extends JPanel
         super.paint(g);
     }
 }
-}
+
+             
+                
+    }
+
+
+
+                    
+               
+
