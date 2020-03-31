@@ -148,7 +148,9 @@ public class MENUADMIN extends javax.swing.JFrame {
     }//GEN-LAST:event_btncajeroActionPerformed
 
     private void btnadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadminActionPerformed
-        
+        REGISTRARADMINISTRADOR RA = new REGISTRARADMINISTRADOR();
+        RA.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnadminActionPerformed
 
     /**

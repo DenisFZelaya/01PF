@@ -2,7 +2,6 @@ package Vista;
 
 
 import Controlador.administrador;
-import Controlador.producto;
 import javax.swing.JOptionPane;
 
 
@@ -27,8 +26,8 @@ public class Login01 extends javax.swing.JFrame {
         btnIngresar = new javax.swing.JButton();
         lblUsuario = new javax.swing.JLabel();
         lblContraseña = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtUsuario = new javax.swing.JTextField();
+        txtContra = new javax.swing.JPasswordField();
         lblContraseña2 = new javax.swing.JLabel();
         lblfondo1 = new javax.swing.JLabel();
         lblContraseña1 = new javax.swing.JLabel();
@@ -44,7 +43,6 @@ public class Login01 extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cajero", "Administrador" }));
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 266, 170, 40));
 
-        btnSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\build\\classes\\IMG\\exit.png")); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,7 +51,6 @@ public class Login01 extends javax.swing.JFrame {
         });
         getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 100, 40));
 
-        btnIngresar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\build\\classes\\IMG\\Ingresar.png")); // NOI18N
         btnIngresar.setText("Ingresar");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,8 +66,8 @@ public class Login01 extends javax.swing.JFrame {
         lblContraseña.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblContraseña.setText("Tipo:");
         getContentPane().add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 174, 150, 30));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 222, 130, 30));
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 174, 150, 30));
+        getContentPane().add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 222, 130, 30));
 
         lblContraseña2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblContraseña2.setText("Contraseña:");
@@ -105,24 +102,33 @@ public class Login01 extends javax.swing.JFrame {
         //JOptionPane.showMessageDialog(null, "Campos Invalidos");
     }//GEN-LAST:event_btnIngresarActionPerformed
     public void buscarUsuario(){
-    String user;
+          MENUADMIN MA = new MENUADMIN();      
+        
+    String user = "GRUPO";
+    String contra = "GRUPO";
     
-    administrador p;
+              if (txtUsuario.getText().equals(user) || txtContra.getText().equals(contra))
+          {
+              JOptionPane.showMessageDialog(null, "ADMINISTRADOR ENCONTRADO");
+
+           MA.setVisible(true);
+           this.dispose();
+           
+          } 
     
-    int cont =0;
-    JOptionPane.showMessageDialog(null, "numero de registros: "+ cont);
+          administrador p;
           for (int i = 0; i < REGISTRARADMINISTRADOR.contenedor.size(); i++){
           p = (administrador)REGISTRARADMINISTRADOR.contenedor.get(i);
           
-          user = p.getUsuario();
-          
-          cont++;
-          
-          JOptionPane.showMessageDialog(null, "numero de registros: "+ cont);
-           
+          if (txtUsuario.getText().equals(p.getUsuario()) || txtContra.getText().equals(p.getContraseña()))
+          {
+           MA.setVisible(true);
+           this.dispose();
+          } else
+
+          JOptionPane.showMessageDialog(null, "ADMINISTRADOR NO ENCONTRADO");
           }//FOR
-          
-    
+
     }
     /**
      * @param args the command line arguments
@@ -163,12 +169,12 @@ public class Login01 extends javax.swing.JFrame {
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblContraseña1;
     private javax.swing.JLabel lblContraseña2;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblfondo1;
+    private javax.swing.JPasswordField txtContra;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
