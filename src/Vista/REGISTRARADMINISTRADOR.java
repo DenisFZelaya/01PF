@@ -52,6 +52,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         fONDOADMIN1 = new Modelo.FONDOADMIN();
         ContenedorMenu = new javax.swing.JLayeredPane();
         btnRegresar = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
         ContenedorBarraSuperior = new javax.swing.JLayeredPane();
         lblCerrarSesion = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
@@ -97,7 +98,17 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
             }
         });
 
+        btnLogin.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(0, 51, 102));
+        btnLogin.setText("login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
+
         ContenedorMenu.setLayer(btnRegresar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        ContenedorMenu.setLayer(btnLogin, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout ContenedorMenuLayout = new javax.swing.GroupLayout(ContenedorMenu);
         ContenedorMenu.setLayout(ContenedorMenuLayout);
@@ -105,13 +116,17 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContenedorMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                    .addComponent(btnLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         ContenedorMenuLayout.setVerticalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                .addContainerGap(599, Short.MAX_VALUE)
+                .addContainerGap(321, Short.MAX_VALUE)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(235, 235, 235)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60))
         );
@@ -358,7 +373,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout ContenedorTablaLayout = new javax.swing.GroupLayout(ContenedorTabla);
@@ -480,6 +495,12 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         ma.setVisible(true);
         this.disable();
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        Login01 log = new Login01();
+        log.setVisible(true);
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -667,6 +688,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
     private javax.swing.JLayeredPane ContenedorMenu;
     private javax.swing.JLayeredPane ContenedorMesadeTrabajo;
     private javax.swing.JPanel ContenedorTabla;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> cbSpec;

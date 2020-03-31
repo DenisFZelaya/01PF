@@ -1,6 +1,8 @@
 package Vista;
 
 
+import Controlador.administrador;
+import Controlador.producto;
 import javax.swing.JOptionPane;
 
 
@@ -98,9 +100,30 @@ public class Login01 extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Campos Invalidos");
+        
+        buscarUsuario();
+        //JOptionPane.showMessageDialog(null, "Campos Invalidos");
     }//GEN-LAST:event_btnIngresarActionPerformed
-
+    public void buscarUsuario(){
+    String user;
+    
+    administrador p;
+    
+    int cont =0;
+    JOptionPane.showMessageDialog(null, "numero de registros: "+ cont);
+          for (int i = 0; i < REGISTRARADMINISTRADOR.contenedor.size(); i++){
+          p = (administrador)REGISTRARADMINISTRADOR.contenedor.get(i);
+          
+          user = p.getUsuario();
+          
+          cont++;
+          
+          JOptionPane.showMessageDialog(null, "numero de registros: "+ cont);
+           
+          }//FOR
+          
+    
+    }
     /**
      * @param args the command line arguments
      */
