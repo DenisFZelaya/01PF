@@ -91,6 +91,11 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
 
         btnRegresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
 
         ContenedorMenu.setLayer(btnRegresar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -468,6 +473,13 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
          CargaInterfaz();
         CargarDatos();  
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+        MENUADMIN ma = new MENUADMIN();
+        ma.setVisible(true);
+        this.disable();
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
