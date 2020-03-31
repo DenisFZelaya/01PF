@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Vista;
-import Controlador.Fechas;
 import Controlador.usuario;
 import Controlador.cajero;
 import java.text.DateFormat;
@@ -13,24 +12,20 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.LinkedList;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Laptop
  */
 public class REGISTRARCAJEROS extends javax.swing.JFrame {
-         private DefaultTableModel modelo;
-         int contador = 0;
-
-// Creacion de ArrayList
-     public static LinkedList contenedor = new LinkedList();
+ // Creacion de ArrayList
+     ArrayList<cajero> lista = new ArrayList<cajero>();
         
      //Variables para los parametros
-        int p5=0, p6=0;
-        String p1 ,p2, p3, p4,p7;
+        int p1 = 0;
+        String p2, p3, p4, p5,p7;
+        double p6;
         String turno;
        
 
@@ -38,12 +33,10 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
      * Creates new form REGISTRARPRODUCTO
      */
     public REGISTRARCAJEROS() {
-        initComponents();
+           initComponents();
         setLocationRelativeTo(null);
         
-        Fechas hora = new Fechas();
-        
-        lblFecha.setText("Fecha: " + hora.fechaActual());
+        Fecha();
         
 
     }
@@ -67,9 +60,8 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         fONDOADMIN1 = new Modelo.FONDOADMIN();
         ContenedorMenu = new javax.swing.JLayeredPane();
         btnRegresar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         ContenedorBarraSuperior = new javax.swing.JLayeredPane();
-        lblCerrarSesion = new javax.swing.JLabel();
+        lblHora = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
         lblHora2 = new javax.swing.JLabel();
         ContenedorMesadeTrabajo = new javax.swing.JLayeredPane();
@@ -105,21 +97,8 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
 
         btnRegresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         btnRegresar.setText("Regresar");
-        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresarActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         ContenedorMenu.setLayer(btnRegresar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        ContenedorMenu.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout ContenedorMenuLayout = new javax.swing.GroupLayout(ContenedorMenu);
         ContenedorMenu.setLayout(ContenedorMenuLayout);
@@ -129,34 +108,28 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(63, 63, 63))
         );
         ContenedorMenuLayout.setVerticalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                .addContainerGap(304, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(258, 258, 258)
+                .addContainerGap(599, Short.MAX_VALUE)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72))
+                .addGap(60, 60, 60))
         );
 
         fONDOADMIN1.add(ContenedorMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 700));
 
         ContenedorBarraSuperior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lblCerrarSesion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
-        lblCerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
-        lblCerrarSesion.setText("Cerrar Sesión");
-        lblCerrarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        lblCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblHora.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblHora.setForeground(new java.awt.Color(255, 255, 255));
+        lblHora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
+        lblHora.setText("Cerrar Sesión");
+        lblHora.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        lblHora.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCerrarSesionMouseClicked(evt);
+                lblHoraMouseClicked(evt);
             }
         });
 
@@ -168,7 +141,7 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         lblHora2.setForeground(new java.awt.Color(255, 255, 255));
         lblHora2.setText("Hora:");
 
-        ContenedorBarraSuperior.setLayer(lblCerrarSesion, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        ContenedorBarraSuperior.setLayer(lblHora, javax.swing.JLayeredPane.DEFAULT_LAYER);
         ContenedorBarraSuperior.setLayer(lblFecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
         ContenedorBarraSuperior.setLayer(lblHora2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -179,10 +152,10 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorBarraSuperiorLayout.createSequentialGroup()
                 .addGap(237, 237, 237)
                 .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addGap(64, 64, 64)
                 .addComponent(lblHora2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106)
-                .addComponent(lblCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                .addComponent(lblHora, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
         ContenedorBarraSuperiorLayout.setVerticalGroup(
@@ -190,7 +163,7 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorBarraSuperiorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(ContenedorBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCerrarSesion)
+                    .addComponent(lblHora)
                     .addComponent(lblFecha)
                     .addComponent(lblHora2))
                 .addGap(19, 19, 19))
@@ -461,58 +434,35 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarSesionMouseClicked
+    private void lblHoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHoraMouseClicked
      JOptionPane.showConfirmDialog(null,"Desea regresar al inicio de sesion?", "Registrar un producto", JOptionPane.YES_NO_OPTION);   // TODO add your handling code here:
-    }//GEN-LAST:event_lblCerrarSesionMouseClicked
+    }//GEN-LAST:event_lblHoraMouseClicked
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-       Fecha();
-       
-       Turno();
-       
-       //Igualar variables a los componentes necesarios de la ventana
-       p1= txtNombre.getText();//nombre
-       p2= txtCedula.getText();//usuario
-       p3= txtUsuario.getText();//contrase;a 
-       p4= txtContraseña.getText();//identidad
-       p5= Integer.valueOf(txtSalario.getText());//salario 
-       p6= Integer.valueOf(txtIdCajero.getText());//idcajero
-       p7= turno;//turno
-       
-        cajero cajero = new cajero(p1,p2,p3,p4,p5,p6,p7);
-        contenedor.add(cajero);
+      //Llamar a Categoria
+        Fecha();
+        
+        //Igualar variables a los componentes necesarios de la ventana
+        p1 = Integer.valueOf(txtIdCajero.getText());
+        p2 = txtNombre.getText();
+        p3 = txtCedula.getText();
+        p4 = txtUsuario.getText();
+        p5 = txtContraseña.getText();
+        p6 = Double.parseDouble(txtSalario.getText());
+        p7 = turno;
+ 
+        // **********hacer la instancia
 
-        //mostrar();
-        CargaInterfaz();
-        CargarDatos();  
+
+        //todos los string
+
         
-        
-        //dejar vacios los campos
-        txtNombre.setText("");
-        txtCedula.setText("");
-        txtUsuario.setText("");
-        txtContraseña.setText("");
-        txtSalario.setText("");
-        txtIdCajero.setText("");
-        
-      
+           // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void cbTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTurnoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbTurnoActionPerformed
-
-    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        MENUADMIN frm = new MENUADMIN();
-        frm.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnRegresarActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                CargaInterfaz();
-        CargarDatos();  
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
     public void Turno(){
                 switch (cbTurno.getSelectedIndex()){
             case 0:
@@ -525,32 +475,6 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
                 this.turno = "Noche";
                 break;
            }
-    }
-    
-       	public void CargaInterfaz()
-	{
-            String datos[][] = {};
-            String columna [] = {"Id Cajero ","Nombre","Contraseña","Cedula","Usuario", "Salario","Turno"}; 
-            modelo = new DefaultTableModel(datos,columna);
-            tbRegistrarCajeros.setModel(modelo);   
-   	} 
-    
-            	public void CargarDatos()
-	{
-       		cajero c; // INSTANCIA DE LA CLASE QUE CREAMOS
-        
-       		for (int i = 0; i < REGISTRARCAJEROS.contenedor.size(); i++){
-            	c = (cajero)REGISTRARCAJEROS.contenedor.get(i);
-            	modelo.insertRow(contador, new Object []{});
-           	modelo.setValueAt(c.getIdCajero(), contador, 0); 
-            	modelo.setValueAt(c.getNombre(), contador, 1);
-            	modelo.setValueAt(c.getIdentidad(), contador, 2);
-                modelo.setValueAt(c.getUsuario(), contador, 3);
-                modelo.setValueAt(c.getContraseña(), contador, 4);
-                modelo.setValueAt(c.getSalario(), contador, 5);
-                modelo.setValueAt(c.getTurno(), contador,6);
-        }
-    
     }
 
     /**
@@ -599,14 +523,13 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> cbTurno;
     private Modelo.FONDOADMIN fONDOADMIN1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCedula;
-    private javax.swing.JLabel lblCerrarSesion;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblFecha1;
+    private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblHora1;
     private javax.swing.JLabel lblHora2;
     private javax.swing.JLabel lblIdCajero;
