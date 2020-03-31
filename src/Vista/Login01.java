@@ -13,7 +13,7 @@ public class Login01 extends javax.swing.JFrame {
      
      //VARIABLE PARA ACCEDER AL NOMBRE DE USUARIO DEL REGISTRO
      public String GLOBALUSER;
- 
+     public static String user;
     public Login01() {
         initComponents();
        
@@ -46,10 +46,12 @@ public class Login01 extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtseleccion.setForeground(new java.awt.Color(255, 255, 255));
+        txtseleccion.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         txtseleccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cajero", "Administrador" }));
-        getContentPane().add(txtseleccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 266, 170, 40));
+        getContentPane().add(txtseleccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 266, 160, 40));
 
+        btnSalir.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(0, 51, 153));
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +60,8 @@ public class Login01 extends javax.swing.JFrame {
         });
         getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 100, 40));
 
+        btnIngresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        btnIngresar.setForeground(new java.awt.Color(0, 51, 153));
         btnIngresar.setText("Ingresar");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,17 +70,24 @@ public class Login01 extends javax.swing.JFrame {
         });
         getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, 110, 40));
 
-        lblUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblUsuario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(0, 51, 102));
         lblUsuario.setText("Usuario:");
         getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 70, -1));
 
-        lblContraseña.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblContraseña.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        lblContraseña.setForeground(new java.awt.Color(0, 51, 102));
         lblContraseña.setText("Tipo:");
         getContentPane().add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, -1, -1));
+
+        txtUsuario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 174, 150, 30));
+
+        txtContra.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         getContentPane().add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 222, 130, 30));
 
-        lblContraseña2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblContraseña2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        lblContraseña2.setForeground(new java.awt.Color(0, 51, 102));
         lblContraseña2.setText("Contraseña:");
         getContentPane().add(lblContraseña2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, -1, -1));
 
@@ -104,6 +115,7 @@ public class Login01 extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
+        this.user=txtUsuario.getText();
         
         if (txtUsuario.getText().equals("") || (txtContra.getText().equals("") ) ){
             JOptionPane.showMessageDialog(null, "Verifique los datos ingresados.");

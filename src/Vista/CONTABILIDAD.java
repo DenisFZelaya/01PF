@@ -29,14 +29,16 @@ public class CONTABILIDAD extends javax.swing.JFrame {
     private DefaultTableModel modelo;
     Login01 ventana=new Login01();
     int contador = 0;
+    
     // Creacion de ArrayList
     public static LinkedList contenedor = new LinkedList();
      //ArrayList<producto> lista = new ArrayList<producto>();
         
      //Variables para los parametros
-        int p2 = 0, p3 = 0, p4 = 0;
-        String p1;
+        int p1=0, p4 = 0, p5=0, p6=0;
+        String p2="", p3="";
         String cate;
+        String año;
 public void validar()
     {
          if(txting.getText().equals("") || txtegre.getText().equals(""))
@@ -54,6 +56,7 @@ public void validar()
         initComponents();
         setLocationRelativeTo(null);
         lblnombre.setText(ventana.user);
+
         
         
         //Para obtener la hora actual
@@ -86,7 +89,7 @@ public void validar()
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         cbmes = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cbaño = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txting = new javax.swing.JTextField();
@@ -96,7 +99,6 @@ public void validar()
         btnguardar = new javax.swing.JButton();
         btnregresar = new javax.swing.JButton();
         txtcerrar1 = new javax.swing.JButton();
-        btnactualizar = new javax.swing.JButton();
         lblFecha = new javax.swing.JLabel();
         txtutil = new javax.swing.JTextField();
         uti = new javax.swing.JButton();
@@ -146,14 +148,14 @@ public void validar()
         });
         getContentPane().add(cbmes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 146, -1, 30));
 
-        jComboBox2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        cbaño.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        cbaño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2019", "2020", "2021", "2022", "2023", "2024", "2025" }));
+        cbaño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                cbañoActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 146, -1, 30));
+        getContentPane().add(cbaño, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 146, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 51, 102));
@@ -232,16 +234,6 @@ public void validar()
         });
         getContentPane().add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 510, 150, -1));
 
-        btnactualizar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        btnactualizar.setForeground(new java.awt.Color(0, 51, 102));
-        btnactualizar.setText("Actualizar");
-        btnactualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnactualizarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 145, 40));
-
         lblFecha.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 160, 30));
@@ -290,9 +282,9 @@ public void validar()
         // TODO add your handling code here:
     }//GEN-LAST:event_cbmesActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void cbañoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbañoActionPerformed
     
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_cbañoActionPerformed
 
     private void txtingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtingActionPerformed
         // TODO add your handling code here:
@@ -304,19 +296,24 @@ public void validar()
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
         mes();
+        año();
         int error=0;
        
+        
         try{
         if(txting.getText().equals("") || txtegre.getText().equals("") ||txtutil.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null,"Asegurese de llenar todos los campos"); 
         }else{
-        p1 = cate;
-        p2 = Integer.valueOf(txting.getText());
-        p3 = Integer.valueOf(txtegre.getText());
-        p4 = Integer.valueOf(txtutil.getText());
-         
-        contabilidad conta = new contabilidad(p1,p2,p3,p4);
+        p1 = (contenedor.size() + 1);
+        p2 = cate;
+        p3 = año;
+        p4 = Integer.valueOf(txting.getText());
+        p5 = Integer.valueOf(txtegre.getText());
+        p6 = Integer.valueOf(txtutil.getText());
+        
+        
+        contabilidad conta = new contabilidad(p1,p2,p3,p4,p5,p6);
         contenedor.add(conta);
 
         //mostrar();
@@ -362,10 +359,6 @@ public void validar()
         // TODO add your handling code here:
     }//GEN-LAST:event_txtutilActionPerformed
 
-    private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
-
-    }//GEN-LAST:event_btnactualizarActionPerformed
-
     private void txtingKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtingKeyTyped
         char validar = evt.getKeyChar();
         if(Character.isLetter(validar))
@@ -387,19 +380,14 @@ char validar = evt.getKeyChar();
     }//GEN-LAST:event_txtegreKeyTyped
 
     private void utiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_utiActionPerformed
-        
-        int ingr=Integer.parseInt(txting.getText());
-        int egre=Integer.parseInt(txtegre.getText());
-        int ganancia;
-        String i, e;
-        i = String.valueOf(ingr);
-        e = String.valueOf(egre);
-        
-        if(i.equals("") || e.equals(""))
+        if(txting.getText().equals("") || txtegre.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null,"Asegurese de llenar todos los campos"); 
         }else{
-         if (ingr < egre)
+        int ingr=Integer.parseInt(txting.getText());
+        int egre=Integer.parseInt(txtegre.getText());
+        int ganancia;
+            if (ingr < egre)
             {
             JOptionPane.showMessageDialog(null,"Este mes no obtuvo ganancias, solo pérdidas");
             ganancia = ingr - egre;    
@@ -453,6 +441,32 @@ char validar = evt.getKeyChar();
     }   
     }
     
+    public void año(){
+                switch (cbaño.getSelectedIndex()){
+            case 0:
+                this.año = "2019";
+                break;
+            case 1:
+                this.año = "2020";
+                break; 
+            case 2:
+                this.año = "2021";
+                break;
+            case 3:
+                this.año = "2022";
+                break; 
+             case 4:
+                this.año = "2023";
+                break;
+            case 5:
+                this.año = "2024";
+                break; 
+            case 6:
+                this.año = "2025";
+                break;
+               
+    }   
+    }
                 
     
   
@@ -460,7 +474,7 @@ char validar = evt.getKeyChar();
     public void CargaInterfaz()
 	{
             String datos[][] = {};
-            String columna [] = {"MES","INGRESOS","EGRESOS","UTILIDAD"}; 
+            String columna [] = {"ID","MES","AÑO","INGRESOS","EGRESOS","UTILIDAD"}; 
             modelo = new DefaultTableModel(datos,columna);
             conta.setModel(modelo);   
    	} 
@@ -472,10 +486,12 @@ char validar = evt.getKeyChar();
        		for (int i = 0; i < CONTABILIDAD.contenedor.size(); i++){
             	c = (contabilidad)CONTABILIDAD.contenedor.get(i);
             	modelo.insertRow(contador, new Object []{});
-           	modelo.setValueAt(c.getMes(), contador, 0);
-            	modelo.setValueAt(c.getIngreso() , contador, 1);
-            	modelo.setValueAt(c.getInversion() , contador, 2);
-                modelo.setValueAt(c.getGanancia() , contador, 3);
+                modelo.setValueAt(c.getidMes(), contador, 0);
+           	modelo.setValueAt(c.getMes(), contador, 1);
+                modelo.setValueAt(c.getAño(), contador, 2);
+            	modelo.setValueAt(c.getIngreso() , contador, 3);
+            	modelo.setValueAt(c.getInversion() , contador, 4);
+                modelo.setValueAt(c.getGanancia() , contador, 5);
                
         }
     
@@ -518,13 +534,12 @@ char validar = evt.getKeyChar();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnactualizar;
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnregresar;
+    private javax.swing.JComboBox<String> cbaño;
     private javax.swing.JComboBox<String> cbmes;
     private javax.swing.JTable conta;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
