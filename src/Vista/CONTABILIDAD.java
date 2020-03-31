@@ -474,7 +474,7 @@ char validar = evt.getKeyChar();
     public void CargaInterfaz()
 	{
             String datos[][] = {};
-            String columna [] = {"ID","MES","AÑO","INGRESOS","EGRESOS","UTILIDAD"}; 
+            String columna [] = {"ID","MES","AÑO","EGRESOS","INGRESOS","UTILIDAD"}; 
             modelo = new DefaultTableModel(datos,columna);
             conta.setModel(modelo);   
    	} 

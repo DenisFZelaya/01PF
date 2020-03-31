@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.Fechas;
+import Controlador.cliente;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.text.DateFormat;
@@ -21,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Cristian Maradiaga
  */
 public class REGISTRARCLIENTES extends javax.swing.JFrame {
-    
+     Login01 ventana=new Login01();
    ImagenFondo ejemplo= new ImagenFondo();
     DefaultTableModel modelo;
 
@@ -33,6 +34,7 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
    Fechas hora = new Fechas();
+   lblnombre.setText(ventana.user);
         
         lblFecha.setText("Fecha: " + hora.fechaActual());
     }
@@ -59,19 +61,19 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
         jLayeredPane3 = new javax.swing.JLayeredPane();
         txtNombre = new javax.swing.JLabel();
         txtIngresoTelefono = new javax.swing.JTextField();
-        txtIdCliente = new javax.swing.JLabel();
-        txtIngresoIdCliente = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JLabel();
-        btnRegistrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtIngresoNombre1 = new javax.swing.JTextField();
         lblFecha = new javax.swing.JLabel();
+        btnRegistrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblDatos = new javax.swing.JTable();
+        datos = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
-        btnactualizar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         txtcerrar1 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        lblnombre = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setModalExclusionType(null);
@@ -98,23 +100,29 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
         txtNombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(0, 51, 102));
         txtNombre.setText("Nombre");
-        jLayeredPane3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 86, 68, -1));
+        jLayeredPane3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 68, -1));
 
         txtIngresoTelefono.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLayeredPane3.add(txtIngresoTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 86, 163, -1));
-
-        txtIdCliente.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
-        txtIdCliente.setForeground(new java.awt.Color(0, 51, 102));
-        txtIdCliente.setText("Id Cliente");
-        jLayeredPane3.add(txtIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 127, -1, -1));
-
-        txtIngresoIdCliente.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLayeredPane3.add(txtIngresoIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 126, 65, -1));
+        jLayeredPane3.add(txtIngresoTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 163, -1));
 
         txtTelefono.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         txtTelefono.setForeground(new java.awt.Color(0, 51, 102));
         txtTelefono.setText("Telefono");
-        jLayeredPane3.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 86, 84, 25));
+        jLayeredPane3.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 84, 25));
+
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(251, 215, 48));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("REGISTRO DE CLIENTES");
+        jLayeredPane3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 32, 654, -1));
+
+        txtIngresoNombre1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jLayeredPane3.add(txtIngresoNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 163, -1));
+
+        lblFecha.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        lblFecha.setForeground(new java.awt.Color(255, 255, 255));
+        lblFecha.setText("Fecha");
+        jLayeredPane3.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, -10, 210, 24));
 
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(0, 51, 102));
@@ -124,47 +132,23 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jLayeredPane3.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 118, 111, 34));
-
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(251, 215, 48));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("REGISTRO DE CLIENTES");
-        jLayeredPane3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 32, 654, -1));
-
-        txtIngresoNombre1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLayeredPane3.add(txtIngresoNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 86, 163, -1));
-
-        lblFecha.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        lblFecha.setForeground(new java.awt.Color(255, 255, 255));
-        lblFecha.setText("Fecha");
-        jLayeredPane3.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, -10, 210, 24));
+        jLayeredPane3.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 111, 34));
 
         getContentPane().add(jLayeredPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 655, 165));
 
-        tblDatos.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        tblDatos.setModel(new javax.swing.table.DefaultTableModel(
+        datos.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        datos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nombre", "Id Cliente", "Telefono"
+
             }
         ));
-        jScrollPane1.setViewportView(tblDatos);
+        jScrollPane1.setViewportView(datos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 630, 310));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 630, 320));
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        btnactualizar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        btnactualizar.setForeground(new java.awt.Color(0, 51, 102));
-        btnactualizar.setText("Actualizar");
-        btnactualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnactualizarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 145, 40));
 
         jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 51, 102));
@@ -179,19 +163,34 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
         txtcerrar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         txtcerrar1.setForeground(new java.awt.Color(0, 51, 102));
         txtcerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
-        txtcerrar1.setLabel("Cerrar Sesión");
+        txtcerrar1.setText("Cerrar Sesión");
         txtcerrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcerrar1ActionPerformed(evt);
             }
         });
-        getContentPane().add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 150, 40));
+        getContentPane().add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 150, 40));
+
+        jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Cajero:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
+
+        lblnombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        lblnombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(lblnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 140, 50));
+
+        jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Usuario");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        DefaultTableModel modelo=(DefaultTableModel) tblDatos.getModel();
+        DefaultTableModel modelo=(DefaultTableModel) datos.getModel();
 
         Object [] fila=new Object [3];
 
@@ -201,12 +200,8 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
 
         modelo.addRow(fila);
 
-        tblDatos.setModel(modelo);
+        datos.setModel(modelo);
     }//GEN-LAST:event_btnRegistrarActionPerformed
-
-    private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
-        
-    }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         MENUCAJERO frm = new MENUCAJERO();
@@ -221,6 +216,31 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcerrar1ActionPerformed
 
+    public void CargaInterfaz()
+	{
+            String datos[][] = {};
+            String columna [] = {"ID","MES","AÑO","EGRESOS","INGRESOS","UTILIDAD"}; 
+            modelo = new DefaultTableModel(datos,columna);
+            datos.setModel(modelo);   
+   	} 
+    
+            	public void CargarDatos()
+	{
+       		cliente c = new cliente(); // INSTANCIA DE LA CLASE QUE CREAMOS
+        
+       		for (int i = 0; i < REGISTRARCLIENTES.contenedor.size(); i++){
+            	c = (cliente)REGISTRARCLIENTES.contenedor.get(i);
+            	modelo.insertRow(contador, new Object []{});
+                modelo.setValueAt(c.getidC(), contador, 0);
+           	modelo.setValueAt(c.getMes(), contador, 1);
+                modelo.setValueAt(c.getAño(), contador, 2);
+            	modelo.setValueAt(c.getIngreso() , contador, 3);
+            	modelo.setValueAt(c.getInversion() , contador, 4);
+                modelo.setValueAt(c.getGanancia() , contador, 5);
+               
+        }
+    
+    }
     
     
     /**
@@ -260,17 +280,17 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton btnactualizar;
+    private javax.swing.JTable datos;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFecha;
-    private javax.swing.JTable tblDatos;
-    private javax.swing.JLabel txtIdCliente;
-    private javax.swing.JTextField txtIngresoIdCliente;
+    private javax.swing.JLabel lblnombre;
     private javax.swing.JTextField txtIngresoNombre1;
     private javax.swing.JTextField txtIngresoTelefono;
     private javax.swing.JLabel txtNombre;
