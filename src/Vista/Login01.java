@@ -10,6 +10,9 @@ public class Login01 extends javax.swing.JFrame {
 
      MENUADMIN MA = new MENUADMIN();  
      MENUCAJERO MC = new MENUCAJERO();      
+     
+     //VARIABLE PARA ACCEDER AL NOMBRE DE USUARIO DEL REGISTRO
+     public String GLOBALUSER;
  
     public Login01() {
         initComponents();
@@ -180,6 +183,12 @@ public class Login01 extends javax.swing.JFrame {
 
           }//FOR
 
+    }
+    
+    public String getPublicUser(){
+        String NU = this.GLOBALUSER;
+        
+        return NU;
     }
     
     
