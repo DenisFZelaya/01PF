@@ -31,13 +31,16 @@ public class Login01 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox<>();
         btnSalir = new javax.swing.JButton();
         btnIngresar = new javax.swing.JButton();
         lblUsuario = new javax.swing.JLabel();
         lblContraseña = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
+        lblContraseña2 = new javax.swing.JLabel();
         lblfondo1 = new javax.swing.JLabel();
+        lblContraseña1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -45,6 +48,10 @@ public class Login01 extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cajero", "Administrador" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 266, 170, 40));
 
         btnSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Laptop\\Documents\\2020\\Java\\01PF\\build\\classes\\IMG\\exit.png")); // NOI18N
         btnSalir.setText("Salir");
@@ -66,13 +73,17 @@ public class Login01 extends javax.swing.JFrame {
 
         lblUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblUsuario.setText("Usuario:");
-        getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 70, -1));
+        getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 70, -1));
 
         lblContraseña.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblContraseña.setText("Contraseña:");
-        getContentPane().add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, 130, -1));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, 130, -1));
+        lblContraseña.setText("Tipo:");
+        getContentPane().add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, -1, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 174, 150, 30));
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 222, 130, 30));
+
+        lblContraseña2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblContraseña2.setText("Contraseña:");
+        getContentPane().add(lblContraseña2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, -1, -1));
 
         lblfondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/IMGLogin.jpg"))); // NOI18N
         lblfondo1.setLabelFor(lblfondo1);
@@ -82,6 +93,10 @@ public class Login01 extends javax.swing.JFrame {
         lblfondo1.setIconTextGap(6);
         lblfondo1.setRequestFocusEnabled(false);
         getContentPane().add(lblfondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 405));
+
+        lblContraseña1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblContraseña1.setText("Contraseña:");
+        getContentPane().add(lblContraseña1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -135,9 +150,12 @@ public class Login01 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblContraseña;
+    private javax.swing.JLabel lblContraseña1;
+    private javax.swing.JLabel lblContraseña2;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblfondo1;
     // End of variables declaration//GEN-END:variables
