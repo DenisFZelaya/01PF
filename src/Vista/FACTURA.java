@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import Controlador.producto;
+import static Vista.CONTABILIDAD.contenedor;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -49,7 +51,7 @@ public class FACTURA extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtidprod = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtnombrecliente = new javax.swing.JTextField();
         txttelcliente = new javax.swing.JLabel();
@@ -67,6 +69,10 @@ public class FACTURA extends javax.swing.JFrame {
         btnagregar1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         txtcerrar1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtNombreP = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtCantidad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(960, 594));
@@ -84,8 +90,13 @@ public class FACTURA extends javax.swing.JFrame {
         jLabel1.setText("ID Producto");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
 
-        txtidprod.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        getContentPane().add(txtidprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 71, 25));
+        txtId.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 71, 25));
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 51, 102));
@@ -125,7 +136,7 @@ public class FACTURA extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(factura);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 630, 310));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 630, 250));
 
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 51, 102));
@@ -183,6 +194,22 @@ public class FACTURA extends javax.swing.JFrame {
         });
         getContentPane().add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 150, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel4.setText("Producto:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, -1, -1));
+
+        txtNombreP.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        getContentPane().add(txtNombreP, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 280, 25));
+
+        jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel9.setText("Cantidad:");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, -1, -1));
+
+        txtCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        getContentPane().add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 120, 25));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -203,6 +230,22 @@ public class FACTURA extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcerrar1ActionPerformed
 
+    private void txtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyTyped
+        // TODO add your handling code here:
+        int press = evt.getKeyChar();
+        if (press == 10){
+        String ID = txtId.getText().trim();
+        producto p;
+        
+        for (int i= 0; i < REGISTRARPRODUCTO.contenedor.size(); i++){
+            p=(producto)contenedor.get(i);
+            if (ID.equalsIgnoreCase(p.getSidproducto())){
+                txtNombreP.setText(p.getSnombreProd());
+            }
+
+        }
+    }//GEN-LAST:event_txtIdKeyTyped
+    }
     /**
      * @param args the command line arguments
      */
@@ -245,15 +288,19 @@ public class FACTURA extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txtCantidad;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtNombreP;
     private javax.swing.JButton txtcerrar1;
     private javax.swing.JTextField txtidcliente;
-    private javax.swing.JTextField txtidprod;
     private javax.swing.JTextField txtisv;
     private javax.swing.JTextField txtnombrecliente;
     private javax.swing.JTextField txtsubtotal;

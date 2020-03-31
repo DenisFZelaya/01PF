@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 public class MOSTRARPRODUCTO extends javax.swing.JFrame {
     // Creacion de ArrayList
 
-    private DefaultTableModel modelo;
+    public DefaultTableModel modelo;
     int contador = 0;
     
 //    REGISTRARPRODUCTO PROD = new REGISTRARPRODUCTO();   
