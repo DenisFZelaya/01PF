@@ -6,6 +6,8 @@
 package Vista;
 
 import Controlador.administrador;
+import Controlador.cajero;
+import static Vista.REGISTRARCAJEROS.contenedor;
 import java.awt.Color;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
@@ -20,6 +22,9 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
      private DefaultTableModel modelo;
     int contador = 0;
     // Creacion de ArrayList
+    
+    //PARA LLAMAR AL LISTADO DE ADMINISTRADORES
+    administrador a;
     public static LinkedList contenedor = new LinkedList();
     
     // VARIABLES GLOBALES DE LA CLASE ADMINISTRADOR
@@ -36,6 +41,8 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         lblMAL.setVisible(false);
+        txtCodigo.setText(String.valueOf( contenedor.size() + 1));
+   
         
                  CargaInterfaz();
         CargarDatos();  
@@ -243,6 +250,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         lblTurno.setText("Especializacion:");
 
         txtCodigo.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtCodigo.setEnabled(false);
         txtCodigo.setSelectionColor(new java.awt.Color(102, 255, 102));
 
         lblSalario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
@@ -483,13 +491,15 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
 
         lblMAL.setVisible(false);
-        
+        txtCodigo.setText(String.valueOf( contenedor.size() + 1));
 
         //VALIDA QUE LA INFORMACION INGRESADA ESTE COMPLETA
           ValidarDatos();
      
          CargaInterfaz();
         CargarDatos();  
+        
+        txtCodigo.setText(String.valueOf( contenedor.size() + 1));
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
@@ -511,7 +521,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
     
         public void ValidarDatos(){
 
-
+        
 
             switch (this.cbSpec.getSelectedIndex())
             {
@@ -541,8 +551,16 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         this.P4 = txtCedula.getText();
         this.P5 = Integer.parseInt(txtSalario.getText());
         this.P6 = Integer.parseInt(txtCodigo.getText());
+        
+         //ASIGNAR UN VALOR CORRELATIVO SEGUN EL ULTIMO NUMERO DE UNA TABLA
+       
+        P6 = (contenedor.size() + 1);  
+      
+        
         administrador admin = new administrador(P1,P2,P3,P4,P5,P6,P7);
         contenedor.add(admin);     
+        
+
         
         CASILLASDEFAULT();
 
