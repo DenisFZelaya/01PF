@@ -27,6 +27,7 @@ import javax.swing.table.DefaultTableModel;
 public class CONTABILIDAD extends javax.swing.JFrame {
     ImagenFondo ejemplo =  new ImagenFondo();
     private DefaultTableModel modelo;
+    Login01 ventana=new Login01();
     int contador = 0;
     // Creacion de ArrayList
     public static LinkedList contenedor = new LinkedList();
@@ -52,6 +53,7 @@ public void validar()
         this.setContentPane(ejemplo);
         initComponents();
         setLocationRelativeTo(null);
+        lblnombre.setText(ventana.user);
         
         
         //Para obtener la hora actual
@@ -98,6 +100,10 @@ public void validar()
         lblFecha = new javax.swing.JLabel();
         txtutil = new javax.swing.JTextField();
         uti = new javax.swing.JButton();
+        lblnombre = new javax.swing.JLabel();
+        lblnombre3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
@@ -259,6 +265,24 @@ public void validar()
         });
         getContentPane().add(uti, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 130, -1, -1));
 
+        lblnombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        lblnombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(lblnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 140, 50));
+
+        lblnombre3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        getContentPane().add(lblnombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 190, 50));
+
+        jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Administrador:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Usuario");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -339,8 +363,7 @@ public void validar()
     }//GEN-LAST:event_txtutilActionPerformed
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
-        CargaInterfaz();
-        CargarDatos();  
+
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void txtingKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtingKeyTyped
@@ -508,8 +531,12 @@ char validar = evt.getKeyChar();
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblnombre;
+    private javax.swing.JLabel lblnombre3;
     private javax.swing.JButton txtcerrar1;
     private javax.swing.JTextField txtegre;
     private javax.swing.JTextField txting;
