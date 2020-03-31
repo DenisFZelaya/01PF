@@ -494,7 +494,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         {   
          //SI LAS CASILLAS ESTAN VACIAS COLOCAR UN BACKGROUND ROJO
         COLORSIVACIO();
-         JOptionPane.showMessageDialog(null, "Llene todos los campos");
+         JOptionPane.showMessageDialog(null, "Llene todos los campos correctamente.");
          lblMAL.setVisible(true);
 
         } else {
@@ -591,7 +591,6 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
             resultado = true;
         } catch (NumberFormatException excepcion) {
             resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en la casilla salario");
             txtSalario.setText("");
         }
 
@@ -609,7 +608,6 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
             resultado = true;
         } catch (NumberFormatException excepcion) {
             resultado = false;
-            JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en la casilla de codigo");
             txtCodigo.setText("");
         }
 
