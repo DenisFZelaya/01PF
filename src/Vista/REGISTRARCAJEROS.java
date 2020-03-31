@@ -503,7 +503,7 @@ public class REGISTRARCAJEROS extends javax.swing.JFrame {
     }//GEN-LAST:event_cbTurnoActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        MENUADMIN frm = new MENUADMIN();
+        MENUCAJERO frm = new MENUCAJERO();
         frm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
