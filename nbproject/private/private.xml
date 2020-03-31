@@ -2,11 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="CLASE POO">
-            <file>file:/C:/Users/Laptop/Documents/2020/Java/01PF/src/Controlador/producto.java</file>
-            <file>file:/C:/Users/Laptop/Documents/2020/Java/01PF/src/Vista/MoldeLetras.java</file>
-            <file>file:/C:/Users/Laptop/Documents/2020/Java/01PF/src/Vista/REGISTRARPRODUCTO.java</file>
-        </group>
         <group/>
+        <group name="CLASE POO">
+            <file>file:/C:/Users/Laptop/Documents/2020/Java/01PF/src/Vista/MOSTRARPRODUCTO.java</file>
+            <file>file:/C:/Users/Laptop/Documents/2020/Java/01PF/src/Vista/REGISTRARPRODUCTO.java</file>
+            <file>file:/C:/Users/Laptop/Documents/2020/Java/01PF/src/Vista/Login01.java</file>
+            <file>file:/C:/Users/Laptop/Documents/2020/Java/01PF/src/Vista/REGISTRARADMINISTRADOR.java</file>
+            <file>file:/C:/Users/Laptop/Documents/2020/Java/01PF/src/Vista/MENUCAJERO.java</file>
+        </group>
     </open-files>
 </project-private>
