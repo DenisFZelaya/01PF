@@ -5,13 +5,15 @@
  */
 package Vista;
 
-import Controlador.Fechas;
+import Controlador.contabilidad;
 import Controlador.producto;
 import static Vista.CONTABILIDAD.contenedor;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.LinkedList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,26 +24,24 @@ import javax.swing.table.DefaultTableModel;
 public class FACTURA extends javax.swing.JFrame {
     DefaultTableModel modelo;
     ImagenFondo ejemplo =  new ImagenFondo();
-    /**
-     * Creates new form FACTURA
-     */
+    Login01 ventana=new Login01();
+    int contador = 0;
+    
+    // Creacion de ArrayList
+    public static LinkedList contenedor = new LinkedList();
+     //ArrayList<producto> lista = new ArrayList<producto>();
+        
+     //Variables para los parametros
+        int p1=0, p2=0 ;
+        String p3="", p4="", p5="";
+        double p6=0;
+        
     public FACTURA() {
         this.setContentPane(ejemplo);
         initComponents();
         setLocationRelativeTo(null);
         
-        Fechas f = new Fechas();
-        
-        lblFecha.setText(f.fechaActual());
-        
-        modelo=new DefaultTableModel();
-        modelo.addColumn("ID");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Descripción");
-        modelo.addColumn("Categoría");
-        modelo.addColumn("Precio");
-        this.factura.setModel(modelo);
-        this.factura.setBackground(Color.white);
+
 
     }
 
@@ -54,83 +54,65 @@ public class FACTURA extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtdes = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        factura = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         txtsubtotal = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtisv = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txttotal = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        factura = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
-        txtidcliente = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtnombrecliente = new javax.swing.JTextField();
-        txttelcliente = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
         btnbuscar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        txtcerrar1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtNombreP = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        txtCantidad = new javax.swing.JTextField();
+        btnagregar2 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
-        btnagregar2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        lblFecha = new javax.swing.JLabel();
-        txtcerrar1 = new javax.swing.JButton();
+        txtId = new javax.swing.JTextField();
+        txtNombreP = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        lblnombre = new javax.swing.JLabel();
+        txtdes1 = new javax.swing.JTextField();
+        txtcate = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        txtstock = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1200, 700));
-        setMinimumSize(new java.awt.Dimension(1200, 700));
-        setPreferredSize(new java.awt.Dimension(1200, 700));
+        setPreferredSize(new java.awt.Dimension(960, 594));
         setResizable(false);
         setSize(new java.awt.Dimension(1091, 692));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 51, 102));
-        jButton2.setText("Regresar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(251, 215, 48));
+        jLabel2.setText("FACTURA");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel1.setText("ID Producto:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
+
+        txtdes.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtdes.setEnabled(false);
+        txtdes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                txtdesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, 30));
-
-        jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 51, 102));
-        jLabel6.setText("Subtotal");
-        jLayeredPane1.add(jLabel6);
-        jLabel6.setBounds(760, 550, 60, 22);
-
-        txtsubtotal.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLayeredPane1.add(txtsubtotal);
-        txtsubtotal.setBounds(830, 550, 71, 25);
-
-        jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 51, 102));
-        jLabel7.setText("ISV");
-        jLayeredPane1.add(jLabel7);
-        jLabel7.setBounds(910, 550, 23, 22);
-
-        txtisv.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLayeredPane1.add(txtisv);
-        txtisv.setBounds(940, 550, 71, 25);
-
-        jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 51, 102));
-        jLabel8.setText("TOTAL");
-        jLayeredPane1.add(jLabel8);
-        jLabel8.setBounds(1020, 550, 43, 22);
-
-        txttotal.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLayeredPane1.add(txttotal);
-        txttotal.setBounds(1070, 550, 71, 25);
+        txtdes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtdesKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtdes, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 130, 25));
 
         factura.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 16)); // NOI18N
         factura.setModel(new javax.swing.table.DefaultTableModel(
@@ -146,53 +128,34 @@ public class FACTURA extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(factura);
 
-        jLayeredPane1.add(jScrollPane1);
-        jScrollPane1.setBounds(360, 280, 780, 250);
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 630, 220));
 
-        jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 51, 102));
-        jLabel5.setText("ID Cliente");
-        jLayeredPane1.add(jLabel5);
-        jLabel5.setBounds(410, 140, 70, 22);
+        jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel6.setText("Subtotal");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 460, -1, -1));
 
-        txtidcliente.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLayeredPane1.add(txtidcliente);
-        txtidcliente.setBounds(490, 140, 40, 25);
+        txtsubtotal.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtsubtotal.setEnabled(false);
+        getContentPane().add(txtsubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 460, 71, 25));
 
-        jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 51, 102));
-        jLabel3.setText("Nombre del cliente");
-        jLayeredPane1.add(jLabel3);
-        jLabel3.setBounds(540, 140, 190, 22);
+        jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel7.setText("ISV");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, -1, -1));
 
-        txtnombrecliente.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLayeredPane1.add(txtnombrecliente);
-        txtnombrecliente.setBounds(680, 140, 180, 25);
+        txtisv.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtisv.setEnabled(false);
+        getContentPane().add(txtisv, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 460, 71, 25));
 
-        txttelcliente.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
-        txttelcliente.setForeground(new java.awt.Color(0, 51, 102));
-        txttelcliente.setText("Teléfono");
-        jLayeredPane1.add(txttelcliente);
-        txttelcliente.setBounds(870, 140, 170, 22);
+        jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel8.setText("TOTAL");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 460, -1, -1));
 
-        jTextField3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLayeredPane1.add(jTextField3);
-        jTextField3.setBounds(940, 140, 120, 25);
-
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 51, 102));
-        jLabel1.setText("ID Producto");
-        jLayeredPane1.add(jLabel1);
-        jLabel1.setBounds(410, 190, 80, 22);
-
-        txtId.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        txtId.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtIdKeyTyped(evt);
-            }
-        });
-        jLayeredPane1.add(txtId);
-        txtId.setBounds(490, 190, 71, 25);
+        txttotal.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txttotal.setEnabled(false);
+        getContentPane().add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 460, 71, 25));
 
         btnbuscar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         btnbuscar.setForeground(new java.awt.Color(0, 51, 102));
@@ -203,39 +166,33 @@ public class FACTURA extends javax.swing.JFrame {
                 btnbuscarActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(btnbuscar);
-        btnbuscar.setBounds(580, 190, 99, 27);
+        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, -1, 27));
+
+        jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 51, 102));
+        jButton2.setText("Regresar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, 30));
+
+        txtcerrar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtcerrar1.setForeground(new java.awt.Color(0, 51, 102));
+        txtcerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
+        txtcerrar1.setLabel("Cerrar Sesión");
+        txtcerrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcerrar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 150, -1));
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 51, 102));
         jLabel4.setText("Producto:");
-        jLayeredPane1.add(jLabel4);
-        jLabel4.setBounds(690, 190, 66, 22);
-
-        txtNombreP.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLayeredPane1.add(txtNombreP);
-        txtNombreP.setBounds(780, 190, 280, 25);
-
-        jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 51, 102));
-        jLabel9.setText("Cantidad:");
-        jLayeredPane1.add(jLabel9);
-        jLabel9.setBounds(410, 230, 70, 22);
-
-        txtCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLayeredPane1.add(txtCantidad);
-        txtCantidad.setBounds(500, 230, 120, 25);
-
-        jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 51, 102));
-        jLabel10.setText("Precio:");
-        jLayeredPane1.add(jLabel10);
-        jLabel10.setBounds(650, 230, 60, 22);
-
-        txtPrecio.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        txtPrecio.setEnabled(false);
-        jLayeredPane1.add(txtPrecio);
-        txtPrecio.setBounds(710, 230, 120, 25);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, -1, -1));
 
         btnagregar2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         btnagregar2.setForeground(new java.awt.Color(0, 51, 102));
@@ -246,37 +203,105 @@ public class FACTURA extends javax.swing.JFrame {
                 btnagregar2ActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(btnagregar2);
-        btnagregar2.setBounds(880, 230, 99, 27);
+        getContentPane().add(btnagregar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 147, -1, 27));
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(251, 215, 48));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("FACTURA");
-        jLayeredPane1.add(jLabel2);
-        jLabel2.setBounds(356, 60, 790, 39);
+        jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel10.setText("Descripcion:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 110, -1));
 
-        lblFecha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblFecha.setForeground(new java.awt.Color(255, 255, 255));
-        lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblFecha.setText("Fecha:");
-        jLayeredPane1.add(lblFecha);
-        lblFecha.setBounds(350, 7, 700, 30);
+        txtPrecio.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtPrecio.setEnabled(false);
+        getContentPane().add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 150, 60, 25));
 
-        txtcerrar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        txtcerrar1.setForeground(new java.awt.Color(0, 51, 102));
-        txtcerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
-        txtcerrar1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        txtcerrar1.setLabel("Cerrar Sesión");
-        txtcerrar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcerrar1ActionPerformed(evt);
+        txtId.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdKeyTyped(evt);
             }
         });
-        jLayeredPane1.add(txtcerrar1);
-        txtcerrar1.setBounds(1040, 0, 150, 41);
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 71, 25));
 
-        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 670));
+        txtNombreP.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtNombreP.setEnabled(false);
+        txtNombreP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombrePKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtNombreP, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, 130, 25));
+
+        jLabel11.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel11.setText("Precio unidad:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 110, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Cajero:");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Usuario");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+
+        lblnombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        lblnombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(lblnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 140, 50));
+
+        txtdes1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtdes1.setEnabled(false);
+        txtdes1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdes1ActionPerformed(evt);
+            }
+        });
+        txtdes1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtdes1KeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtdes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 130, 25));
+
+        txtcate.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtcate.setEnabled(false);
+        txtcate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcateActionPerformed(evt);
+            }
+        });
+        txtcate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcateKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtcate, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 130, 25));
+
+        jLabel13.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel13.setText("Categoría:");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 110, -1));
+
+        txtstock.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtstock.setEnabled(false);
+        txtstock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtstockActionPerformed(evt);
+            }
+        });
+        txtstock.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtstockKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtstock, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, 130, 25));
+
+        jLabel14.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel14.setText("En stock:");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 70, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -291,6 +316,9 @@ public class FACTURA extends javax.swing.JFrame {
             if (ID.equalsIgnoreCase(p.getSidproducto())){
                 txtNombreP.setText(p.getDescripcion());
                 txtPrecio.setText(p.getSprecio());
+                txtdes.setText(p.getNombreProducto());
+                txtstock.setText(p.getSstock());
+                txtcate.setText(p.getSCategoria());
             }
         }  
     }//GEN-LAST:event_btnbuscarActionPerformed
@@ -308,26 +336,116 @@ public class FACTURA extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcerrar1ActionPerformed
 
+    private void txtdesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdesKeyTyped
+        // TODO add your handling code here:
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar))
+        {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Por favor ingresar solo números");
+        }
+    }//GEN-LAST:event_txtdesKeyTyped
+    
+    private void btnagregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregar2ActionPerformed
+        int error=0;
+       
+        
+        try{
+        if(txtNombreP.getText().equals("") || txtdes.getText().equals("") ||txtPrecio.getText().equals("")||txtId.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null,"Asegurese de llenar todos los campos"); 
+        }else{
+        p1 = Integer.valueOf(txtId.getText());
+        p2 = Integer.valueOf(txtstock.getText());
+        p3 = txtNombreP.getText();
+        p4 = txtdes.getText();
+        p5 = txtcate.getText();
+        p6 = Double.valueOf(txtPrecio.getText());
+        
+        producto p = new producto (p1,p2,p3,p4,p5,p6);
+        contenedor.add(p);
+
+        //mostrar();
+        CargaInterfaz();
+        CargarDatos();  
+        
+        txtId.setText("");
+        txtPrecio.setText("");
+        txtdes.setText("");
+        txtNombreP.setText("");
+        txtstock.setText("");
+        txtcate.setText("");    
+        }     
+        
+        }catch(Exception e){
+        error=1;
+        JOptionPane.showMessageDialog(null,"Por favor revise los campos");
+        txtId.setText("");
+    }
+    }//GEN-LAST:event_btnagregar2ActionPerformed
+
     private void txtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyTyped
         // TODO add your handling code here:
-        int press = evt.getKeyChar();
-        if (press == 10){
-        String ID = txtId.getText().trim();
-        producto p;
-        
-        for (int i= 0; i < REGISTRARPRODUCTO.contenedor.size(); i++){
-            p=(producto)contenedor.get(i);
-            if (ID.equalsIgnoreCase(p.getSidproducto())){
-                txtNombreP.setText(p.getSnombreProd());
-            }
-
-        }
     }//GEN-LAST:event_txtIdKeyTyped
-    }
-    private void btnagregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregar2ActionPerformed
+
+    private void txtNombrePKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombrePKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnagregar2ActionPerformed
+    }//GEN-LAST:event_txtNombrePKeyTyped
+
+    private void txtdesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdesActionPerformed
+
+    private void txtdes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdes1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdes1ActionPerformed
+
+    private void txtdes1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdes1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdes1KeyTyped
+
+    private void txtcateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcateActionPerformed
+
+    private void txtcateKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcateKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcateKeyTyped
+
+    private void txtstockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstockActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtstockActionPerformed
+
+    private void txtstockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtstockKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtstockKeyTyped
     
+     public void CargaInterfaz()
+	{
+            String datos[][] = {};
+            String columna [] = {"ID","CANTIDAD","NOMBRE","CATEGORIA","DESCRIPCION", "PRECIO"}; 
+            modelo = new DefaultTableModel(datos,columna);
+            factura.setModel(modelo);   
+   	} 
+    
+            	public void CargarDatos()
+	{
+       		producto p;// INSTANCIA DE LA CLASE QUE CREAMOS
+        
+       		for (int i = 0; i < REGISTRARPRODUCTO.contenedor.size(); i++){
+            	p = (producto)REGISTRARPRODUCTO.contenedor.get(i);
+            	modelo.insertRow(contador, new Object []{});
+           	modelo.setValueAt(p.getSidproducto(), contador, 0); 
+            	modelo.setValueAt(p.getSstock() , contador, 1);
+            	modelo.setValueAt(p.getSnombreProd() , contador, 2);
+                modelo.setValueAt(p.getSCategoria() , contador, 3);
+                modelo.setValueAt(p.getSdescripProd() , contador, 4);
+                modelo.setValueAt(p.getSprecio() , contador, 5);
+               
+        }
+    
+    }
     /**
      * @param args the command line arguments
      */
@@ -370,28 +488,28 @@ public class FACTURA extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JLabel lblFecha;
-    private javax.swing.JTextField txtCantidad;
+    private javax.swing.JLabel lblnombre;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombreP;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtcate;
     private javax.swing.JButton txtcerrar1;
-    private javax.swing.JTextField txtidcliente;
+    private javax.swing.JTextField txtdes;
+    private javax.swing.JTextField txtdes1;
     private javax.swing.JTextField txtisv;
-    private javax.swing.JTextField txtnombrecliente;
+    private javax.swing.JTextField txtstock;
     private javax.swing.JTextField txtsubtotal;
-    private javax.swing.JLabel txttelcliente;
     private javax.swing.JTextField txttotal;
     // End of variables declaration//GEN-END:variables
 }

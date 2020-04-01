@@ -163,7 +163,6 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
         ContenedorTabla.setOpaque(false);
 
-        tbRegistrarProductos.setBackground(new java.awt.Color(255, 255, 255));
         tbRegistrarProductos.setForeground(new java.awt.Color(0, 51, 102));
         tbRegistrarProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -184,7 +183,6 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         tbRegistrarProductos.setGridColor(new java.awt.Color(255, 255, 255));
         tbRegistrarProductos.setRowHeight(25);
         tbRegistrarProductos.setSelectionBackground(new java.awt.Color(0, 51, 102));
-        tbRegistrarProductos.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tbRegistrarProductos);
 
         lblNombreProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
@@ -200,8 +198,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         lblCategoria.setText("Categoria:");
 
         cbCategoria.setBackground(new java.awt.Color(153, 255, 153));
-        cbCategoria.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cbCategoria.setForeground(new java.awt.Color(0, 51, 102));
+        cbCategoria.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Refrescos", "Lacteos", "Embutidos", "Consome", "Crema de cacahuate", "Alimento para bebe", "Cereales", "Especias", "Harinas", "Salsas", "Sazonadores", "Pastas", "Enlatadas", "Confiteria", "Frutas y verduras", "Bebidas", "Carnes", "Medicamentos", "Higuiene" }));
         cbCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cbCategoria.setFocusCycleRoot(true);
@@ -225,18 +222,16 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         lblCantidad.setText("Cantidad:");
 
         txtCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        txtCantidad.setForeground(new java.awt.Color(0, 51, 102));
 
         txtPrecios.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        txtPrecios.setForeground(new java.awt.Color(0, 51, 102));
 
         lblPrecios.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblPrecios.setForeground(new java.awt.Color(0, 51, 102));
         lblPrecios.setText("Precio:");
 
-        txtDesc.setForeground(new java.awt.Color(0, 51, 102));
+        txtDesc.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
 
-        txtNombre.setForeground(new java.awt.Color(0, 51, 102));
+        txtNombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
 
         jLayeredPane1.setLayer(lblNombreProducto, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblDescripcion, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -267,9 +262,9 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                         .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblPrecios)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(lblNombreProducto)
@@ -302,7 +297,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                     .addComponent(lblCantidad)
                     .addComponent(lblPrecios)
                     .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout ContenedorTablaLayout = new javax.swing.GroupLayout(ContenedorTabla);
@@ -329,7 +324,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         );
 
         lblRegistrarProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
-        lblRegistrarProducto.setForeground(new java.awt.Color(0, 51, 102));
+        lblRegistrarProducto.setForeground(new java.awt.Color(251, 215, 48));
         lblRegistrarProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRegistrarProducto.setText("REGISTRAR PRODUCTOS");
 
@@ -343,7 +338,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
             .addGroup(ContenedorMesadeTrabajoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ContenedorMesadeTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblRegistrarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 818, Short.MAX_VALUE)
+                    .addComponent(lblRegistrarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(ContenedorMesadeTrabajoLayout.createSequentialGroup()
                         .addComponent(ContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -383,7 +378,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         Categoria(); 
         
         //Igualar variables a los componentes necesarios de la ventana
-        p1++;
+        p1 = (contenedor.size() + 1);
         p2 = Integer.valueOf(txtCantidad.getText());
         p3 = txtDesc.getText();
         p4 = txtNombre.getText();
