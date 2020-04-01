@@ -26,7 +26,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
     //PARA LLAMAR AL LISTADO DE ADMINISTRADORES
     administrador a;
     public static LinkedList contenedor = new LinkedList();
-    
+          Login01 ventana=new Login01();
     // VARIABLES GLOBALES DE LA CLASE ADMINISTRADOR
         String P1;
         String P2;
@@ -44,8 +44,8 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         
         //HORA
         Fechas f = new Fechas();
-        lblFecha.setText(String.valueOf(f.fechaActual()));
-        
+        lblFecha.setText("Fecha: "+String.valueOf(f.fechaActual()));
+        lblnombre.setText(ventana.user);
         txtCodigo.setText(String.valueOf( contenedor.size() + 1));
    
         
@@ -66,11 +66,6 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
 
         fONDOADMIN1 = new Modelo.FONDOADMIN();
         ContenedorMenu = new javax.swing.JLayeredPane();
-        btnRegresar = new javax.swing.JButton();
-        btnLogin = new javax.swing.JButton();
-        ContenedorBarraSuperior = new javax.swing.JLayeredPane();
-        lblCerrarSesion = new javax.swing.JLabel();
-        lblFecha = new javax.swing.JLabel();
         ContenedorMesadeTrabajo = new javax.swing.JLayeredPane();
         ContenedorTabla = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -95,6 +90,12 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         jLayeredPane2 = new javax.swing.JLayeredPane();
         lblMAL = new javax.swing.JLabel();
         lblRegistrarProducto = new javax.swing.JLabel();
+        btnregresar = new javax.swing.JButton();
+        txtcerrar1 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        lblnombre = new javax.swing.JLabel();
+        lblFecha = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1200, 700));
@@ -102,93 +103,18 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
 
         fONDOADMIN1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRegresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        btnRegresar.setText("Regresar");
-        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresarActionPerformed(evt);
-            }
-        });
-
-        btnLogin.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(0, 51, 102));
-        btnLogin.setText("login");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
-            }
-        });
-
-        ContenedorMenu.setLayer(btnRegresar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        ContenedorMenu.setLayer(btnLogin, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout ContenedorMenuLayout = new javax.swing.GroupLayout(ContenedorMenu);
         ContenedorMenu.setLayout(ContenedorMenuLayout);
         ContenedorMenuLayout.setHorizontalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContenedorMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addGap(0, 270, Short.MAX_VALUE)
         );
         ContenedorMenuLayout.setVerticalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                .addContainerGap(323, Short.MAX_VALUE)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(235, 235, 235)
-                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+            .addGap(0, 700, Short.MAX_VALUE)
         );
 
         fONDOADMIN1.add(ContenedorMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 270, 700));
-
-        lblCerrarSesion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
-        lblCerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
-        lblCerrarSesion.setText("Cerrar Sesión");
-        lblCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblCerrarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        lblCerrarSesion.setRequestFocusEnabled(false);
-        lblCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCerrarSesionMouseClicked(evt);
-            }
-        });
-
-        lblFecha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblFecha.setForeground(new java.awt.Color(255, 255, 255));
-        lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblFecha.setText("Fecha:");
-
-        ContenedorBarraSuperior.setLayer(lblCerrarSesion, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        ContenedorBarraSuperior.setLayer(lblFecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout ContenedorBarraSuperiorLayout = new javax.swing.GroupLayout(ContenedorBarraSuperior);
-        ContenedorBarraSuperior.setLayout(ContenedorBarraSuperiorLayout);
-        ContenedorBarraSuperiorLayout.setHorizontalGroup(
-            ContenedorBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorBarraSuperiorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(lblCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
-        ContenedorBarraSuperiorLayout.setVerticalGroup(
-            ContenedorBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorBarraSuperiorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(ContenedorBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblCerrarSesion)
-                    .addComponent(lblFecha))
-                .addGap(19, 19, 19))
-        );
-
-        fONDOADMIN1.add(ContenedorBarraSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 900, 50));
 
         ContenedorTabla.setOpaque(false);
 
@@ -229,13 +155,20 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
             }
         });
 
+        txtUsuario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         txtUsuario.setPreferredSize(new java.awt.Dimension(6, 30));
 
         lblContraseña.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblContraseña.setForeground(new java.awt.Color(0, 51, 102));
         lblContraseña.setText("Contraseña:");
 
+        txtCedula.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         txtCedula.setPreferredSize(new java.awt.Dimension(6, 30));
+        txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCedulaKeyTyped(evt);
+            }
+        });
 
         lblCedula.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblCedula.setForeground(new java.awt.Color(0, 51, 102));
@@ -255,16 +188,28 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
 
         txtSalario.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         txtSalario.setSelectionColor(new java.awt.Color(102, 255, 102));
+        txtSalario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSalarioKeyTyped(evt);
+            }
+        });
 
         lblCodigo.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblCodigo.setForeground(new java.awt.Color(0, 51, 102));
         lblCodigo.setText("Codigo:");
 
         cbSpec.setBackground(new java.awt.Color(153, 255, 153));
-        cbSpec.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cbSpec.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         cbSpec.setForeground(new java.awt.Color(0, 51, 102));
         cbSpec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador/Contador", "Programador" }));
         cbSpec.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        txtContraseña.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContraseñaActionPerformed(evt);
+            }
+        });
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/201-user.png"))); // NOI18N
@@ -364,18 +309,16 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
                             .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCodigo))
                         .addGap(18, 18, 18)
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTurno)
-                                    .addComponent(cbSpec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblUsuario))
-                                .addGap(17, 17, 17)
-                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(lblContraseña, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTurno)
+                            .addComponent(cbSpec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblUsuario))
+                        .addGap(17, 17, 17)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblContraseña)))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -394,7 +337,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 799, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ContenedorTablaLayout.setVerticalGroup(
             ContenedorTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -406,8 +349,8 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
-        lblRegistrarProducto.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        lblRegistrarProducto.setForeground(new java.awt.Color(0, 51, 102));
+        lblRegistrarProducto.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
+        lblRegistrarProducto.setForeground(new java.awt.Color(251, 215, 48));
         lblRegistrarProducto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRegistrarProducto.setText("REGISTRAR ADMINISTRADOR");
 
@@ -420,7 +363,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
             ContenedorMesadeTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContenedorMesadeTrabajoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblRegistrarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 878, Short.MAX_VALUE)
+                .addComponent(lblRegistrarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(ContenedorMesadeTrabajoLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
@@ -439,15 +382,51 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
 
         fONDOADMIN1.add(ContenedorMesadeTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 52, 890, 580));
 
+        btnregresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        btnregresar.setForeground(new java.awt.Color(0, 51, 102));
+        btnregresar.setText("Regresar");
+        btnregresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregresarActionPerformed(evt);
+            }
+        });
+        fONDOADMIN1.add(btnregresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, -1, 30));
+
+        txtcerrar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtcerrar1.setForeground(new java.awt.Color(0, 51, 102));
+        txtcerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
+        txtcerrar1.setText("Cerrar Sesión");
+        txtcerrar1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        txtcerrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcerrar1ActionPerformed(evt);
+            }
+        });
+        fONDOADMIN1.add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 150, 40));
+
+        jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Administrador:");
+        fONDOADMIN1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Usuario");
+        fONDOADMIN1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
+
+        lblnombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        lblnombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fONDOADMIN1.add(lblnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 140, 50));
+
+        lblFecha.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        lblFecha.setForeground(new java.awt.Color(255, 255, 255));
+        fONDOADMIN1.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, 240, 30));
+
         getContentPane().add(fONDOADMIN1, java.awt.BorderLayout.PAGE_START);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void lblCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarSesionMouseClicked
-        // TODO add your handling code here:
-        JOptionPane.showConfirmDialog(null,"Desea regresar al inicio de sesion?", "Registrar un producto", JOptionPane.YES_NO_OPTION);
-    }//GEN-LAST:event_lblCerrarSesionMouseClicked
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
 
@@ -463,18 +442,42 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         txtCodigo.setText(String.valueOf( contenedor.size() + 1));
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        // TODO add your handling code here:
-        MENUADMIN ma = new MENUADMIN();
-        ma.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnRegresarActionPerformed
+    private void txtSalarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSalarioKeyTyped
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar))
+        {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Por favor ingresar solo números");
+        }
+    }//GEN-LAST:event_txtSalarioKeyTyped
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+    private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar))
+        {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Por favor ingresar solo números");
+        }
+    }//GEN-LAST:event_txtCedulaKeyTyped
+
+    private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed
+        MENUADMIN frm = new MENUADMIN();
+        frm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnregresarActionPerformed
+
+    private void txtcerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcerrar1ActionPerformed
+        Login01 frm = new Login01();
+        frm.setVisible(true);
+        this.setVisible(false);
         // TODO add your handling code here:
-        Login01 log = new Login01();
-        log.setVisible(true);
-    }//GEN-LAST:event_btnLoginActionPerformed
+    }//GEN-LAST:event_txtcerrar1ActionPerformed
+
+    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraseñaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -665,21 +668,20 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLayeredPane ContenedorBarraSuperior;
     private javax.swing.JLayeredPane ContenedorMenu;
     private javax.swing.JLayeredPane ContenedorMesadeTrabajo;
     private javax.swing.JPanel ContenedorTabla;
-    private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton btnRegresar;
+    private javax.swing.JButton btnregresar;
     private javax.swing.JComboBox<String> cbSpec;
     private Modelo.FONDOADMIN fONDOADMIN1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCedula;
-    private javax.swing.JLabel lblCerrarSesion;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblFecha;
@@ -689,6 +691,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
     private javax.swing.JLabel lblSalario;
     private javax.swing.JLabel lblTurno;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JLabel lblnombre;
     private javax.swing.JTable tbRegistrarAdmin;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCodigo;
@@ -696,5 +699,6 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtSalario;
     private javax.swing.JTextField txtUsuario;
+    private javax.swing.JButton txtcerrar1;
     // End of variables declaration//GEN-END:variables
 }

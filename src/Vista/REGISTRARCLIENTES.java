@@ -75,7 +75,6 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
         txtTelefono = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
-        lblFecha = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbdatos = new javax.swing.JTable();
@@ -85,6 +84,7 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         lblnombre = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        lblFecha = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setModalExclusionType(null);
@@ -134,11 +134,6 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
 
         txtnombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLayeredPane3.add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 163, -1));
-
-        lblFecha.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        lblFecha.setForeground(new java.awt.Color(255, 255, 255));
-        lblFecha.setText("Fecha");
-        jLayeredPane3.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 210, 24));
 
         btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(0, 51, 102));
@@ -202,42 +197,13 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
         jLabel9.setText("Usuario");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
+        lblFecha.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        lblFecha.setForeground(new java.awt.Color(255, 255, 255));
+        lblFecha.setText("Fecha");
+        getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 520, 210, 40));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-     int error=0;
-       
-        
-        try{
-        if(txttel.getText().equals("") || txtnombre.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null,"Asegurese de llenar todos los campos"); 
-        }else{
-        p1 = (contenedor.size() + 1);
-        p2 = txtnombre.getText();
-        p3 = txttel.getText();
-       
-        cliente c = new cliente(p1,p2,p3);
-        contenedor.add(c);
-
-        //mostrar();
-        CargaInterfaz();
-        CargarDatos();  
-        
-        txtnombre.setText("");
-        txttel.setText("");
-        
-        }     
-        
-        }catch(Exception e){
-        error=1;
-        JOptionPane.showMessageDialog(null,"Por favor revise los campos");
-        txtnombre.setText("");
-        txttel.setText("");
-         }
-      
-    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         MENUCAJERO frm = new MENUCAJERO();
@@ -252,6 +218,39 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcerrar1ActionPerformed
 
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        int error=0;
+
+        try{
+            if(txttel.getText().equals("") || txtnombre.getText().equals(""))
+            {
+                JOptionPane.showMessageDialog(null,"Asegurese de llenar todos los campos");
+            }else{
+                p1 = (contenedor.size() + 1);
+                p2 = txtnombre.getText();
+                p3 = txttel.getText();
+
+                cliente c = new cliente(p1,p2,p3);
+                contenedor.add(c);
+
+                //mostrar();
+                CargaInterfaz();
+                CargarDatos();
+
+                txtnombre.setText("");
+                txttel.setText("");
+
+            }
+
+        }catch(Exception e){
+            error=1;
+            JOptionPane.showMessageDialog(null,"Por favor revise los campos");
+            txtnombre.setText("");
+            txttel.setText("");
+        }
+
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
     private void txttelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttelKeyTyped
         char validar = evt.getKeyChar();
         if(Character.isLetter(validar))
@@ -260,7 +259,7 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
             evt.consume();
             JOptionPane.showMessageDialog(null,"Por favor ingresar solo números");
         }
-        
+
     }//GEN-LAST:event_txttelKeyTyped
 
     public void CargaInterfaz()

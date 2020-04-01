@@ -40,6 +40,7 @@ public class Login01 extends javax.swing.JFrame {
         lblContraseña2 = new javax.swing.JLabel();
         lblfondo1 = new javax.swing.JLabel();
         lblContraseña1 = new javax.swing.JLabel();
+        aux = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -119,6 +120,7 @@ public class Login01 extends javax.swing.JFrame {
         lblContraseña1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblContraseña1.setText("Contraseña:");
         getContentPane().add(lblContraseña1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, -1, -1));
+        getContentPane().add(aux, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 60, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -163,15 +165,16 @@ public class Login01 extends javax.swing.JFrame {
     public void buscarAdmin(){
            
         
-    String user = "GRUPO";
-    String contra = "GRUPO";
-    
-              if (txtUsuario.getText().equals(user) && txtContra.getText().equals(contra))
+    String user = "G";
+    String contra = "G";
+   
+        if (txtUsuario.getText().equals(user) && txtContra.getText().equals(contra))
           {
+           aux.setText(user);
            MA.setVisible(true);
            this.dispose();
           } else {
-
+                  
               }
     
           administrador p;
@@ -182,26 +185,38 @@ public class Login01 extends javax.swing.JFrame {
           {
            MA.setVisible(true);
            this.dispose();
+           aux.setText(user);
           } else {
-              JOptionPane.showMessageDialog(null, "Administrador no encontrado");
+
           }
-          }//FOR
+          
+          }
+    
+    
+//FOR
+         if(aux.getText().equals(""))
+          {
+              JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+              txtUsuario.setText("");
+              txtContra.setText("");
+          }
     }
     
     
     public void buscarCajero(){
-              
         
+  
     String user = "C";
     String contra = "C";
     
               if (txtUsuario.getText().equals(user) && txtContra.getText().equals(contra))
           {
+           aux.setText(user);
            MC.setVisible(true);
            this.dispose();
            
           } else {
-              
+
               }
     
           cajero c;
@@ -210,14 +225,23 @@ public class Login01 extends javax.swing.JFrame {
           
           if (txtUsuario.getText().equals(c.getUsuario()) && txtContra.getText().equals(c.getContraseña()))
           {
+           aux.setText(user);
            MC.setVisible(true);
            this.dispose();
+           
           } else {
-          JOptionPane.showMessageDialog(null, "Cajero no encontrado");
           }
 
           }//FOR
-
+           
+          
+          if(aux.getText().equals(""))
+          {
+              JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+              txtUsuario.setText("");
+              txtContra.setText("");
+          }
+          
     }
     
     public String getPublicUser(){
@@ -264,6 +288,7 @@ public class Login01 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField aux;
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;

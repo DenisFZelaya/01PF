@@ -103,7 +103,6 @@ public void validar()
         txtutil = new javax.swing.JTextField();
         uti = new javax.swing.JButton();
         lblnombre = new javax.swing.JLabel();
-        lblnombre3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
@@ -236,7 +235,7 @@ public void validar()
                 txtcerrar1ActionPerformed(evt);
             }
         });
-        getContentPane().add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 0, 150, 40));
+        getContentPane().add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 150, 40));
 
         lblFecha.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
@@ -264,10 +263,7 @@ public void validar()
         lblnombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
         lblnombre.setForeground(new java.awt.Color(255, 255, 255));
         lblnombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(lblnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 140, 50));
-
-        lblnombre3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        getContentPane().add(lblnombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 190, 50));
+        getContentPane().add(lblnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 140, 50));
 
         jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -555,7 +551,6 @@ char validar = evt.getKeyChar();
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblnombre;
-    private javax.swing.JLabel lblnombre3;
     private javax.swing.JButton txtcerrar1;
     private javax.swing.JTextField txtegre;
     private javax.swing.JTextField txting;

@@ -7,7 +7,7 @@ public class cajero extends usuario {
     public cajero() {
     }
     
-    public cajero(String pnombre, String pusuario, String pcontraseña, String pidentidad, int psalario,int pidCajero, String pturno) {
+    public cajero(String pnombre, String pusuario, String pidentidad, String pcontraseña, int psalario,int pidCajero, String pturno) {
         super(pnombre,pusuario,pcontraseña,pidentidad,psalario);
         this.idCajero=pidCajero;
         this.turno=pturno;

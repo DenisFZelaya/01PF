@@ -145,18 +145,24 @@ public class MENUADMIN extends javax.swing.JFrame {
        REGISTRARPRODUCTO frm = new REGISTRARPRODUCTO();
         frm.setVisible(true);
         this.setVisible(false);
+        frm.CargaInterfaz();
+        frm.CargarDatos();
     }//GEN-LAST:event_btnprodActionPerformed
 
     private void btncajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncajeroActionPerformed
        REGISTRARCAJEROS frm = new REGISTRARCAJEROS();
         frm.setVisible(true);
         this.setVisible(false);
+        frm.CargaInterfaz();
+        frm.CargarDatos();
     }//GEN-LAST:event_btncajeroActionPerformed
 
     private void btnadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadminActionPerformed
         REGISTRARADMINISTRADOR RA = new REGISTRARADMINISTRADOR();
         RA.setVisible(true);
         this.dispose();
+        RA.CargaInterfaz();
+        RA.CargarDatos();
     }//GEN-LAST:event_btnadminActionPerformed
 
     /**

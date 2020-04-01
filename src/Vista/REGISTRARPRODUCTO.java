@@ -19,21 +19,22 @@ import javax.swing.table.DefaultTableModel;
 public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     
      private DefaultTableModel modelo;
+     Login01 ventana=new Login01();
     int contador = 0;
     // Creacion de ArrayList
     public static LinkedList contenedor = new LinkedList();
      //ArrayList<producto> lista = new ArrayList<producto>();
         
      //Variables para los parametros
-        int p1 = 0, p2 = 0;
-        String p3, p4, p5;
+        int p1 = 0, p3 = 0;
+        String p2, p4, p5;
         double p6;
         String cate;
        
     public REGISTRARPRODUCTO() {
         initComponents();
         setLocationRelativeTo(null);
-        
+        lblnombre.setText(ventana.user);
         CargaInterfaz();
         CargarDatos();  
 
@@ -58,7 +59,11 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
         fONDOADMIN1 = new Modelo.FONDOADMIN();
         ContenedorMenu = new javax.swing.JLayeredPane();
-        btnRegresar1 = new javax.swing.JButton();
+        lblnombre = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtcerrar1 = new javax.swing.JButton();
+        btnregresar = new javax.swing.JButton();
         ContenedorBarraSuperior = new javax.swing.JLayeredPane();
         lblCerrarSesion = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
@@ -88,32 +93,82 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
         fONDOADMIN1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRegresar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        btnRegresar1.setForeground(new java.awt.Color(0, 51, 102));
-        btnRegresar1.setText("Regresar");
-        btnRegresar1.addActionListener(new java.awt.event.ActionListener() {
+        lblnombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        lblnombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblnombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Usuario");
+
+        jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Administrador:");
+
+        txtcerrar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtcerrar1.setForeground(new java.awt.Color(0, 51, 102));
+        txtcerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
+        txtcerrar1.setText("Cerrar Sesión");
+        txtcerrar1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        txtcerrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresar1ActionPerformed(evt);
+                txtcerrar1ActionPerformed(evt);
             }
         });
 
-        ContenedorMenu.setLayer(btnRegresar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        btnregresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        btnregresar.setForeground(new java.awt.Color(0, 51, 102));
+        btnregresar.setText("Regresar");
+        btnregresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregresarActionPerformed(evt);
+            }
+        });
+
+        ContenedorMenu.setLayer(lblnombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        ContenedorMenu.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        ContenedorMenu.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        ContenedorMenu.setLayer(txtcerrar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        ContenedorMenu.setLayer(btnregresar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout ContenedorMenuLayout = new javax.swing.GroupLayout(ContenedorMenu);
         ContenedorMenu.setLayout(ContenedorMenuLayout);
         ContenedorMenuLayout.setHorizontalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContenedorMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnRegresar1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ContenedorMenuLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtcerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ContenedorMenuLayout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(jLabel8))))
+                    .addGroup(ContenedorMenuLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(btnregresar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ContenedorMenuLayout.setVerticalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                .addContainerGap(606, Short.MAX_VALUE)
-                .addComponent(btnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
+                .addContainerGap(274, Short.MAX_VALUE)
+                .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ContenedorMenuLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(lblnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ContenedorMenuLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel7))
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtcerrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(128, 128, 128)
+                .addComponent(btnregresar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
         );
 
         fONDOADMIN1.add(ContenedorMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 700));
@@ -131,7 +186,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
             }
         });
 
-        lblFecha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblFecha.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
         lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFecha.setText("Fecha:");
@@ -222,8 +277,18 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         lblCantidad.setText("Stock:");
 
         txtCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantidadKeyTyped(evt);
+            }
+        });
 
         txtPrecios.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtPrecios.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPreciosKeyTyped(evt);
+            }
+        });
 
         lblPrecios.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblPrecios.setForeground(new java.awt.Color(0, 51, 102));
@@ -232,6 +297,11 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         txtDesc.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
 
         txtNombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
 
         jLayeredPane1.setLayer(lblNombreProducto, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblDescripcion, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -259,22 +329,24 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblCantidad)
                         .addGap(6, 6, 6)
-                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblPrecios)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(lblNombreProducto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(17, 17, 17))
+                        .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addComponent(lblPrecios)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,10 +356,10 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addComponent(lblNombreProducto))
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblDescripcion)))
+                        .addComponent(lblDescripcion))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -297,7 +369,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                     .addComponent(lblCantidad)
                     .addComponent(lblPrecios)
                     .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout ContenedorTablaLayout = new javax.swing.GroupLayout(ContenedorTabla);
@@ -318,8 +390,8 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorTablaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLayeredPane1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -377,11 +449,15 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         
         Categoria(); 
         
-        //Igualar variables a los componentes necesarios de la ventana
+        try{
+        if(txtNombre.getText().equals("") || txtCantidad.getText().equals("") ||txtDesc.getText().equals("")||txtPrecios.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null,"Asegurese de llenar todos los campos"); 
+        }else{
         p1 = (contenedor.size() + 1);
-        p2 = Integer.valueOf(txtCantidad.getText());
-        p3 = txtDesc.getText();
-        p4 = txtNombre.getText();
+        p2 = txtNombre.getText();
+        p3 = Integer.valueOf(txtCantidad.getText());
+        p4 = txtDesc.getText();
         p5 = cate;
         p6 = Double.parseDouble(txtPrecios.getText());
         
@@ -395,7 +471,19 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         txtCantidad.setText("");
         txtDesc.setText("");
         txtNombre.setText("");
+        txtPrecios.setText("");    
+        
+        }
+        }catch(Exception e){
+        JOptionPane.showMessageDialog(null,"Por favor revise los campos");
+        txtNombre.setText("");
         txtPrecios.setText("");
+        txtCantidad.setText("");
+        txtDesc.setText("");
+    }
+        
+        //Igualar variables a los componentes necesarios de la ventana
+       
         
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -404,12 +492,44 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbCategoriaActionPerformed
 
-    private void btnRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar1ActionPerformed
+    private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
+          char validar = evt.getKeyChar();
+        if(Character.isLetter(validar))
+        {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Por favor ingresar solo números");
+        }
+        
+    }//GEN-LAST:event_txtCantidadKeyTyped
+
+    private void txtPreciosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPreciosKeyTyped
+  char validar = evt.getKeyChar();
+        if(Character.isLetter(validar))
+        {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Por favor ingresar solo números");
+        }
+               // TODO add your handling code here:
+    }//GEN-LAST:event_txtPreciosKeyTyped
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-        MENUADMIN MA = new MENUADMIN();
-        MA.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnRegresar1ActionPerformed
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtcerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcerrar1ActionPerformed
+        Login01 frm = new Login01();
+        frm.setVisible(true);
+        this.setVisible(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcerrar1ActionPerformed
+
+    private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed
+        MENUADMIN frm = new MENUADMIN();
+        frm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnregresarActionPerformed
     
     
     public void Categoria(){
@@ -480,7 +600,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     	public void CargaInterfaz()
 	{
             String datos[][] = {};
-            String columna [] = {"ID","STOCK","NOMBRE","CATEGORIA","DESCRIPCION", "PRECIO"}; 
+            String columna [] = {"ID","NOMBRE","STOCK","CATEGORIA","DESCRIPCION", "PRECIO"}; 
             modelo = new DefaultTableModel(datos,columna);
             tbRegistrarProductos.setModel(modelo);   
    	} 
@@ -493,8 +613,8 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
             	p = (producto)REGISTRARPRODUCTO.contenedor.get(i);
             	modelo.insertRow(contador, new Object []{});
            	modelo.setValueAt(p.getSidproducto(), contador, 0); 
-            	modelo.setValueAt(p.getSstock() , contador, 1);
-            	modelo.setValueAt(p.getSnombreProd() , contador, 2);
+            	modelo.setValueAt(p.getSnombreProd() , contador, 1);
+                modelo.setValueAt(p.getSstock() , contador, 2);
                 modelo.setValueAt(p.getSCategoria() , contador, 3);
                 modelo.setValueAt(p.getSdescripProd() , contador, 4);
                 modelo.setValueAt(p.getSprecio() , contador, 5);
@@ -564,9 +684,11 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     private javax.swing.JLayeredPane ContenedorMesadeTrabajo;
     private javax.swing.JPanel ContenedorTabla;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton btnRegresar1;
+    private javax.swing.JButton btnregresar;
     private javax.swing.JComboBox<String> cbCategoria;
     private Modelo.FONDOADMIN fONDOADMIN1;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCantidad;
@@ -577,11 +699,13 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombreProducto;
     private javax.swing.JLabel lblPrecios;
     private javax.swing.JLabel lblRegistrarProducto;
+    private javax.swing.JLabel lblnombre;
     private javax.swing.JTable tbRegistrarProductos;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtDesc;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecios;
+    private javax.swing.JButton txtcerrar1;
     // End of variables declaration//GEN-END:variables
 
     private String toString(int HoraActual) {
