@@ -480,7 +480,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     	public void CargaInterfaz()
 	{
             String datos[][] = {};
-            String columna [] = {"ID","CANTIDAD","NOMBRE","CATEGORIA","DESCRIPCION", "PRECIO"}; 
+            String columna [] = {"ID","STOCK","NOMBRE","CATEGORIA","DESCRIPCION", "PRECIO"}; 
             modelo = new DefaultTableModel(datos,columna);
             tbRegistrarProductos.setModel(modelo);   
    	} 

@@ -28,18 +28,18 @@ public class FACTURA extends javax.swing.JFrame {
     int contador = 0;
     
     // Creacion de ArrayList
-    public static LinkedList contenedor = new LinkedList();
-     //ArrayList<producto> lista = new ArrayList<producto>();
-        
-     //Variables para los parametros
-        int p1=0, p2=0 ;
-        String p3="", p4="", p5="";
-        double p6=0;
         
     public FACTURA() {
         this.setContentPane(ejemplo);
         initComponents();
         setLocationRelativeTo(null);
+        modelo=new DefaultTableModel();
+        modelo.addColumn("Id");
+        modelo.addColumn("Nombre Producto");
+        modelo.addColumn("Descripción");
+        modelo.addColumn("Categoría");
+        modelo.addColumn("Precio");
+        this.factura.setModel(modelo);
         
 
 
@@ -349,40 +349,28 @@ public class FACTURA extends javax.swing.JFrame {
     
     private void btnagregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregar2ActionPerformed
         int error=0;
-       
-        
-        try{
+       try{
         if(txtNombreP.getText().equals("") || txtdes.getText().equals("") ||txtPrecio.getText().equals("")||txtId.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null,"Asegurese de llenar todos los campos"); 
         }else{
-        p1 = Integer.valueOf(txtId.getText());
-        p2 = Integer.valueOf(txtstock.getText());
-        p3 = txtNombreP.getText();
-        p4 = txtdes.getText();
-        p5 = txtcate.getText();
-        p6 = Double.valueOf(txtPrecio.getText());
+            String[]info = new String[5];
         
-        producto p = new producto (p1,p2,p3,p4,p5,p6);
-        contenedor.add(p);
-
-        //mostrar();
-        CargaInterfaz();
-        CargarDatos();  
+        info[0] = txtId.getText();
+        info[1] = txtNombreP.getText();
+        info[2] = txtdes.getText();
+        info[3] = txtcate.getText();
+        info[4] = txtPrecio.getText();
         
-        txtId.setText("");
-        txtPrecio.setText("");
-        txtdes.setText("");
-        txtNombreP.setText("");
-        txtstock.setText("");
-        txtcate.setText("");    
-        }     
+        modelo.addRow(info);
         
+        }
         }catch(Exception e){
         error=1;
         JOptionPane.showMessageDialog(null,"Por favor revise los campos");
         txtId.setText("");
     }
+       
     }//GEN-LAST:event_btnagregar2ActionPerformed
 
     private void txtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyTyped
