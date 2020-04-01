@@ -105,6 +105,9 @@ ImagenFondo ejemplo =  new ImagenFondo();
          REGISTRARCLIENTES frm = new REGISTRARCLIENTES();
         frm.setVisible(true);
         this.setVisible(false);   
+        frm.CargaInterfaz();
+        frm.CargarDatos();
+        
     }//GEN-LAST:event_btnclientesActionPerformed
 
     private void btnfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfacturaActionPerformed
