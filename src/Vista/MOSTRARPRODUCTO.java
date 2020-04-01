@@ -72,8 +72,6 @@ public class MOSTRARPRODUCTO extends javax.swing.JFrame {
 
         fONDOADMIN1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ContenedorMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         btnRegresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         btnRegresar.setForeground(new java.awt.Color(0, 51, 102));
         btnRegresar.setText("Actualizar");
@@ -97,7 +95,7 @@ public class MOSTRARPRODUCTO extends javax.swing.JFrame {
         ContenedorMenuLayout.setVerticalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                .addContainerGap(594, Short.MAX_VALUE)
+                .addContainerGap(596, Short.MAX_VALUE)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65))
         );

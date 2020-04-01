@@ -28,6 +28,8 @@ public class Login01 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblUsuario1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         txtseleccion = new javax.swing.JComboBox<>();
         btnSalir = new javax.swing.JButton();
         btnIngresar = new javax.swing.JButton();
@@ -45,6 +47,20 @@ public class Login01 extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblUsuario1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 12)); // NOI18N
+        lblUsuario1.setForeground(new java.awt.Color(0, 51, 102));
+        lblUsuario1.setText("Version 1.0");
+        getContentPane().add(lblUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 50, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Autores.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel1MousePressed(evt);
+            }
+        });
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, -1, -1));
 
         txtseleccion.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         txtseleccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cajero", "Administrador" }));
@@ -136,6 +152,13 @@ public class Login01 extends javax.swing.JFrame {
         }
        
     }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "CREADO POR ESTUDIANTES DE \nINGENIERIA EN INFORMATICA\n\n"
+                + "Integrantes:\nAarón Obed Garrido\nCristian Maradiaga\nDenis Federico Zelaya\nKelly Mabel Vilchez\n"
+                + "\nCatedrático:\nIng. Irvin Vasquez\n\nUMH 2020");
+    }//GEN-LAST:event_jLabel1MousePressed
    
     public void buscarAdmin(){
            
@@ -243,10 +266,12 @@ public class Login01 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblContraseña1;
     private javax.swing.JLabel lblContraseña2;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JLabel lblUsuario1;
     private javax.swing.JLabel lblfondo1;
     private javax.swing.JPasswordField txtContra;
     private javax.swing.JTextField txtUsuario;

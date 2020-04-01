@@ -42,19 +42,22 @@ ImagenFondo ejemplo =  new ImagenFondo();
         txtcerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(960, 594));
+        setMaximumSize(new java.awt.Dimension(1200, 700));
+        setMinimumSize(new java.awt.Dimension(1200, 700));
+        setPreferredSize(new java.awt.Dimension(1200, 700));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("¡BIENVENIDO CAJERO!");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/IconFacturasMenuCajero.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 320, 300));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 160, 320, 300));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/IconClientesMenuCajero.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 320, 300));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 320, 300));
 
         btnfactura.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         btnfactura.setForeground(new java.awt.Color(0, 51, 102));
@@ -64,7 +67,7 @@ ImagenFondo ejemplo =  new ImagenFondo();
                 btnfacturaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnfactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 160, 60));
+        getContentPane().add(btnfactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, 160, 60));
 
         btnclientes.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         btnclientes.setForeground(new java.awt.Color(0, 51, 102));
@@ -74,18 +77,19 @@ ImagenFondo ejemplo =  new ImagenFondo();
                 btnclientesActionPerformed(evt);
             }
         });
-        getContentPane().add(btnclientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 160, 60));
+        getContentPane().add(btnclientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, 160, 60));
 
         txtcerrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         txtcerrar.setForeground(new java.awt.Color(0, 51, 102));
         txtcerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
+        txtcerrar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         txtcerrar.setLabel("Cerrar Sesión");
         txtcerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcerrarActionPerformed(evt);
             }
         });
-        getContentPane().add(txtcerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 150, -1));
+        getContentPane().add(txtcerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, 150, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

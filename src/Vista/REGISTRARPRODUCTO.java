@@ -58,9 +58,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
         fONDOADMIN1 = new Modelo.FONDOADMIN();
         ContenedorMenu = new javax.swing.JLayeredPane();
-        btnActualizar = new javax.swing.JButton();
         btnRegresar1 = new javax.swing.JButton();
-        btnRegresar2 = new javax.swing.JButton();
         ContenedorBarraSuperior = new javax.swing.JLayeredPane();
         lblCerrarSesion = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
@@ -81,24 +79,14 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         txtDesc = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         lblRegistrarProducto = new javax.swing.JLabel();
-        ContenedorBarraSuperior1 = new javax.swing.JLayeredPane();
-        lblHora1 = new javax.swing.JLabel();
-        lblFecha1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1200, 700));
+        setMinimumSize(new java.awt.Dimension(1200, 700));
+        setPreferredSize(new java.awt.Dimension(1200, 700));
+        setResizable(false);
 
         fONDOADMIN1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        ContenedorMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnActualizar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        btnActualizar.setForeground(new java.awt.Color(0, 51, 102));
-        btnActualizar.setText("Actualizar");
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
-            }
-        });
 
         btnRegresar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         btnRegresar1.setForeground(new java.awt.Color(0, 51, 102));
@@ -109,59 +97,26 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
             }
         });
 
-        btnRegresar2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        btnRegresar2.setForeground(new java.awt.Color(0, 51, 102));
-        btnRegresar2.setText("MOSTRAR PRODUCTO");
-        btnRegresar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresar2ActionPerformed(evt);
-            }
-        });
-
-        ContenedorMenu.setLayer(btnActualizar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         ContenedorMenu.setLayer(btnRegresar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        ContenedorMenu.setLayer(btnRegresar2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout ContenedorMenuLayout = new javax.swing.GroupLayout(ContenedorMenu);
         ContenedorMenu.setLayout(ContenedorMenuLayout);
         ContenedorMenuLayout.setHorizontalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
+            .addGroup(ContenedorMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+                .addComponent(btnRegresar1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ContenedorMenuLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(btnRegresar1, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                    .addContainerGap()))
-            .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ContenedorMenuLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(btnRegresar2, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
         ContenedorMenuLayout.setVerticalGroup(
             ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                .addContainerGap(430, Short.MAX_VALUE)
-                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(229, 229, 229))
-            .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                    .addContainerGap(604, Short.MAX_VALUE)
-                    .addComponent(btnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(55, 55, 55)))
-            .addGroup(ContenedorMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorMenuLayout.createSequentialGroup()
-                    .addContainerGap(527, Short.MAX_VALUE)
-                    .addComponent(btnRegresar2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(132, 132, 132)))
+                .addContainerGap(606, Short.MAX_VALUE)
+                .addComponent(btnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
 
         fONDOADMIN1.add(ContenedorMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 700));
-
-        ContenedorBarraSuperior.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblCerrarSesion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
@@ -178,6 +133,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
         lblFecha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
+        lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFecha.setText("Fecha:");
 
         ContenedorBarraSuperior.setLayer(lblCerrarSesion, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -188,11 +144,10 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         ContenedorBarraSuperiorLayout.setHorizontalGroup(
             ContenedorBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorBarraSuperiorLayout.createSequentialGroup()
-                .addGap(237, 237, 237)
-                .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addContainerGap()
+                .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addComponent(lblCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         ContenedorBarraSuperiorLayout.setVerticalGroup(
             ContenedorBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,11 +159,8 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
-        fONDOADMIN1.add(ContenedorBarraSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 0, 760, 50));
+        fONDOADMIN1.add(ContenedorBarraSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 0, 910, 50));
 
-        ContenedorMesadeTrabajo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        ContenedorTabla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ContenedorTabla.setOpaque(false);
 
         tbRegistrarProductos.setBackground(new java.awt.Color(255, 255, 255));
@@ -317,41 +269,40 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                         .addComponent(lblPrecios)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
+                        .addGap(18, 18, 18)
                         .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(lblNombreProducto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDesc)))
-                .addContainerGap())
+                        .addGap(18, 18, 18)
+                        .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(17, 17, 17))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                            .addGap(11, 11, 11)
-                            .addComponent(lblNombreProducto))
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblDescripcion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(lblNombreProducto))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblCategoria)
-                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblCantidad)
-                        .addComponent(lblPrecios))
+                        .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblDescripcion)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCategoria)
+                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCantidad)
+                    .addComponent(lblPrecios)
                     .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout ContenedorTablaLayout = new javax.swing.GroupLayout(ContenedorTabla);
@@ -361,8 +312,10 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
             .addGroup(ContenedorTablaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ContenedorTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jLayeredPane1))
+                    .addComponent(jLayeredPane1)
+                    .addGroup(ContenedorTablaLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ContenedorTablaLayout.setVerticalGroup(
@@ -390,10 +343,10 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
             .addGroup(ContenedorMesadeTrabajoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ContenedorMesadeTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblRegistrarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblRegistrarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 818, Short.MAX_VALUE)
                     .addGroup(ContenedorMesadeTrabajoLayout.createSequentialGroup()
                         .addComponent(ContenedorTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 10, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ContenedorMesadeTrabajoLayout.setVerticalGroup(
@@ -406,42 +359,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        fONDOADMIN1.add(ContenedorMesadeTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 52, -1, 580));
-
-        ContenedorBarraSuperior1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lblHora1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblHora1.setForeground(new java.awt.Color(255, 255, 255));
-        lblHora1.setText("Hora:");
-
-        lblFecha1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblFecha1.setForeground(new java.awt.Color(255, 255, 255));
-        lblFecha1.setText("Fecha:");
-
-        ContenedorBarraSuperior1.setLayer(lblHora1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        ContenedorBarraSuperior1.setLayer(lblFecha1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout ContenedorBarraSuperior1Layout = new javax.swing.GroupLayout(ContenedorBarraSuperior1);
-        ContenedorBarraSuperior1.setLayout(ContenedorBarraSuperior1Layout);
-        ContenedorBarraSuperior1Layout.setHorizontalGroup(
-            ContenedorBarraSuperior1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorBarraSuperior1Layout.createSequentialGroup()
-                .addContainerGap(527, Short.MAX_VALUE)
-                .addComponent(lblFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
-                .addComponent(lblHora1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-        );
-        ContenedorBarraSuperior1Layout.setVerticalGroup(
-            ContenedorBarraSuperior1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContenedorBarraSuperior1Layout.createSequentialGroup()
-                .addGroup(ContenedorBarraSuperior1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblHora1)
-                    .addComponent(lblFecha1))
-                .addGap(0, 11, Short.MAX_VALUE))
-        );
-
-        fONDOADMIN1.add(ContenedorBarraSuperior1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 660, 750, 30));
+        fONDOADMIN1.add(ContenedorMesadeTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 52, 830, 580));
 
         getContentPane().add(fONDOADMIN1, java.awt.BorderLayout.PAGE_START);
 
@@ -491,23 +409,12 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbCategoriaActionPerformed
 
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        // TODO add your handling code here:
-                CargaInterfaz();
-        CargarDatos();  
-        
-    }//GEN-LAST:event_btnActualizarActionPerformed
-
     private void btnRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar1ActionPerformed
         // TODO add your handling code here:
         MENUADMIN MA = new MENUADMIN();
         MA.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegresar1ActionPerformed
-
-    private void btnRegresar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegresar2ActionPerformed
     
     
     public void Categoria(){
@@ -658,14 +565,11 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane ContenedorBarraSuperior;
-    private javax.swing.JLayeredPane ContenedorBarraSuperior1;
     private javax.swing.JLayeredPane ContenedorMenu;
     private javax.swing.JLayeredPane ContenedorMesadeTrabajo;
     private javax.swing.JPanel ContenedorTabla;
-    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRegresar1;
-    private javax.swing.JButton btnRegresar2;
     private javax.swing.JComboBox<String> cbCategoria;
     private Modelo.FONDOADMIN fONDOADMIN1;
     private javax.swing.JLayeredPane jLayeredPane1;
@@ -675,8 +579,6 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
     private javax.swing.JLabel lblCerrarSesion;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblFecha;
-    private javax.swing.JLabel lblFecha1;
-    private javax.swing.JLabel lblHora1;
     private javax.swing.JLabel lblNombreProducto;
     private javax.swing.JLabel lblPrecios;
     private javax.swing.JLabel lblRegistrarProducto;

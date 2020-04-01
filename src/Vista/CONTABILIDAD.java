@@ -110,7 +110,9 @@ public void validar()
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(960, 594));
+        setMaximumSize(new java.awt.Dimension(1200, 700));
+        setMinimumSize(new java.awt.Dimension(1200, 700));
+        setPreferredSize(new java.awt.Dimension(1200, 700));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -127,17 +129,18 @@ public void validar()
         ));
         jScrollPane1.setViewportView(conta);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 185, 570, 290));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 790, 340));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(251, 215, 48));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("CONTABILIDAD");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 790, -1));
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 102));
         jLabel1.setText("Mes");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, -1, 20));
 
         cbmes.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         cbmes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
@@ -146,7 +149,7 @@ public void validar()
                 cbmesActionPerformed(evt);
             }
         });
-        getContentPane().add(cbmes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 146, -1, 30));
+        getContentPane().add(cbmes, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, -1, 30));
 
         cbaño.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         cbaño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2019", "2020", "2021", "2022", "2023", "2024", "2025" }));
@@ -155,17 +158,17 @@ public void validar()
                 cbañoActionPerformed(evt);
             }
         });
-        getContentPane().add(cbaño, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 146, -1, 30));
+        getContentPane().add(cbaño, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 180, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 51, 102));
         jLabel3.setText("Año");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, -1, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, -1, 20));
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 51, 102));
         jLabel4.setText("Ingresos");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, 20));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, 20));
 
         txting.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         txting.addActionListener(new java.awt.event.ActionListener() {
@@ -178,12 +181,12 @@ public void validar()
                 txtingKeyTyped(evt);
             }
         });
-        getContentPane().add(txting, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 106, 66, 30));
+        getContentPane().add(txting, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, 66, 30));
 
         jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 51, 102));
         jLabel5.setText("Egresos");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, -1, 20));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, -1, 20));
 
         txtegre.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         txtegre.addActionListener(new java.awt.event.ActionListener() {
@@ -196,12 +199,12 @@ public void validar()
                 txtegreKeyTyped(evt);
             }
         });
-        getContentPane().add(txtegre, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 106, 66, 30));
+        getContentPane().add(txtegre, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 140, 66, 30));
 
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 51, 102));
         jLabel6.setText("Utilidades");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, -1, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 150, -1, 20));
 
         btnguardar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         btnguardar.setForeground(new java.awt.Color(0, 51, 102));
@@ -211,7 +214,7 @@ public void validar()
                 btnguardarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 145, -1, 30));
+        getContentPane().add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 180, -1, 30));
 
         btnregresar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         btnregresar.setForeground(new java.awt.Color(0, 51, 102));
@@ -221,18 +224,19 @@ public void validar()
                 btnregresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnregresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, -1, 30));
+        getContentPane().add(btnregresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, -1, 30));
 
         txtcerrar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         txtcerrar1.setForeground(new java.awt.Color(0, 51, 102));
         txtcerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
         txtcerrar1.setText("Cerrar Sesión");
+        txtcerrar1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         txtcerrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcerrar1ActionPerformed(evt);
             }
         });
-        getContentPane().add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 150, 40));
+        getContentPane().add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 0, 150, 40));
 
         lblFecha.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
@@ -245,7 +249,7 @@ public void validar()
                 txtutilActionPerformed(evt);
             }
         });
-        getContentPane().add(txtutil, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 106, 70, 30));
+        getContentPane().add(txtutil, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 140, 70, 30));
 
         uti.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         uti.setForeground(new java.awt.Color(0, 51, 102));
@@ -255,12 +259,12 @@ public void validar()
                 utiActionPerformed(evt);
             }
         });
-        getContentPane().add(uti, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 130, -1, -1));
+        getContentPane().add(uti, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 170, -1, 40));
 
         lblnombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
         lblnombre.setForeground(new java.awt.Color(255, 255, 255));
         lblnombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(lblnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 140, 50));
+        getContentPane().add(lblnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 140, 50));
 
         lblnombre3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         getContentPane().add(lblnombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 190, 50));
@@ -268,12 +272,12 @@ public void validar()
         jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Administrador:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Usuario");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

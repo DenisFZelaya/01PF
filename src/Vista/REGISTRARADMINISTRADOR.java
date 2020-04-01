@@ -97,6 +97,8 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
         lblRegistrarProducto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1200, 700));
+        setResizable(false);
 
         fONDOADMIN1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -180,7 +182,7 @@ public class REGISTRARADMINISTRADOR extends javax.swing.JFrame {
             ContenedorBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorBarraSuperiorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(ContenedorBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(ContenedorBarraSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblCerrarSesion)
                     .addComponent(lblFecha))
                 .addGap(19, 19, 19))

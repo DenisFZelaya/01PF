@@ -47,26 +47,29 @@ public class MENUADMIN extends javax.swing.JFrame {
         btnadmin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(960, 594));
+        setMaximumSize(new java.awt.Dimension(1200, 700));
+        setMinimumSize(new java.awt.Dimension(1200, 700));
+        setPreferredSize(new java.awt.Dimension(1200, 700));
+        setResizable(false);
         setSize(new java.awt.Dimension(960, 594));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("¡BIENVENIDO ADMINISTRADOR!");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/adminic.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 150, 150));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 150, 150));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/producto.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 150, 150));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, 150, 150));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconocajero.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 150, 150));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 150, 150, 150));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/conta.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 150, 150));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 150, 150));
 
         btnconta.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         btnconta.setForeground(new java.awt.Color(0, 51, 102));
@@ -76,18 +79,19 @@ public class MENUADMIN extends javax.swing.JFrame {
                 btncontaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnconta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 150, -1));
+        getContentPane().add(btnconta, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 520, 150, -1));
 
         txtcerrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         txtcerrar.setForeground(new java.awt.Color(0, 51, 102));
         txtcerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
+        txtcerrar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         txtcerrar.setLabel("Cerrar Sesión");
         txtcerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcerrarActionPerformed(evt);
             }
         });
-        getContentPane().add(txtcerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 150, -1));
+        getContentPane().add(txtcerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, 150, -1));
 
         btnprod.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         btnprod.setForeground(new java.awt.Color(0, 51, 102));
@@ -97,7 +101,7 @@ public class MENUADMIN extends javax.swing.JFrame {
                 btnprodActionPerformed(evt);
             }
         });
-        getContentPane().add(btnprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 460, 150, -1));
+        getContentPane().add(btnprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 520, 150, -1));
 
         btncajero.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         btncajero.setForeground(new java.awt.Color(0, 51, 102));
@@ -107,7 +111,7 @@ public class MENUADMIN extends javax.swing.JFrame {
                 btncajeroActionPerformed(evt);
             }
         });
-        getContentPane().add(btncajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 150, -1));
+        getContentPane().add(btncajero, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 150, -1));
 
         btnadmin.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         btnadmin.setForeground(new java.awt.Color(0, 51, 102));
@@ -117,7 +121,7 @@ public class MENUADMIN extends javax.swing.JFrame {
                 btnadminActionPerformed(evt);
             }
         });
-        getContentPane().add(btnadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 150, -1));
+        getContentPane().add(btnadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 150, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -59,25 +59,27 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jLayeredPane3 = new javax.swing.JLayeredPane();
-        txtNombre = new javax.swing.JLabel();
-        txtIngresoTelefono = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtIngresoNombre1 = new javax.swing.JTextField();
         lblFecha = new javax.swing.JLabel();
-        btnRegistrar = new javax.swing.JButton();
+        txtcerrar1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         datos = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        txtcerrar1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         lblnombre = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JLabel();
+        txtIngresoNombre1 = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JLabel();
+        txtIngresoTelefono = new javax.swing.JTextField();
+        btnRegistrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1200, 700));
+        setMinimumSize(new java.awt.Dimension(1200, 700));
         setModalExclusionType(null);
-        setPreferredSize(new java.awt.Dimension(960, 594));
+        setPreferredSize(new java.awt.Dimension(1200, 700));
         setResizable(false);
         setSize(new java.awt.Dimension(960, 594));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -97,44 +99,31 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
 
         jLayeredPane3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtNombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
-        txtNombre.setForeground(new java.awt.Color(0, 51, 102));
-        txtNombre.setText("Nombre");
-        jLayeredPane3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 68, -1));
-
-        txtIngresoTelefono.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLayeredPane3.add(txtIngresoTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 163, -1));
-
-        txtTelefono.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
-        txtTelefono.setForeground(new java.awt.Color(0, 51, 102));
-        txtTelefono.setText("Telefono");
-        jLayeredPane3.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 84, 25));
-
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(251, 215, 48));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("REGISTRO DE CLIENTES");
-        jLayeredPane3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 32, 654, -1));
-
-        txtIngresoNombre1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        jLayeredPane3.add(txtIngresoNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 163, -1));
+        jLayeredPane3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 830, -1));
 
         lblFecha.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 255, 255));
+        lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFecha.setText("Fecha");
-        jLayeredPane3.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, -10, 210, 24));
+        jLayeredPane3.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 640, 24));
 
-        btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
-        btnRegistrar.setForeground(new java.awt.Color(0, 51, 102));
-        btnRegistrar.setText("Registrar");
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        txtcerrar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        txtcerrar1.setForeground(new java.awt.Color(0, 51, 102));
+        txtcerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
+        txtcerrar1.setText("Cerrar Sesión");
+        txtcerrar1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        txtcerrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
+                txtcerrar1ActionPerformed(evt);
             }
         });
-        jLayeredPane3.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 111, 34));
+        jLayeredPane3.add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 150, 40));
 
-        getContentPane().add(jLayeredPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 655, 165));
+        getContentPane().add(jLayeredPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 5, 920, 140));
 
         datos.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         datos.setModel(new javax.swing.table.DefaultTableModel(
@@ -147,7 +136,7 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(datos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 630, 320));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 790, 380));
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jButton2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
@@ -159,17 +148,6 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, 30));
-
-        txtcerrar1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
-        txtcerrar1.setForeground(new java.awt.Color(0, 51, 102));
-        txtcerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iconcerrarsesionSMALL.png"))); // NOI18N
-        txtcerrar1.setText("Cerrar Sesión");
-        txtcerrar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcerrar1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtcerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 150, 40));
 
         jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -185,6 +163,32 @@ public class REGISTRARCLIENTES extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Usuario");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+
+        txtNombre.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(0, 51, 102));
+        txtNombre.setText("Nombre");
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 68, -1));
+
+        txtIngresoNombre1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        getContentPane().add(txtIngresoNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 163, -1));
+
+        txtTelefono.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        txtTelefono.setForeground(new java.awt.Color(0, 51, 102));
+        txtTelefono.setText("Telefono");
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 140, 84, 25));
+
+        txtIngresoTelefono.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        getContentPane().add(txtIngresoTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 140, 163, -1));
+
+        btnRegistrar.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 20)); // NOI18N
+        btnRegistrar.setForeground(new java.awt.Color(0, 51, 102));
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 140, 111, 34));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
