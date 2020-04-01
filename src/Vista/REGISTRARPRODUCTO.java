@@ -169,7 +169,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Cantidad", "Descripción", "Categoria", "Nombre del Producto", "Precio"
+                "Id", "Stock", "Descripción", "Categoria", "Nombre del Producto", "Precio"
             }
         ) {
             Class[] types = new Class [] {
@@ -219,7 +219,7 @@ public class REGISTRARPRODUCTO extends javax.swing.JFrame {
 
         lblCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         lblCantidad.setForeground(new java.awt.Color(0, 51, 102));
-        lblCantidad.setText("Cantidad:");
+        lblCantidad.setText("Stock:");
 
         txtCantidad.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
 
